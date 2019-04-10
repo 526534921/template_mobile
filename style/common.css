@@ -773,10 +773,18 @@ body.open #leftnav {
 }
 
 .news-tab a {
-	display: block;
-	padding: 10px 20px;
-	background-color: #fff;
-	margin: 0 10px;
+display: block;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #ececec;
+    width: 31%;
+    margin: 5px 1%;
+    float: left;
 }
 
 .news-tab .on,
