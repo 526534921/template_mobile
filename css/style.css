@@ -498,6 +498,7 @@ h3 {
 .case_bg {
 	width: 640px;
 	margin: 0 auto;
+    overflow: hidden;
 }
 .case_bg .case_t {
 	width: 640px;
@@ -516,6 +517,7 @@ h3 {
 	width: 640px;
 	margin: 0 auto;
 	left: 0;
+	
 }
 #case .swiper-container {
 	padding-bottom: 60px;
