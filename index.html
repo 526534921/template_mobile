@@ -198,53 +198,7 @@
         </div>
     </div>
     <%template src="ys.html"%>
-    <div class="witness container">
-        <div class="menu-title">
-            <a href="<%linkurl(0,"60")%>" class="more rt">更多&gt;</a>
-            <h3 class="lf">
-                <a href="<%linkurl(0,"60")%>" title="客户见证">客户见证<span>Customer testimonials</span></a></h3>
-            <div class="clearfix">
-            </div>
-        </div>
-        <div class="list">
-            <%set DataTable yyt_witness_List=get_content_list(60,2)%>
-            <%set int jzid=1 %>
-            <%foreach(DataRow yyt in yyt_witness_List.Rows)%>
-            <%if(jzid==1) %>
-            <div class="li<%=jzid %>">
-                <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-                    <div class="pic lf">
-                        <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" /></div>
-                    <div class="word lf">
-                        <h4>
-                            {yyt[title]}</h4>
-                        <p>
-                            <%cutstring({yyt[zhaiyao]},30)%></p>
-                    </div>
-                    <div class="clearfix">
-                    </div>
-                </a>
-            </div>
-            <%else %>
-            <div class="li<%=jzid %>">
-                <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-                    <div class="pic rt">
-                        <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" /></div>
-                    <div class="word lf">
-                        <h4>
-                            {yyt[title]}</h4>
-                        <p>
-                            <%cutstring({yyt[zhaiyao]},30)%></p>
-                    </div>
-                    <div class="clearfix">
-                    </div>
-                </a>
-            </div>
-            <%/if %>
-            <%set jzid=jzid+1 %>
-            <%/foreach%>
-        </div>
-    </div>
+  
     <div class="about menu-item">
         <div class="container">
             <%set DataTable yyt_company=get_category_info(54)%>
