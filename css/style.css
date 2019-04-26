@@ -459,6 +459,8 @@ textarea::-webkit-input-placeholder {
 .nav ul li img {
 	display: block;
 	margin: 0 auto;
+	width: 27px;
+    height: 27px;
 }
 
 .nav ul li span {
