@@ -138,7 +138,7 @@
     <li> <a href="/"> <img src="<%templateskin%>/img/menu1.png" /> <span>网站首页</span> </a> </li>
     <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
     <%foreach(DataRow dr in daohang.Rows)%>
-    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[image]}" /> <span>{dr[catname]}</span> </a> </li>
+    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[simage]}" /> <span>{dr[catname]}</span> </a> </li>
     <%/foreach%>
   </ul>
         </div>
