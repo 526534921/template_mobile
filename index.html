@@ -13,7 +13,6 @@
 <!-- 切换特效所需的CSS文件 -->
 <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
 <!-- 下滑动画所需的CSS文件 -->
-
 <!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
 <link rel="stylesheet" href="<%templateskin%>/css/style.css">
 <%diy("mhead")%>
@@ -67,7 +66,7 @@
 <!--头部-->
 <div class="top">
   <div class="logo"> <a href="/" title="{site.order_company}"><img src="<%templateskin%>/img/logo.png" alt="{site.order_company}" /></a> </div>
-<p>绿植花卉培育租售整合服务商 </p>
+  <p>万家灯火测试标语测试标语 </p>
   <div class="teltop">{site.freecall}</div>
 </div>
 <!--导航-->
@@ -76,8 +75,7 @@
     <li><a href="/" title="网站首页">网站首页</a></li>
     <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
     <%foreach(DataRow dr in daohang.Rows)%>
-    <li><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"><span>{dr[catname]}</span>
-      </a></li>
+    <li><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"><span>{dr[catname]}</span> </a></li>
     <%/foreach%>
   </ul>
 </div>
@@ -156,7 +154,7 @@
 							<p class="text">
 								<a href="http://baidu.com" class="">左滑查看更多</a>
 							</p>
-						</div>--> 
+						</div>-->
       </div>
     </div>
   </div>
@@ -184,12 +182,11 @@
 							<p class="text">
 								<a href="http://baidu.com" class="">左滑查看更多</a>
 							</p>
-						</div>--> 
+						</div>-->
       </div>
     </div>
   </div>
 </div>
-
 <!--公司简介-->
 <%set DataTable about=get_category_info(54)%>
 <%foreach(DataRow cdr in about.Rows)%>
@@ -270,7 +267,9 @@
       <div class="newsdi02">
         <div class="news02txt"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>">
           <h4>{drnk[title]}</h4>
-          <div><%cutstring({drnk[zhaiyao]},50)%></div>
+          <div>
+            <%cutstring({drnk[zhaiyao]},50)%>
+          </div>
           </a> </div>
         <div class="news02img"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>"><img src="{drnk[thumb]}" /></a> </div>
       </div>
@@ -328,13 +327,12 @@
   </ul>
 </div>
 <div id="kefu-ball"> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/kefu.png" alt="{site.freecall}" /></a> </div>
-<script src="<%templateskin%>/js/Zepto.min.js"></script> 
-<!-- 切换特效需要的JS库文件 --> 
-<script src="<%templateskin%>/js/swiper.min.js"></script> 
-<!-- 下滑动画所需的JS文件 --> 
-
-<script src="<%templateskin%>/js/Inertia.js"></script> 
-<!-- 首页切换动画所需要的JS文件 --> 
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
+<!-- 切换特效需要的JS库文件 -->
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+<!-- 下滑动画所需的JS文件 -->
+<script src="<%templateskin%>/js/Inertia.js"></script>
+<!-- 首页切换动画所需要的JS文件 -->
 <script src="<%templateskin%>/js/index.js"></script>
 </body>
 </html>
