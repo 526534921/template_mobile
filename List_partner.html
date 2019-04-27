@@ -8,7 +8,6 @@
 <meta name="keywords" content="{model.seo_keywords}" />
 <meta name="description" content="{model.seo_description}" />
 <link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
-
 <link href="<%templateskin%>/style/common.css" rel="stylesheet">
 <script src="<%templateskin%>/script/WJDH_mobile.js"></script>
 <script src="<%templateskin%>/script/common.js"></script>
@@ -57,12 +56,12 @@
         <div class="pages"> {pagelist} </div>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-         <%set DataTable xinwenzixun=get_category_info(22)%>
-		<%loop drjz xinwenzixun%>
-		 <h3> {drjz[catname]}</h3>
-		<span>{drjz[enname]}</span>
-		 <%/loop%>
-		</div>
+        <%set DataTable xinwenzixun=get_category_info(22)%>
+        <%loop drjz xinwenzixun%>
+        <h3> {drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
+        <%/loop%>
+      </div>
       <div class="text-list">
         <ul>
           <%set DataTable productList=get_content_list(22,5,"hot=1","id desc")%>
