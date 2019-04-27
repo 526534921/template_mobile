@@ -37,7 +37,7 @@
         <span>{dr[enname]}</span>
         <%/loop%>
       </div>
-	  <div class="news-tab wow fadeInUp">
+      <div class="news-tab wow fadeInUp">
         <%set DataTable categoryList=get_category_list(topid)%>
         <%foreach(DataRow cdr in categoryList.Rows)%>
         <a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}" class="go">{cdr[catname]}</a>
@@ -84,16 +84,27 @@
   <%template src="footer.html"%>
 </div>
 <script>        
+
 $(function () {
+
             $('.news-tab a').each(function () {
+
                 var site = window.location.href;
+
                 var str = $(this).attr('href');
+
                 var onSite = site.indexOf(str);
+
                 if (onSite != -1) {
+
                     $(this).addClass('on')
+
                 }
+
             })
+
         });
+
     </script>
 </body>
 </html>
