@@ -31,13 +31,13 @@
   <div id="main">
     <%template src="header.html"%>
     <div class="container">
-      <div class="wjdh-title text-center wow fadeInUp"> 
-		 <%set DataTable pro=get_category_info({catid})%>
-		  <%loop dr pro%>
-		   <h3>{dr[catname]}</h3>
-				<span>{dr[enname]}</span> 
-		  <%/loop%>
-		 </div>
+      <div class="wjdh-title text-center wow fadeInUp">
+        <%set DataTable pro=get_category_info({catid})%>
+        <%loop dr pro%>
+        <h3>{dr[catname]}</h3>
+        <span>{dr[enname]}</span>
+        <%/loop%>
+      </div>
       <div class="page-content wow fadeInUp">
         <%set DataTable about=get_category_info(54)%>
         <%foreach(DataRow cdr in about.Rows)%>
@@ -58,19 +58,19 @@
         <div class="pages"> {pagelist} </div>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-	  <%set DataTable gongsixinwen=get_category_info(23)%>
-		<%loop drjz gongsixinwen%>
-		 <h3> {drjz[catname]}</h3>
-		<span>{drjz[enname]}</span>
-		 <%/loop%>
-
-       
-		 </div>
+        <%set DataTable gongsixinwen=get_category_info(23)%>
+        <%loop drjz gongsixinwen%>
+        <h3> {drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
+        <%/loop%>
+      </div>
       <div class="text-list">
         <ul>
           <%set DataTable baike=get_content_list(23,5)%>
           <%foreach(DataRow dr in baike.Rows)%>
-          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go"><i class="wow fadeInLeft"></i><b>[<%datetostr({dr[add_time]},yyyy-MM-dd)%>]</b><span>{dr[title]}</span></a> </li>
+          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go"><i class="wow fadeInLeft"></i><b>[
+            <%datetostr({dr[add_time]},yyyy-MM-dd)%>
+            ]</b><span>{dr[title]}</span></a> </li>
           <%/foreach%>
         </ul>
       </div>

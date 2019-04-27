@@ -38,7 +38,7 @@
         <span>{dr[enname]}</span>
         <%/loop%>
       </div>
-	  <div class="news-tab wow fadeInUp">
+      <div class="news-tab wow fadeInUp">
         <%set DataTable categoryList=get_category_list(topid)%>
         <%foreach(DataRow cdr in categoryList.Rows)%>
         <a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}" class="go">{cdr[catname]}</a>

@@ -85,12 +85,11 @@
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
         <%set DataTable anlizhanshi=get_category_info(57)%>
-		<%loop drjz anlizhanshi%>
-		 <h3> {drjz[catname]}</h3>
-		<span>{drjz[enname]}</span>
-		 <%/loop%>
-		
-		 </div>
+        <%loop drjz anlizhanshi%>
+        <h3> {drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
+        <%/loop%>
+      </div>
       <div class="pic-list">
         <ul>
           <%set DataTable ganyan=get_content_list(57,4)%>

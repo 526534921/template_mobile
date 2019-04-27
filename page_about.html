@@ -15,7 +15,6 @@
 <%diy("mhead")%>
 </head>
 <body>
-
 <%template src="nav_ny.html"%>
 <div id="page" class="goout">
   <div class="bar">
@@ -35,11 +34,11 @@
       <div class="page-content wow fadeInUp">
         <div class="page-title text-center">
           <h3>
-		   <%set DataTable pro=get_category_info({catid})%>
-			  <%loop dr pro%>
-			  {dr[catname]}
-			  <%/loop%>
-		  </h3>
+            <%set DataTable pro=get_category_info({catid})%>
+            <%loop dr pro%>
+            {dr[catname]}
+            <%/loop%>
+          </h3>
         </div>
         {model.content}
         <!-- 以上是内容  -->
@@ -79,12 +78,12 @@
         </ul>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-	  	 <%set DataTable jianzheng=get_category_info(60)%>
+        <%set DataTable jianzheng=get_category_info(60)%>
         <%loop drjz jianzheng%>
-			<h3>{drjz[catname]}</h3>
-        	<span>{drjz[enname]}</span>
+        <h3>{drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
         <%/loop%>
-         </div>
+      </div>
       <div class="pic-list">
         <ul>
           <%set DataTable ganyan=get_content_list(60,3)%>
