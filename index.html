@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-		<head>
-		<meta charset="utf-8">
-		<title>{site.title}</title>
-		<meta name="keywords" content="{site.keywords}" />
-		<meta name="description" content="{site.description}" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="viewport" content="width=640,user-scalable=no">
-		<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
-		<link rel="stylesheet" href="<%templateskin%>/css/style.css">
-		<style>
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<style>
 .banner .swiper-pagination .swiper-pagination-bullet {
  background: rgba( {site.mcolor}, 1);
 }
@@ -106,51 +106,50 @@
  box-shadow: 0px 0px 20px 0px rgba( {site.mcolor}, .6);
 }
 </style>
-		</head>
-
-		<body>
+</head>
+<body>
 <div class="header">
-          <div class="logo-img"> <img src="<%templateskin%>/img/logo.png" /> </div>
-          <h1>西安万家灯火信息技术有限公司</h1>
-          <p>万家灯火CMS系统 先天快人一步</p>
-        </div>
+  <div class="logo-img"> <img src="<%templateskin%>/img/logo.png" /> </div>
+  <h1>西安万家灯火信息技术有限公司</h1>
+  <p>万家灯火CMS系统 先天快人一步</p>
+</div>
 <div class="banner wow fadeInUp">
-          <div class="swiper">
+  <div class="swiper">
     <div class="current-swiper swiper-container">
-              <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
         <%set DataTable ad=get_ad_list(2,3)%>
         <%loop drnes ad%>
         <div class="swiper-slide b{drnes__loop__id}"> <img src="{drnes[image]}" title="{drnes[title]}" alt="{drnes[title]}"> </div>
         <%/foreach%>
       </div>
-            </div>
+    </div>
     <div class="nocurrent-swiper left-swiper swiper-container swiper-no-swiping">
-              <div class="swiper-wrapper"> </div>
-            </div>
+      <div class="swiper-wrapper"> </div>
+    </div>
     <div class="nocurrent-swiper right-swiper swiper-container swiper-no-swiping">
-              <div class="swiper-wrapper"> </div>
-            </div>
+      <div class="swiper-wrapper"> </div>
+    </div>
     <div class="swiper-pagination"></div>
   </div>
-        </div>
+</div>
 <div class="nav wow fadeInUp" data-wow-delay=".2s">
-          <ul>
+  <ul>
     <li> <a href="/"> <img src="<%templateskin%>/img/menu1.png" /> <span>网站首页</span> </a> </li>
     <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
     <%foreach(DataRow dr in daohang.Rows)%>
     <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[simage]}" /> <span>{dr[catname]}</span> </a> </li>
     <%/foreach%>
   </ul>
-        </div>
+</div>
 <div class="hot-product menu-item">
-          <div class="container">
+  <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-              <h3><a href="<%linkurl(1,"48")%>">热门产品</a></h3>
-            </div>
+      <h3><a href="<%linkurl(1,"48")%>">热门产品</a></h3>
+    </div>
   </div>
-          <div class="menu-content wow fadeInUp">
+  <div class="menu-content wow fadeInUp">
     <div class="swiper-container">
-              <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
         <%set DataTable goodslisttjyi=get_content_list(48,4,"hot=1","listorder desc,id desc")%>
         <%foreach(DataRow drnktj in goodslisttjyi.Rows)%>
         <div class="swiper-slide"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>"> <img src="{drnktj[thumb]}" />
@@ -161,22 +160,22 @@
           </a> </div>
         <%/foreach%>
         <div class="swiper-slide last-slide"> <span class="icon"></span>
-                  <p class="text"> <a href="<%linkurl(1,"48")%>" class="">左滑查看更多</a> </p>
-                </div>
-      </div>
-            </div>
-  </div>
+          <p class="text"> <a href="<%linkurl(1,"48")%>" class="">左滑查看更多</a> </p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="empty"></div>
 <div class="product-center menu-item">
-          <div class="container">
+  <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-              <h3><a href="<%linkurl(1,"48")%>">产品中心</a></h3>
-            </div>
+      <h3><a href="<%linkurl(1,"48")%>">产品中心</a></h3>
+    </div>
   </div>
-          <div class="menu-content">
+  <div class="menu-content">
     <div class="container">
-              <div class="product-cat wow fadeInUp">
+      <div class="product-cat wow fadeInUp">
         <%set DataTable categoryList=get_category_list(48,7,"1=1")%>
         <%set int pro=1%>
         <%foreach(DataRow cdr in categoryList.Rows)%>
@@ -188,7 +187,7 @@
         <%set pro=pro+1;%>
         <%/foreach%>
         <a href="<%linkurl(1,"48")%>">查看更多&gt;&gt;</a> </div>
-              <div class="tabs wow fadeInUp" data-wow-delay=".1s">
+      <div class="tabs wow fadeInUp" data-wow-delay=".1s">
         <%set DataTable categoryListyi=get_category_list(48,7,"1=1")%>
         <%set int pros=1%>
         <%foreach(DataRow cdr in categoryListyi.Rows)%>
@@ -200,39 +199,39 @@
         <%set pros=pros+1;%>
         <%/foreach%>
       </div>
-            </div>
+    </div>
     <div id="tabs-product" class="swiper-container wow fadeInUp" data-wow-delay=".2s">
-              <div class="swiper-wrapper">
+      <div class="swiper-wrapper">
         <%loop drn categoryListyi%>
         <div class="swiper-slide">
-                  <%set DataTable goodslisttj=get_content_list({strtoint({drn[id]})},2,"tuijian=1","listorder desc,id desc")%>
-                  <%set int prosyi=1%>
-                  <%foreach(DataRow drnktj in goodslisttj.Rows)%>
-                  <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" class="item" data-swiper-parallax="-<%=prosyi%>000">
+          <%set DataTable goodslisttj=get_content_list({strtoint({drn[id]})},2,"tuijian=1","listorder desc,id desc")%>
+          <%set int prosyi=1%>
+          <%foreach(DataRow drnktj in goodslisttj.Rows)%>
+          <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" class="item" data-swiper-parallax="-<%=prosyi%>000">
           <div class="img"> <img src="{drnktj[thumb]}"> </div>
           <h4>{drnktj[title]}</h4>
           </a>
-                  <%set prosyi=prosyi+1;%>
-                  <%/foreach%>
-                </div>
+          <%set prosyi=prosyi+1;%>
+          <%/foreach%>
+        </div>
         <%/loop%>
       </div>
-            </div>
+    </div>
   </div>
-        </div>
+</div>
 <%template src="ys.html"%>
 <div class="tt">
-          <h4 class="wow fadeInUp">快人一步，万家灯火让你赢在网络营销起跑线上</h4>
-          <p class="wow fadeInUp" data-wow-delay="0.1s">6000家企业共同见证网络营销一个好的网站不仅能赚钱</p>
-          <a href="" class="wow fadeInUp" data-wow-delay="0.2s">立即拨打 | 全国热线：{site.freecall}</a> </div>
+  <h4 class="wow fadeInUp">万家灯火测试标语测试标语万家灯火测试标语测试标语</h4>
+  <p class="wow fadeInUp" data-wow-delay="0.1s">万家灯火测试标语测试标语万家灯火测试</p>
+  <a href="" class="wow fadeInUp" data-wow-delay="0.2s">立即拨打 | 全国热线：{site.freecall}</a> </div>
 <div class="empty"></div>
 <div class="case container menu-item">
-          <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more">更多&gt;&gt;</a>
+  <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more">更多&gt;&gt;</a>
     <h3><a href="<%linkurl(0,"57")%>">案例展示</a></h3>
   </div>
-          <div class="menu-content wow fadeInUp">
+  <div class="menu-content wow fadeInUp">
     <div class="swiper-container">
-              <div class="swiper-wrapper"> 
+      <div class="swiper-wrapper">
         <!-- 至少调用四个 -->
         <%set DataTable caselist=get_content_list(57,4)%>
         <%foreach(DataRow dr in caselist.Rows)%>
@@ -244,30 +243,30 @@
           </a> </div>
         <%/foreach%>
       </div>
-            </div>
+    </div>
   </div>
-        </div>
+</div>
 <div class="about menu-item">
-          <div class="container">
+  <div class="container">
     <div class="menu-title"> <a href="<%linkurl(0,"54")%>" class="more">更多&gt;&gt;</a>
-              <h3><a href="<%linkurl(0,"54")%>">公司简介</a></h3>
-            </div>
+      <h3><a href="<%linkurl(0,"54")%>">公司简介</a></h3>
+    </div>
     <div class="menu-content">
-              <%set DataTable about=get_category_info(54)%>
-              <%foreach(DataRow cdr in about.Rows)%>
-              <div class="info wow fadeInUp">
+      <%set DataTable about=get_category_info(54)%>
+      <%foreach(DataRow cdr in about.Rows)%>
+      <div class="info wow fadeInUp">
         <h4><a href="<%linkurl(0,{cdr[id]})%>">{site.order_company}</a></h4>
         <p>
-                  <%cutstring({cdr[content]},300)%>
-                </p>
+          <%cutstring({cdr[content]},300)%>
+        </p>
       </div>
-              <div class="img wow fadeInUp" data-wow-delay=".3s"> <img src="{cdr[image]}"> </div>
-              <%/foreach%>
-            </div>
+      <div class="img wow fadeInUp" data-wow-delay=".3s"> <img src="{cdr[image]}"> </div>
+      <%/foreach%>
+    </div>
   </div>
-        </div>
+</div>
 <div class="news container menu-item">
-          <div class="tabs wow fadeInUp">
+  <div class="tabs wow fadeInUp">
     <%set DataTable newsList=get_category_list(22,3,"1=1")%>
     <%set int k=1%>
     <%foreach(DataRow cdr in newsList.Rows)%>
@@ -279,10 +278,10 @@
     <%set k=k+1;%>
     <%/foreach%>
   </div>
-          <div id="tabs-news" class="swiper-container">
+  <div id="tabs-news" class="swiper-container">
     <div class="swiper-wrapper">
-              <%loop drnews newsList%>
-              <div class="swiper-slide">
+      <%loop drnews newsList%>
+      <div class="swiper-slide">
         <%set DataTable newslist1=get_content_list({strtoint({drnews[id]})},4)%>
         <%foreach(DataRow drnk in newslist1.Rows)%>
         <div class="items" data-swiper-parallax="-1000"> <a href="<%linkurl(1,{drnk[catid]},{drnk[id]})%>">
@@ -296,36 +295,36 @@
           </a> </div>
         <%/foreach%>
       </div>
-              <%/loop%>
-            </div>
+      <%/loop%>
+    </div>
   </div>
-        </div>
+</div>
 <div class="footer">
-          <div class="container"> <a href="" class="gotop wow"></a>
+  <div class="container"> <a href="" class="gotop wow"></a>
     <div class="info wow">
-              <p>联系人：{site.contrctperson} 手机：{site.mobile}<br>
+      <p>联系人：{site.contrctperson} 手机：{site.mobile}<br>
         电话：{site.freecall} QQ：{site.contrctqq}<br>
         地址：{site.address} <br>
         <%jishuzhichi(0)%>
         <br>
         <%year(0)%>
         {site.copyright} </p>
-              <div class="qrcode wow fadeInUp"> <img src="{site.qrcode}" alt="" /> </div>
-            </div>
+      <div class="qrcode wow fadeInUp"> <img src="{site.qrcode}" alt="" /> </div>
+    </div>
   </div>
-        </div>
+</div>
 <div class="footer-bar">
-          <ul>
+  <ul>
     <li> <a href="/"><img src="<%templateskin%>/img/home.png" alt="首页" /><span>首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/product.png" alt="产品" /><span>产品</span></a> </li>
     <li> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/msg.png" alt="电话" /><span>电话</span></a> </li>
     <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/online.png" alt="联系" /><span>联系</span></a> </li>
   </ul>
-        </div>
+</div>
 <div id="kefu-ball"> <a href="/"><img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
-<script src="<%templateskin%>/js/Zepto.min.js"></script> 
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
 <script src="<%templateskin%>/js/swiper.min.js"></script>
-<script src="<%templateskin%>/js/Inertia.js"></script> 
+<script src="<%templateskin%>/js/Inertia.js"></script>
 <script src="<%templateskin%>/js/index.js"></script>
 </body>
 </html>
