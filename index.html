@@ -1,1351 +1,2702 @@
-<!DOCTYPE html>
-
-
-
-<html>
-
-
-
-<head>
-
-
-
-    <meta charset="utf-8">
-
-
-
-    <title>{site.title}</title>
-
-
-
-    <meta name="keywords" content="{site.keywords}" />
-
-
-
-    <meta name="description" content="{site.description}" />
-
-
-
-    <meta name="viewport" content="width=640,user-scalable=no">
-
-
-
-    <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
-
-
-
- 
-
-
-
-    <link rel="stylesheet" href="<%templateskin%>/css/style.css">
-
-
-
-    <style>
-
-
-
-        body { background-color: rgba({site.mcolor},.001); }
-
-
-
-        .header { background: rgba({site.mcolor},1); }
-
-
-
-        .banner .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor},1); }
-
-
-
-        .nav { box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
-
-
-
-        .nav ul li span:hover { color: rgba({site.mcolor},1); }
-
-
-
-        .menu-item { background: rgba(255,255,255,1); box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
-
-
-
-        .hot-product .menu-content .swiper-slide .info { background: rgba({site.mcolor}, .8); box-shadow: 2px 2px 24px rgba({site.mcolor},.1); }
-
-
-
-        .product-center .tabs a:before { background: rgba({site.mcolor},1); }
-
-
-
-        .product-center .tabs a.active { color: rgba({site.mcolor},1); }
-
-
-
-        .product-cat { border-top: 4px solid rgba({site.mcolor},0.09); }
-
-
-
-        .product-cat a { border: 1px solid rgba({site.mcolor},.09); }
-
-
-
-        .product-center .item .img span { background: rgba({site.mcolor},1); }
-
-
-
-        .product-center .item b { color: rgba({site.mcolor},1); }
-
-
-
-        .tt { box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
-
-
-
-        .ys { background: rgba({site.mcolor},1); }
-
-
-
-        .ys .online span { color: rgba({site.mcolor},1); }
-
-
-
-        .ys .swiper-slide a { background: rgba({site.mcolor},1); }
-
-
-
-        .ys .swiper-slide { box-shadow: 2px 2px 20px rgba({site.mcolor},.1); }
-
-
-
-        .ys .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor},1); }
-
-
-
-        .ys .swiper-slide .imgsm span { color: #fff; }
-
-
-
-        .tt span { background: rgba({site.mcolor},1); }
-
-
-
-        .tt a { color: rgba({site.mcolor},1); }
-
-
-
-        .case .swiper-slide { box-shadow: 0px 5px 15px rgba({site.mcolor},.1); }
-
-
-
-        .case .swiper-slide .item-title { background: rgba({site.mcolor},1); }
-
-
-
-        .case .swiper-slide h4 { background: rgba({site.mcolor},.8); }
-
-
-
-        .about:before { }
-
-
-
-        .about .info h3 { background: rgba({site.mcolor},1); }
-
-
-
-        .about .info span { color: rgba({site.mcolor},1); }
-
-
-
-        .about .info b { color: rgba({site.mcolor},1); }
-
-
-
-        .about .img { box-shadow: 0px 5px 8px rgba({site.mcolor},.1); }
-
-
-
-        .news .tabs a.active { color: rgba({site.mcolor},1); }
-
-
-
-        .news .tabs a i:before { -webkit-filter: drop-shadow(rgb({site.mcolor}) 45px 0px); filter: drop-shadow(rgb({site.mcolor}) 45px 0px); }
-
-
-
-        .news .tabs a:before { background: rgba({site.mcolor},1); }
-
-
-
-        .news .tabs .active:before { width: 40px; margin-left: -20px; }
-
-
-
-        .news .items b { background: rgba({site.mcolor},1); }
-
-
-
-        .news .items { box-shadow: 0px 5px 8px rgba({site.mcolor},.1); }
-
-
-
-        .footer { background: rgba({site.mcolor},1); }
-
-
-
-        .footer-bar .gotop { box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
-
-
-
-        .footer-bar .gotop:before { -webkit-filter: drop-shadow(rgb({site.mcolor}) 45px 0px); filter: drop-shadow(rgb({site.mcolor}) 45px 0px); }
-
-
-
-        .footer-bar { background: rgba(255, 255, 255, 1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
-
-
-
-        #kefu-ball { background: rgba({site.mcolor},1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
-
-
-
-    </style>
-
-
-
-    <%diy("mhead")%>
-
-
-
-</head>
-
-
-
-<body>
-
-
-
-    <%diy("mbody")%>
-
-
-
-    <div class="header">
-
-
-
-        <div class="logo-cptu">
-
-
-
-            <a href="<%linkurl(1,"48")%>" title="产品中心">
-
-
-
-                <img src="<%templateskin%>/img/cptu.png" /></a>
-
-
-
-        </div>
-
-
-
-        <h1>
-
-
-
-            {site.order_company}</h1>
-
-
-
-        <div class="logo-dh">
-
-
-
-            <a href="tel:{site.freecall}" title="电话">
-
-
-
-                <img src="<%templateskin%>/img/dhtu.png" /></a>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="banner fadeInUp">
-
-
-
-        <div class="swiper">
-
-
-
-            <div class="current-swiper swiper-container">
-
-
-
-                <div class="swiper-wrapper">
-
-
-
-                    <%set DataTable yyt_banner=get_ad_list(2,6)%>
-
-
-
-                    <%set int adid=1 %>
-
-
-
-                    <%foreach(DataRow yyt in yyt_banner.Rows)%>
-
-
-
-                    <div class="swiper-slide b<%=adid %>">
-
-
-
-                        <img src="{yyt[image]}" title="{yyt[title]}" alt="{yyt[title]}">
-
-
-
-                    </div>
-
-
-
-                    <%set adid=adid+1 %>
-
-
-
-                    <%/foreach%>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <div class="nocurrent-swiper left-swiper swiper-container swiper-no-swiping">
-
-
-
-                <div class="swiper-wrapper">
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <div class="nocurrent-swiper right-swiper swiper-container swiper-no-swiping">
-
-
-
-                <div class="swiper-wrapper">
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <div class="swiper-pagination">
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="nav fadeInUp">
-
-
-
-        <ul>
-
-
-
-            <li><a href="/"><span>网站首页</span> </a></li>
-
-
-
-            <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
-
-
-
-            <%foreach(DataRow yyt in yyt_navList.Rows)%>
-
-
-
-            <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"><span>{yyt[catname]}</span></a></li>
-
-
-
-            <%/foreach%>
-
-
-
-        </ul>
-
-
-
-    </div>
-
-
-
-    <div class="hot-product menu-item">
-
-
-
-        <div class="container">
-
-
-
-            <div class="menu-title">
-
-
-
-                <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-
-
-
-                <h3>
-
-
-
-                    <a href="<%linkurl(1,"48")%>">热门产品</a></h3>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-        <div class="menu-content fadeInUp">
-
-
-
-            <div class="swiper-container">
-
-
-
-                <div class="swiper-wrapper">
-
-
-
-                    <%set DataTable yyt_hot_goodslist=get_content_list(48,6,"hot=1","listorder desc,id desc")%>
-
-
-
-                    <%foreach(DataRow yyt in yyt_hot_goodslist.Rows)%>
-
-
-
-                    <div class="swiper-slide">
-
-
-
-                        <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" target="_blank">
-
-
-
-                            <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
-
-
-
-                            <div class="info">
-
-
-
-                                <h4>
-
-
-
-                                    {yyt[title]}</h4>
-
-
-
-                            </div>
-
-
-
-                        </a>
-
-
-
-                    </div>
-
-
-
-                    <%/foreach%>
-
-
-
-                    <div class="swiper-slide last-slide">
-
-
-
-                        <span class="icon"></span>
-
-
-
-                        <p class="text">
-
-
-
-                            <a href="<%linkurl(1,"48")%>" class="">左滑查看更多</a>
-
-
-
-                        </p>
-
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="product-center menu-item">
-
-
-
-        <div class="menu-title">
-
-
-
-            <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-
-
-
-            <h3>
-
-
-
-                <a href="<%linkurl(1,"48")%>">产品中心</a></h3>
-
-
-
-        </div>
-
-
-
-        <div class="tabs fadeInUp">
-
-
-
-        <%set int  goodsid=1 %>
-
-
-
-            <%set DataTable yyt_goods_categoryList=get_category_list(48,3)%>
-
-
-
-            <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
-
-
-
-            <%if(goodsid==1) %>
-
-
-
-            <a href="<%linkurl(1,{yytc[id]})%>" class="active">
-
-
-
-            <%else %>
-
-
-
-            <a href="<%linkurl(1,{yytc[id]})%>">
-
-
-
-            <%/if %>
-
-
-
-            {yytc[catname]}</a>
-
-
-
-             <%set goodsid=goodsid+1 %>
-
-
-
-            <%/foreach%>
-
-
-
-
-
-
-
-        </div>
-
-
-
-        <div id="tabs-product" class="swiper-container fadeInUp">
-
-
-
-            <div class="swiper-wrapper">
-
-
-
-                <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
-
-
-
-                <div class="swiper-slide">
-
-
-
-                    <%set DataTable yyt_goodslist=get_content_list({yytc[id]},3)%>
-
-
-
-                    <%set  goodsid=1 %>
-
-
-
-                    <%foreach(DataRow yyt in yyt_goodslist.Rows)%>
-
-
-
-                    <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" class="item"
-
-
-
-                        data-swiper-parallax="-<%=goodsid %>000">
-
-
-
-                        <div class="img">
-
-
-
-                            <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}">
-
-
-
-                            <span>
-
-
-
-                                <%datetostr({yyt[add_time]},yyyy-MM-dd)%></span>
-
-
-
-                        </div>
-
-
-
-                        <div class="info">
-
-
-
-                            <h4>
-
-
-
-                                {yyt[title]}</h4>
-
-
-
-                            <p>
-
-
-
-                                <%cutstring({yyt[zhaiyao]},100)%></p>
-
-
-
-                            <b>查看详情</b>
-
-
-
-                        </div>
-
-
-
-                    </a>
-
-
-
-                    <%set goodsid=goodsid+1 %>
-
-
-
-                    <%/foreach%>
-
-
-
-                </div>
-
-
-
-                <%/foreach%>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="tt">
-
-
-
-        <h4 class="fadeInUp">
-
-
-
-            同泽源从前期勘察、产品提供、施工安装、跟踪服务</h4>
-
-
-
-        <p class="fadeInUp">
-
-
-
-           为您提供经济合理的膜结构产品和工程解决方案</p>
-
-
-
-        <a href="tel:{site.freecall}" class="fadeInUp"><span>立即<br />
-
-
-
-            拨打</span>全国热线<b>{site.freecall}</b></a>
-
-
-
-    </div>
-
-
-
-    <div class="case container menu-item">
-
-
-
-        <div class="menu-title">
-
-
-
-            <a href="<%linkurl(0,"57")%>" class="more">更多&gt;&gt;</a>
-
-
-
-            <h3>
-
-
-
-                <a href="<%linkurl(0,"57")%>">案例展示</a></h3>
-
-
-
-        </div>
-
-
-
-        <div class="menu-content fadeInUp">
-
-
-
-            <div class="case-container">
-
-
-
-                <div class="case-wrapper">
-
-
-
-                    <!-- 至少调用四个 -->
-
-
-
-                    <%set DataTable yyt_case_List=get_content_list(57,5)%>
-
-
-
-                    <%set int caseid=1 %>
-
-
-
-                    <%foreach(DataRow yyt in yyt_case_List.Rows)%>
-
-
-
-                    <div class="swiper-slide swiper-slide<%=caseid %>">
-
-
-
-                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-
-
-
-                            <div class="img">
-
-
-
-                                <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" />
-
-
-
-                            </div>
-
-
-
-                            <div class="item-title">
-
-
-
-                                <h4>
-
-
-
-                                    {yyt[title]}</h4>
-
-
-
-                            </div>
-
-
-
-                        </a>
-
-
-
-                    </div>
-
-
-
-                    <%set caseid=caseid+1 %>
-
-
-
-                    <%/foreach%>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <%template src="ys.html"%>
-
-
-
-    <div class="about menu-item">
-
-
-
-        <div class="container">
-
-
-
-            <div class="menu-content">
-
-
-
-                <%set DataTable yyt_company=get_category_info(54)%>
-
-
-
-                <%foreach(DataRow yyt in yyt_company.Rows)%>
-
-
-
-                <div class="info fadeInUp">
-
-
-
-                    <h3>
-
-
-
-                        <a href="<%linkurl(0,"54")%>"><b></b>公<br />
-
-
-
-                            司<br />
-
-
-
-                            简<br />
-
-
-
-                            介</a></h3>
-
-
-
-                    <span>全国热线<b>{site.freecall}</b></span>
-
-
-
-                    <h4>
-
-
-
-                        <a href="<%linkurl(0,"54")%>">{site.order_company}</a></h4>
-
-
-
-                    <p>
-
-
-
-                        <%cutstring({yyt[content]},150)%></p>
-
-
-
-                </div>
-
-
-
-                <div class="img fadeInUp">
-
-
-
-                    <img src="{yyt[image]}" title="{site.order_company}" alt="{site.order_company}">
-
-
-
-                </div>
-
-
-
-                <%/foreach%>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="news container menu-item">
-
-
-
-        <div class="menu-title">
-
-
-
-            <a href="<%linkurl(0,"22")%>" class="more">更多&gt;&gt;</a>
-
-
-
-            <h3>
-
-
-
-                <a href="<%linkurl(0,"22")%>">新闻资讯</a></h3>
-
-
-
-        </div>
-
-
-
-        <div class="tabs fadeInUp">
-
-
-
-            <%set int newsid=0 %>
-
-
-
-            <%set DataTable yyt_news_categoryList=get_category_list(22,3)%>
-
-
-
-            <%foreach(DataRow yyt in yyt_news_categoryList.Rows)%>
-
-
-
-            <%if(newsid==0) %>
-
-
-
-            <a href="<%linkurl(0,{yyt[id]})%>" class="active">
-
-
-
-                <%else %>
-
-
-
-                <a href="<%linkurl(0,{yyt[id]})%>">
-
-
-
-                    <%/if %>
-
-
-
-                    {yyt[catname]}</a>
-
-
-
-                <%set newsid=newsid+1 %>
-
-
-
-                <%/foreach%>
-
-
-
-        </div>
-
-
-
-        <div id="tabs-news" class="swiper-container">
-
-
-
-            <div class="swiper-wrapper">
-
-
-
-                <%foreach(DataRow yytc in yyt_news_categoryList.Rows)%>
-
-
-
-                <div class="swiper-slide">
-
-
-
-                    <%set DataTable yyt_newslist=get_content_list({yytc[id]},3)%>
-
-
-
-                    <%set int newstmpid=1 %>
-
-
-
-                    <%foreach(DataRow yyt in yyt_newslist.Rows)%>
-
-
-
-                    <div class="items" data-swiper-parallax="-<%=newstmpid %>000">
-
-
-
-                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-
-
-
-                            <h4>
-
-
-
-                                {yyt[title]}</h4>
-
-
-
-                            <div class="img">
-
-
-
-                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
-
-
-
-                            </div>
-
-
-
-                            <div class="info">
-
-
-
-                                <p>
-
-
-
-                                    <%cutstring({yyt[zhaiyao]},20)%></p>
-
-
-
-                                <b>查看详情</b>
-
-
-
-                            </div>
-
-
-
-                        </a>
-
-
-
-                    </div>
-
-
-
-                    <%set newstmpid=newstmpid+1 %>
-
-
-
-                    <%/foreach%>
-
-
-
-                </div>
-
-
-
-                <%/foreach%>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="footer">
-
-
-
-        <div class="container">
-
-
-
-            <div class="info">
-
-
-
-                <p>
-
-
-
-                    联系人：{site.contrctperson} 手机：{site.mobile}<br>
-
-
-
-                    电话：{site.freecall} QQ：{site.contrctqq}<br>
-
-
-
-                    地址：{site.address}
-
-
-
-                    <br>
-
-
-
-                    <%jishuzhichi(0)%><br>
-
-
-
-                   <%year(0)%> 
-
-
-
-                </p>
-
-
-
-                <div class="qrcode fadeInUp">
-
-
-
-                    <img src="{site.qrcode}" alt="" />
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div class="footer-box">
-
-
-
-        <div class="footer-bar">
-
-
-
-            <ul>
-
-
-
-                <li><a href="/">
-
-
-
-                    <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
-
-
-
-                <li><a href="<%linkurl(1,"48")%>">
-
-
-
-                    <img src="<%templateskin%>/img/cp.png" alt="" /><span>产品</span></a> </li>
-
-
-
-                <li><a href="<%linkurl(0,"57")%>">
-
-
-
-                    <img src="<%templateskin%>/img/al.png" alt="" /><span>案例</span></a> </li>
-
-
-
-                <li><a href="<%linkurl(0,"55")%>">
-
-
-
-                    <img src="<%templateskin%>/img/dh.png" alt="" /><span>联系</span></a> </li>
-
-
-
-            </ul>
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <div id="kefu-ball">
-
-
-
-        <a href="tel:{site.freecall}">
-
-
-
-            <img src="<%templateskin%>/img/kefu.png" alt="" /></a>
-
-
-
-    </div>
-
-
-
-    <script src="<%templateskin%>/js/Zepto.min.js"></script>
-
-
-
-    <script src="<%templateskin%>/js/swiper.min.js"></script>
-
-
-    <script src="<%templateskin%>/js/Inertia.js"></script>
-
-
-
-    <script src="<%templateskin%>/js/index.js"></script>
-
-
-
-</body>
-
-
-
-</html>
-
-
-
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html>
+
+
+
+
+
+
+
+<head>
+
+
+
+
+
+
+
+    <meta charset="utf-8">
+
+
+
+
+
+
+
+    <title>{site.title}</title>
+
+
+
+
+
+
+
+    <meta name="keywords" content="{site.keywords}" />
+
+
+
+
+
+
+
+    <meta name="description" content="{site.description}" />
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=640,user-scalable=no">
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="<%templateskin%>/css/style.css">
+
+
+
+
+
+
+
+    <style>
+
+
+
+
+
+
+
+        body { background-color: rgba({site.mcolor},.001); }
+
+
+
+
+
+
+
+        .header { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .banner .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .nav { box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .nav ul li span:hover { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .menu-item { background: rgba(255,255,255,1); box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .hot-product .menu-content .swiper-slide .info { background: rgba({site.mcolor}, .8); box-shadow: 2px 2px 24px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .product-center .tabs a:before { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .product-center .tabs a.active { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .product-cat { border-top: 4px solid rgba({site.mcolor},0.09); }
+
+
+
+
+
+
+
+        .product-cat a { border: 1px solid rgba({site.mcolor},.09); }
+
+
+
+
+
+
+
+        .product-center .item .img span { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .product-center .item b { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .tt { box-shadow: 0px 0px 15px 4px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .ys { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .ys .online span { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .ys .swiper-slide a { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .ys .swiper-slide { box-shadow: 2px 2px 20px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .ys .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .ys .swiper-slide .imgsm span { color: #fff; }
+
+
+
+
+
+
+
+        .tt span { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .tt a { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .case .swiper-slide { box-shadow: 0px 5px 15px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .case .swiper-slide .item-title { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .case .swiper-slide h4 { background: rgba({site.mcolor},.8); }
+
+
+
+
+
+
+
+        .about:before { }
+
+
+
+
+
+
+
+        .about .info h3 { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .about .info span { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .about .info b { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .about .img { box-shadow: 0px 5px 8px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .news .tabs a.active { color: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .news .tabs a i:before { -webkit-filter: drop-shadow(rgb({site.mcolor}) 45px 0px); filter: drop-shadow(rgb({site.mcolor}) 45px 0px); }
+
+
+
+
+
+
+
+        .news .tabs a:before { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .news .tabs .active:before { width: 40px; margin-left: -20px; }
+
+
+
+
+
+
+
+        .news .items b { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .news .items { box-shadow: 0px 5px 8px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .footer { background: rgba({site.mcolor},1); }
+
+
+
+
+
+
+
+        .footer-bar .gotop { box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        .footer-bar .gotop:before { -webkit-filter: drop-shadow(rgb({site.mcolor}) 45px 0px); filter: drop-shadow(rgb({site.mcolor}) 45px 0px); }
+
+
+
+
+
+
+
+        .footer-bar { background: rgba(255, 255, 255, 1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+        #kefu-ball { background: rgba({site.mcolor},1); box-shadow: 0px 0px 20px 0px rgba({site.mcolor},.1); }
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+
+
+
+    <%diy("mhead")%>
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+    <%diy("mbody")%>
+
+
+
+
+
+
+
+    <div class="header">
+
+
+
+
+
+
+
+        <div class="logo-cptu">
+
+
+
+
+
+
+
+            <a href="<%linkurl(1,"48")%>" title="产品中心">
+
+
+
+
+
+
+
+                <img src="<%templateskin%>/img/logo.png" /></a>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <h1>
+
+
+
+
+
+
+
+            {site.order_company}</h1>
+
+
+
+
+
+
+
+        <div class="logo-dh">
+
+
+
+
+
+
+
+            <a href="tel:{site.freecall}" title="电话">
+
+
+
+
+
+
+
+                <img src="<%templateskin%>/img/dhtu.png" /></a>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="banner fadeInUp">
+
+
+
+
+
+
+
+        <div class="swiper">
+
+
+
+
+
+
+
+            <div class="current-swiper swiper-container">
+
+
+
+
+
+
+
+                <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                    <%set DataTable yyt_banner=get_ad_list(2,6)%>
+
+
+
+
+
+
+
+                    <%set int adid=1 %>
+
+
+
+
+
+
+
+                    <%foreach(DataRow yyt in yyt_banner.Rows)%>
+
+
+
+
+
+
+
+                    <div class="swiper-slide b<%=adid %>">
+
+
+
+
+
+
+
+                        <img src="{yyt[image]}" title="{yyt[title]}" alt="{yyt[title]}">
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <%set adid=adid+1 %>
+
+
+
+
+
+
+
+                    <%/foreach%>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="nocurrent-swiper left-swiper swiper-container swiper-no-swiping">
+
+
+
+
+
+
+
+                <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="nocurrent-swiper right-swiper swiper-container swiper-no-swiping">
+
+
+
+
+
+
+
+                <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="swiper-pagination">
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="nav fadeInUp">
+
+
+
+
+
+
+
+        <ul>
+
+
+
+
+
+
+
+            <li><a href="/"><span>网站首页</span> </a></li>
+
+
+
+
+
+
+
+            <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
+
+
+
+
+
+
+
+            <%foreach(DataRow yyt in yyt_navList.Rows)%>
+
+
+
+
+
+
+
+            <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"><span>{yyt[catname]}</span></a></li>
+
+
+
+
+
+
+
+            <%/foreach%>
+
+
+
+
+
+
+
+        </ul>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="hot-product menu-item">
+
+
+
+
+
+
+
+        <div class="container">
+
+
+
+
+
+
+
+            <div class="menu-title">
+
+
+
+
+
+
+
+                <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
+
+
+
+
+
+
+
+                <h3>
+
+
+
+
+
+
+
+                    <a href="<%linkurl(1,"48")%>">热门产品</a></h3>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="menu-content fadeInUp">
+
+
+
+
+
+
+
+            <div class="swiper-container">
+
+
+
+
+
+
+
+                <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                    <%set DataTable yyt_hot_goodslist=get_content_list(48,6,"hot=1","listorder desc,id desc")%>
+
+
+
+
+
+
+
+                    <%foreach(DataRow yyt in yyt_hot_goodslist.Rows)%>
+
+
+
+
+
+
+
+                    <div class="swiper-slide">
+
+
+
+
+
+
+
+                        <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" target="_blank">
+
+
+
+
+
+
+
+                            <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
+
+
+
+
+
+
+
+                            <div class="info">
+
+
+
+
+
+
+
+                                <h4>
+
+
+
+
+
+
+
+                                    {yyt[title]}</h4>
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                        </a>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <%/foreach%>
+
+
+
+
+
+
+
+                    <div class="swiper-slide last-slide">
+
+
+
+
+
+
+
+                        <span class="icon"></span>
+
+
+
+
+
+
+
+                        <p class="text">
+
+
+
+
+
+
+
+                            <a href="<%linkurl(1,"48")%>" class="">左滑查看更多</a>
+
+
+
+
+
+
+
+                        </p>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="product-center menu-item">
+
+
+
+
+
+
+
+        <div class="menu-title">
+
+
+
+
+
+
+
+            <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
+
+
+
+
+
+
+
+            <h3>
+
+
+
+
+
+
+
+                <a href="<%linkurl(1,"48")%>">产品中心</a></h3>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="tabs fadeInUp">
+
+
+
+
+
+
+
+        <%set int  goodsid=1 %>
+
+
+
+
+
+
+
+            <%set DataTable yyt_goods_categoryList=get_category_list(48,3)%>
+
+
+
+
+
+
+
+            <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
+
+
+
+
+
+
+
+            <%if(goodsid==1) %>
+
+
+
+
+
+
+
+            <a href="<%linkurl(1,{yytc[id]})%>" class="active">
+
+
+
+
+
+
+
+            <%else %>
+
+
+
+
+
+
+
+            <a href="<%linkurl(1,{yytc[id]})%>">
+
+
+
+
+
+
+
+            <%/if %>
+
+
+
+
+
+
+
+            {yytc[catname]}</a>
+
+
+
+
+
+
+
+             <%set goodsid=goodsid+1 %>
+
+
+
+
+
+
+
+            <%/foreach%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div id="tabs-product" class="swiper-container fadeInUp">
+
+
+
+
+
+
+
+            <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
+
+
+
+
+
+
+
+                <div class="swiper-slide">
+
+
+
+
+
+
+
+                    <%set DataTable yyt_goodslist=get_content_list({yytc[id]},3)%>
+
+
+
+
+
+
+
+                    <%set  goodsid=1 %>
+
+
+
+
+
+
+
+                    <%foreach(DataRow yyt in yyt_goodslist.Rows)%>
+
+
+
+
+
+
+
+                    <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" class="item"
+
+
+
+
+
+
+
+                        data-swiper-parallax="-<%=goodsid %>000">
+
+
+
+
+
+
+
+                        <div class="img">
+
+
+
+
+
+
+
+                            <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}">
+
+
+
+
+
+
+
+                            <span>
+
+
+
+
+
+
+
+                                <%datetostr({yyt[add_time]},yyyy-MM-dd)%></span>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="info">
+
+
+
+
+
+
+
+                            <h4>
+
+
+
+
+
+
+
+                                {yyt[title]}</h4>
+
+
+
+
+
+
+
+                            <p>
+
+
+
+
+
+
+
+                                <%cutstring({yyt[zhaiyao]},100)%></p>
+
+
+
+
+
+
+
+                            <b>查看详情</b>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </a>
+
+
+
+
+
+
+
+                    <%set goodsid=goodsid+1 %>
+
+
+
+
+
+
+
+                    <%/foreach%>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <%/foreach%>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="tt">
+
+
+
+
+
+
+
+        <h4 class="fadeInUp">
+
+
+
+
+
+
+
+            同泽源从前期勘察、产品提供、施工安装、跟踪服务</h4>
+
+
+
+
+
+
+
+        <p class="fadeInUp">
+
+
+
+
+
+
+
+           为您提供经济合理的膜结构产品和工程解决方案</p>
+
+
+
+
+
+
+
+        <a href="tel:{site.freecall}" class="fadeInUp"><span>立即<br />
+
+
+
+
+
+
+
+            拨打</span>全国热线<b>{site.freecall}</b></a>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="case container menu-item">
+
+
+
+
+
+
+
+        <div class="menu-title">
+
+
+
+
+
+
+
+            <a href="<%linkurl(0,"57")%>" class="more">更多&gt;&gt;</a>
+
+
+
+
+
+
+
+            <h3>
+
+
+
+
+
+
+
+                <a href="<%linkurl(0,"57")%>">案例展示</a></h3>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="menu-content fadeInUp">
+
+
+
+
+
+
+
+            <div class="case-container">
+
+
+
+
+
+
+
+                <div class="case-wrapper">
+
+
+
+
+
+
+
+                    <!-- 至少调用四个 -->
+
+
+
+
+
+
+
+                    <%set DataTable yyt_case_List=get_content_list(57,5)%>
+
+
+
+
+
+
+
+                    <%set int caseid=1 %>
+
+
+
+
+
+
+
+                    <%foreach(DataRow yyt in yyt_case_List.Rows)%>
+
+
+
+
+
+
+
+                    <div class="swiper-slide swiper-slide<%=caseid %>">
+
+
+
+
+
+
+
+                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+
+
+
+
+
+
+
+                            <div class="img">
+
+
+
+
+
+
+
+                                <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" />
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="item-title">
+
+
+
+
+
+
+
+                                <h4>
+
+
+
+
+
+
+
+                                    {yyt[title]}</h4>
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                        </a>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <%set caseid=caseid+1 %>
+
+
+
+
+
+
+
+                    <%/foreach%>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <%template src="ys.html"%>
+
+
+
+
+
+
+
+    <div class="about menu-item">
+
+
+
+
+
+
+
+        <div class="container">
+
+
+
+
+
+
+
+            <div class="menu-content">
+
+
+
+
+
+
+
+                <%set DataTable yyt_company=get_category_info(54)%>
+
+
+
+
+
+
+
+                <%foreach(DataRow yyt in yyt_company.Rows)%>
+
+
+
+
+
+
+
+                <div class="info fadeInUp">
+
+
+
+
+
+
+
+                    <h3>
+
+
+
+
+
+
+
+                        <a href="<%linkurl(0,"54")%>"><b></b>公<br />
+
+
+
+
+
+
+
+                            司<br />
+
+
+
+
+
+
+
+                            简<br />
+
+
+
+
+
+
+
+                            介</a></h3>
+
+
+
+
+
+
+
+                    <span>全国热线<b>{site.freecall}</b></span>
+
+
+
+
+
+
+
+                    <h4>
+
+
+
+
+
+
+
+                        <a href="<%linkurl(0,"54")%>">{site.order_company}</a></h4>
+
+
+
+
+
+
+
+                    <p>
+
+
+
+
+
+
+
+                        <%cutstring({yyt[content]},150)%></p>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="img fadeInUp">
+
+
+
+
+
+
+
+                    <img src="{yyt[image]}" title="{site.order_company}" alt="{site.order_company}">
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <%/foreach%>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="news container menu-item">
+
+
+
+
+
+
+
+        <div class="menu-title">
+
+
+
+
+
+
+
+            <a href="<%linkurl(0,"22")%>" class="more">更多&gt;&gt;</a>
+
+
+
+
+
+
+
+            <h3>
+
+
+
+
+
+
+
+                <a href="<%linkurl(0,"22")%>">新闻资讯</a></h3>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="tabs fadeInUp">
+
+
+
+
+
+
+
+            <%set int newsid=0 %>
+
+
+
+
+
+
+
+            <%set DataTable yyt_news_categoryList=get_category_list(22,3)%>
+
+
+
+
+
+
+
+            <%foreach(DataRow yyt in yyt_news_categoryList.Rows)%>
+
+
+
+
+
+
+
+            <%if(newsid==0) %>
+
+
+
+
+
+
+
+            <a href="<%linkurl(0,{yyt[id]})%>" class="active">
+
+
+
+
+
+
+
+                <%else %>
+
+
+
+
+
+
+
+                <a href="<%linkurl(0,{yyt[id]})%>">
+
+
+
+
+
+
+
+                    <%/if %>
+
+
+
+
+
+
+
+                    {yyt[catname]}</a>
+
+
+
+
+
+
+
+                <%set newsid=newsid+1 %>
+
+
+
+
+
+
+
+                <%/foreach%>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div id="tabs-news" class="swiper-container">
+
+
+
+
+
+
+
+            <div class="swiper-wrapper">
+
+
+
+
+
+
+
+                <%foreach(DataRow yytc in yyt_news_categoryList.Rows)%>
+
+
+
+
+
+
+
+                <div class="swiper-slide">
+
+
+
+
+
+
+
+                    <%set DataTable yyt_newslist=get_content_list({yytc[id]},3)%>
+
+
+
+
+
+
+
+                    <%set int newstmpid=1 %>
+
+
+
+
+
+
+
+                    <%foreach(DataRow yyt in yyt_newslist.Rows)%>
+
+
+
+
+
+
+
+                    <div class="items" data-swiper-parallax="-<%=newstmpid %>000">
+
+
+
+
+
+
+
+                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+
+
+
+
+
+
+
+                            <h4>
+
+
+
+
+
+
+
+                                {yyt[title]}</h4>
+
+
+
+
+
+
+
+                            <div class="img">
+
+
+
+
+
+
+
+                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="info">
+
+
+
+
+
+
+
+                                <p>
+
+
+
+
+
+
+
+                                    <%cutstring({yyt[zhaiyao]},20)%></p>
+
+
+
+
+
+
+
+                                <b>查看详情</b>
+
+
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+                        </a>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+                    <%set newstmpid=newstmpid+1 %>
+
+
+
+
+
+
+
+                    <%/foreach%>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <%/foreach%>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="footer">
+
+
+
+
+
+
+
+        <div class="container">
+
+
+
+
+
+
+
+            <div class="info">
+
+
+
+
+
+
+
+                <p>
+
+
+
+
+
+
+
+                    联系人：{site.contrctperson} 手机：{site.mobile}<br>
+
+
+
+
+
+
+
+                    电话：{site.freecall} QQ：{site.contrctqq}<br>
+
+
+
+
+
+
+
+                    地址：{site.address}
+
+
+
+
+
+
+
+                    <br>
+
+
+
+
+
+
+
+                    <%jishuzhichi(0)%><br>
+
+
+
+
+
+
+
+                   <%year(0)%> 
+
+
+
+
+
+
+
+                </p>
+
+
+
+
+
+
+
+                <div class="qrcode fadeInUp">
+
+
+
+
+
+
+
+                    <img src="{site.qrcode}" alt="" />
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="footer-box">
+
+
+
+
+
+
+
+        <div class="footer-bar">
+
+
+
+
+
+
+
+            <ul>
+
+
+
+
+
+
+
+                <li><a href="/">
+
+
+
+
+
+
+
+                    <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
+
+
+
+
+
+
+
+                <li><a href="<%linkurl(1,"48")%>">
+
+
+
+
+
+
+
+                    <img src="<%templateskin%>/img/cp.png" alt="" /><span>产品</span></a> </li>
+
+
+
+
+
+
+
+                <li><a href="<%linkurl(0,"57")%>">
+
+
+
+
+
+
+
+                    <img src="<%templateskin%>/img/al.png" alt="" /><span>案例</span></a> </li>
+
+
+
+
+
+
+
+                <li><a href="<%linkurl(0,"55")%>">
+
+
+
+
+
+
+
+                    <img src="<%templateskin%>/img/dh.png" alt="" /><span>联系</span></a> </li>
+
+
+
+
+
+
+
+            </ul>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div id="kefu-ball">
+
+
+
+
+
+
+
+        <a href="tel:{site.freecall}">
+
+
+
+
+
+
+
+            <img src="<%templateskin%>/img/kefu.png" alt="" /></a>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <script src="<%templateskin%>/js/Zepto.min.js"></script>
+
+
+
+
+
+
+
+    <script src="<%templateskin%>/js/swiper.min.js"></script>
+
+
+
+
+
+    <script src="<%templateskin%>/js/Inertia.js"></script>
+
+
+
+
+
+
+
+    <script src="<%templateskin%>/js/index.js"></script>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
