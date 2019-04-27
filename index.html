@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		    <meta charset="utf-8">
-    <title>{site.title}</title>
-	<meta name="keywords" content="{site.keywords}" />
-	<meta name="description" content="{site.description}" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=640,user-scalable=no">
-		<meta name="viewport" content="width=640,user-scalable=no">
-		<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
-		<link rel="stylesheet" href="<%templateskin%>/css/style.css">
-		
-		<%diy("mhead")%>
-		<style type="text/css">
+<head>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<meta name="viewport" content="width=640,user-scalable=no">
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<%diy("mhead")%>
+<style type="text/css">
 			.header {
 				border-top: 12px solid rgba({site.mcolor},1);
 				padding: 20px 0;
@@ -52,281 +51,201 @@
 			#kefu-ball{background: rgba({site.mcolor}, 1);}
 			.selected{color: rgba({site.mcolor}, 1);}
 		</style>
-	</head>
-	<body>
-	<%diy("mbody")%>
-		<!--header-top-->
-		<div class="header  wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
-			<div class="logo-img">
-				<h2>西安万家灯火信息技术有限公司</h2>
-			</div>
-			<h1>万家灯火CMS系统</h1>
+</head>
+<body>
+<%diy("mbody")%>
+<!--header-top-->
+<div class="header  wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+  <div class="logo-img">
+    <h2>西安万家灯火信息技术有限公司</h2>
+  </div>
+  <h1>万家灯火CMS系统</h1>
   <p>万家灯火CMS系统 先天快人一步</p>
-		</div>
-		<!--banner-->	
-		<div class="banner wow fadeInDown  bounceInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
-			<!-- Swiper -->
-			  <div class="swiper-container banner-box">
-			    <div class="swiper-wrapper">
-					<%set DataTable ad=get_ad_list(2,3)%>
-					  <%foreach(DataRow dr in ad.Rows)%>
-					  <div class="swiper-slide swiper-slide-banner">
-			      	<a href="{dr[url]}"  title="{dr[title]}"><img title="{dr[title]}" alt="{dr[title]}" src="{dr[image]}"/></a>
-			      </div>
-     				 <%/foreach%>
-			    </div>
-			
-			  </div>
-		</div>
-		<!--nav-->
-		<div class="nav wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-			<ul>
-				<li>
-					<a href="/"  title="网站首页">
-						<img title="网站首页" alt="网站首页" src="<%templateskin%>/images/nav-1.png">
-						<span>网站首页</span>
-					</a>
-				</li>
-				<%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
-				  <%foreach(DataRow dr in daohang.Rows)%>
-				  <li>
-					<a href="<%linkurl(0,{dr[id]})%>"  title="{dr[catname]}">
-						<img title="{dr[catname]}" alt="{dr[catname]}" src="{dr[simage]}">
-						<span>{dr[catname]}</span>
-					</a>
-				</li>
-				  <%/foreach%>
-			</ul>
-		</div>
-		<!--products-->
-		<div class="products">
-			<h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				<a href="<%linkurl(1,"48")%>"  title="产品中心">产品中心</a>
-				<div class="title-line"></div>
-			</h3>
-			<div class="container products-dd wow fadeInDown animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
-				<div class=""></div>
-				<div class="swiper-container product-tabs swiper-container1 ">
-					<div class="swiper-wrapper porducts-b1">
-					<%set DataTable categoryList=get_category_list(48,10,"1=1")%>
-						<%foreach(DataRow cdr in categoryList.Rows)%>
-						<div class="swiper-slide products-menu selected">{cdr[catname]}</div>
-						 <%/foreach%>
-					</div>
-				</div>
-				<!-- swiper2 -->
-					<div class="swiper-container product-content swiper-container1">
-					    <div class="swiper-wrapper porducts-b2" >
-						<%loop drn categoryList%>
-					      <div class="swiper-slide  swiper-slide-products">
-					      	<div>
-					      		<ul>
-								<%set DataTable goodslisttj=get_content_list({strtoint({drn[id]})},4,"tuijian=1","listorder desc,id desc")%>
-								<%foreach(DataRow drnktj in goodslisttj.Rows)%>
-					      			<li>
-					      				<a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>"  title="{drnktj[title]}">
-					      					<img title="{drnktj[title]}" alt="{drnktj[title]}" src="{drnktj[thumb]}"/>
-					      					<p>{drnktj[title]}</p>
-					      				</a>
-					      			</li>
-									<%/foreach%>
-					      		</ul>
-					      	</div>
-					      </div>
-						  <%/loop%>
-					    </div>
-					 </div>
-		
-			</div>
-		</div>
-		
-		<!--adm-->
-		<div class="adm wow fadeInDown animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
-			<h4>快人一步，万家灯火让你赢在网络营销起跑线上</h4>
-			<div class="adm1-line"></div>
-			<p>6000家企业共同见证网络营销一个好的网站不仅能赚钱</p>
-		
-			
-			<div class="adm-tel">
-				<a href="tel:{site.freecall}"  title="{site.freecall}">
-					<b>{site.freecall}</b>
-					<span>立即拨打</span>
-					<div class="clear"></div>
-				</a>
-			</div> 
-		</div>
-		
-		<!--case-->
-		
-		<div class="case">
-			<h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				<a href="<%linkurl(0,"57")%>"  title="案例展示">案例展示</a>
-				<div class="title-line"></div>
-			</h3>
-			 <div class="swiper-container case-box container wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				    <div class="swiper-wrapper ">
-					<%set DataTable caselist=get_content_list(57,6)%>
-						  <%foreach(DataRow dr in caselist.Rows)%>
-				      <div class="swiper-slide ">
-					      	<a href="<%linkurl(0,{dr[catid]},{dr[id]})%>"  title="{dr[title]}">
-						      	<img title="{dr[title]}" alt="{dr[title]}" src="{dr[thumb]}"/>
-						      	<h4>{dr[title]}</h4>
-						      	<div class="case-line"></div>
-						      	<p>{dr[zhaiyao]}</p>
-					      	</a>
-				      </div>
-					  <%/foreach%>
-				     
-				    </div>
-				   
-				  </div>
-
-
-		</div>
-		
-		<!--adv-->
-		   <%template src="ys.html"%> 	
-		   
-		
-		<!--about-->
-		<div class="about">
-
-			<h3 class="title-1 wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				<a href="<%linkurl(0,"54")%>"  title="走进我们">走进我们</a>
-				<div class="title-line-1"></div>
-			</h3>
-			<%set DataTable about=get_category_info(54)%>
+</div>
+<!--banner-->
+<div class="banner wow fadeInDown  bounceInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+  <!-- Swiper -->
+  <div class="swiper-container banner-box">
+    <div class="swiper-wrapper">
+      <%set DataTable ad=get_ad_list(2,3)%>
+      <%foreach(DataRow dr in ad.Rows)%>
+      <div class="swiper-slide swiper-slide-banner"> <a href="{dr[url]}"  title="{dr[title]}"><img title="{dr[title]}" alt="{dr[title]}" src="{dr[image]}"/></a> </div>
+      <%/foreach%>
+    </div>
+  </div>
+</div>
+<!--nav-->
+<div class="nav wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <ul>
+    <li> <a href="/"  title="网站首页"> <img title="网站首页" alt="网站首页" src="<%templateskin%>/images/nav-1.png"> <span>网站首页</span> </a> </li>
+    <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+    <%foreach(DataRow dr in daohang.Rows)%>
+    <li> <a href="<%linkurl(0,{dr[id]})%>"  title="{dr[catname]}"> <img title="{dr[catname]}" alt="{dr[catname]}" src="{dr[simage]}"> <span>{dr[catname]}</span> </a> </li>
+    <%/foreach%>
+  </ul>
+</div>
+<!--products-->
+<div class="products">
+  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(1,"48")%>"  title="产品中心">产品中心</a>
+    <div class="title-line"></div>
+  </h3>
+  <div class="container products-dd wow fadeInDown animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
+    <div class=""></div>
+    <div class="swiper-container product-tabs swiper-container1 ">
+      <div class="swiper-wrapper porducts-b1">
+        <%set DataTable categoryList=get_category_list(48,10,"1=1")%>
+        <%foreach(DataRow cdr in categoryList.Rows)%>
+        <div class="swiper-slide products-menu selected">{cdr[catname]}</div>
+        <%/foreach%>
+      </div>
+    </div>
+    <!-- swiper2 -->
+    <div class="swiper-container product-content swiper-container1">
+      <div class="swiper-wrapper porducts-b2" >
+        <%loop drn categoryList%>
+        <div class="swiper-slide  swiper-slide-products">
+          <div>
+            <ul>
+              <%set DataTable goodslisttj=get_content_list({strtoint({drn[id]})},4,"tuijian=1","listorder desc,id desc")%>
+              <%foreach(DataRow drnktj in goodslisttj.Rows)%>
+              <li> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>"  title="{drnktj[title]}"> <img title="{drnktj[title]}" alt="{drnktj[title]}" src="{drnktj[thumb]}"/>
+                <p>{drnktj[title]}</p>
+                </a> </li>
+              <%/foreach%>
+            </ul>
+          </div>
+        </div>
+        <%/loop%>
+      </div>
+    </div>
+  </div>
+</div>
+<!--adm-->
+<div class="adm wow fadeInDown animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
+  <h4>万家灯火测试标语测试标语万家灯火测试标语测</h4>
+  <div class="adm1-line"></div>
+  <p>万家灯火测试标语测试标语万家灯火测试标语测试标语</p>
+  <div class="adm-tel"> <a href="tel:{site.freecall}"  title="{site.freecall}"> <b>{site.freecall}</b> <span>立即拨打</span>
+    <div class="clear"></div>
+    </a> </div>
+</div>
+<!--case-->
+<div class="case">
+  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(0,"57")%>"  title="案例展示">案例展示</a>
+    <div class="title-line"></div>
+  </h3>
+  <div class="swiper-container case-box container wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
+    <div class="swiper-wrapper ">
+      <%set DataTable caselist=get_content_list(57,6)%>
+      <%foreach(DataRow dr in caselist.Rows)%>
+      <div class="swiper-slide "> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>"  title="{dr[title]}"> <img title="{dr[title]}" alt="{dr[title]}" src="{dr[thumb]}"/>
+        <h4>{dr[title]}</h4>
+        <div class="case-line"></div>
+        <p>{dr[zhaiyao]}</p>
+        </a> </div>
+      <%/foreach%>
+    </div>
+  </div>
+</div>
+<!--adv-->
+<%template src="ys.html"%>
+<!--about-->
+<div class="about">
+  <h3 class="title-1 wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(0,"54")%>"  title="走进我们">走进我们</a>
+    <div class="title-line-1"></div>
+  </h3>
+  <%set DataTable about=get_category_info(54)%>
   <%foreach(DataRow cdr in about.Rows)%>
-			<div class="container about-box">
-				<div class="about-img wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-					<img title="{site.order_company}" alt="{site.order_company}" src="{cdr[image]}"/>
-				</div>
-				<div class="about-text wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" >
-					<div class="about-text-box">
-						<p><%cutstring({cdr[content]},300)%>
-						</p>
-					</div>
-				</div>
-			</div>
-			<%/foreach%>
-		</div>
-		
-		
-		<!--news-->
-		<div class="news">
-			<h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				<a href="<%linkurl(1,"22")%>"  title="新闻资讯">新闻资讯</a>
-				<div class="title-line"></div>
-			</h3>
-			
-			<div class="news-box">
-				<div class="container">
-	<div class="yinying">
-			<div class="tabs wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-				<%set DataTable newsList=get_category_list(22,3)%>
-				<%loop pronew newsList%>
-				<%if(pronew__loop__id==3)%>
-				<a href="<%linkurl(1,{pronew[id]})%>" class="active">{pronew[catname]}</a>
-				<%else%>
-				<a href="<%linkurl(1,{pronew[id]})%>" class="active">{pronew[catname]}</a><i>|</i>
-				<%/if%>
-				<%/loop%>
-			</div>
-			<div id="tabs-news" class="swiper-container wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" >
-				<div class="swiper-wrapper">
-				<%loop drnnes newsList%>
-					<div class="swiper-slide">
-					<%set DataTable newslist1=get_content_list({drnnes[id]},4)%>
-					<%set int j=1 %>
-					<%foreach(DataRow drnk in newslist1.Rows)%>
-						<div class="items" data-swiper-parallax="-<%=j%>000">
-							<a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>"  title="{drnk[title]}">
-								<img title="{drnk[title]}" alt="{drnk[title]}" src="{drnk[thumb]}"/>
-								<div class="container">
-									 <h4>{drnk[title]}</h4>
-									 <p>{drnk[zhaiyao]}</p>
-								</div>
-							</a>
-						</div>
-						<%set j=j+1 %>
-						<%/foreach%>
-					</div>
-					<%/loop%>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-				
-			</div>
-		</div>
-		
-		<!--footer-->
-		<div class="footer">
-			<div class="footer-bg1 wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" ></div>
-			<div class="footer-bg2 wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" ></div>
-			<div class="footer-box">
-				<a href="/"  title="" class="gotop wow animated" style="visibility: visible;"></a>
-				<div class="container">
-					<div class="ewm wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" >
-						<img src="{site.qrcode}" alt="" />
-					</div>
-					<div class="copyright wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
-						 联系人：{site.contrctperson} 手机：{site.mobile}<br>
-                电 话：{site.tel} QQ：{site.contrctqq}<br>
-                地 址：{site.address}<br>
-                <%jishuzhichi(0)%> <%year(0)%><br>
-					</div>
-					
-					<div id="kefu-ball">
-						<a href="tel:{site.freecall}" title="{site.order_company}"><img src="<%templateskin%>/images/kefu.png" alt="{site.order_company}" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!---->
-		<div class="footer-bar">
-			<div class="footer-bar-fixed">
-			<ul>
-				<li>
-					<a href="/"  title="首页"><img title="首页" src="<%templateskin%>/images/home.png" alt="首页"><span>首页</span></a>
-				</li>
-				<li>
-					<a href="<%linkurl(1,"48")%>"  title="产品"><img title="产品" src="<%templateskin%>/images/yewu.png" alt="产品"><span>产品</span></a>
-				</li>
-				<li>
-					<a href="tel:{site.freecall}"  title="电话"><img title="电话" src="<%templateskin%>/images/tel.png" alt="电话"><span>电话</span></a>
-				</li>
-				<li>
-					<a href="<%linkurl(0,"55")%>"  title="联系"><img title="联系" src="<%templateskin%>/images/conalt.png" alt="联系"><span>联系</span></a>
-				</li>
-			</ul>
-		</div>
-			
-		</div>
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		<script src="<%templateskin%>/js/Zepto.min.js"></script>
-		<script src="<%templateskin%>/js/swiper.min.js"></script>
-		<script src="<%templateskin%>/js/Inertia.js"></script>
-		<script src="<%templateskin%>/js/index.js"></script>
-
-
-
-		<script>
+  <div class="container about-box">
+    <div class="about-img wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <img title="{site.order_company}" alt="{site.order_company}" src="{cdr[image]}"/> </div>
+    <div class="about-text wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" >
+      <div class="about-text-box">
+        <p>
+          <%cutstring({cdr[content]},300)%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <%/foreach%>
+</div>
+<!--news-->
+<div class="news">
+  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(1,"22")%>"  title="新闻资讯">新闻资讯</a>
+    <div class="title-line"></div>
+  </h3>
+  <div class="news-box">
+    <div class="container">
+      <div class="yinying">
+        <div class="tabs wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
+          <%set DataTable newsList=get_category_list(22,3)%>
+          <%loop pronew newsList%>
+          <%if(pronew__loop__id==3)%>
+          <a href="<%linkurl(1,{pronew[id]})%>" class="active">{pronew[catname]}</a>
+          <%else%>
+          <a href="<%linkurl(1,{pronew[id]})%>" class="active">{pronew[catname]}</a><i>|</i>
+          <%/if%>
+          <%/loop%>
+        </div>
+        <div id="tabs-news" class="swiper-container wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" >
+          <div class="swiper-wrapper">
+            <%loop drnnes newsList%>
+            <div class="swiper-slide">
+              <%set DataTable newslist1=get_content_list({drnnes[id]},4)%>
+              <%set int j=1 %>
+              <%foreach(DataRow drnk in newslist1.Rows)%>
+              <div class="items" data-swiper-parallax="-<%=j%>000"> <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>"  title="{drnk[title]}"> <img title="{drnk[title]}" alt="{drnk[title]}" src="{drnk[thumb]}"/>
+                <div class="container">
+                  <h4>{drnk[title]}</h4>
+                  <p>{drnk[zhaiyao]}</p>
+                </div>
+                </a> </div>
+              <%set j=j+1 %>
+              <%/foreach%>
+            </div>
+            <%/loop%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<div class="footer">
+  <div class="footer-bg1 wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" ></div>
+  <div class="footer-bg2 wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" ></div>
+  <div class="footer-box"> <a href="/"  title="" class="gotop wow animated" style="visibility: visible;"></a>
+    <div class="container">
+      <div class="ewm wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" > <img src="{site.qrcode}" alt="" /> </div>
+      <div class="copyright wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > 联系人：{site.contrctperson} 手机：{site.mobile}<br>
+        电 话：{site.tel} QQ：{site.contrctqq}<br>
+        地 址：{site.address}<br>
+        <%jishuzhichi(0)%>
+        <%year(0)%>
+        <br>
+      </div>
+      <div id="kefu-ball"> <a href="tel:{site.freecall}" title="{site.order_company}"><img src="<%templateskin%>/images/kefu.png" alt="{site.order_company}" /></a> </div>
+    </div>
+  </div>
+</div>
+<!---->
+<div class="footer-bar">
+  <div class="footer-bar-fixed">
+    <ul>
+      <li> <a href="/"  title="首页"><img title="首页" src="<%templateskin%>/images/home.png" alt="首页"><span>首页</span></a> </li>
+      <li> <a href="<%linkurl(1,"48")%>"  title="产品"><img title="产品" src="<%templateskin%>/images/yewu.png" alt="产品"><span>产品</span></a> </li>
+      <li> <a href="tel:{site.freecall}"  title="电话"><img title="电话" src="<%templateskin%>/images/tel.png" alt="电话"><span>电话</span></a> </li>
+      <li> <a href="<%linkurl(0,"55")%>"  title="联系"><img title="联系" src="<%templateskin%>/images/conalt.png" alt="联系"><span>联系</span></a> </li>
+    </ul>
+  </div>
+</div>
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+<script src="<%templateskin%>/js/Inertia.js"></script>
+<script src="<%templateskin%>/js/index.js"></script>
+<script>
 		$(".tabs div").eq(0).addClass("active");
 		</script>
-		
-     <script>
+<script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -336,7 +255,5 @@
        ga('send', 'pageview');
 
      </script>
-
-	
-	</body>
+</body>
 </html>
