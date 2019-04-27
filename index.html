@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>{site.title}</title>
-    <meta name="keywords" content="{site.keywords}" />
-    <meta name="description" content="{site.description}" />
-    <meta name="viewport" content="width=640,user-scalable=no">
-    <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
-    <link rel="stylesheet" href="<%templateskin%>/css/style.css">
-    <style>
+<meta charset="utf-8">
+<title>{site.title}</title>
+<meta name="keywords" content="{site.keywords}" />
+<meta name="description" content="{site.description}" />
+<meta name="viewport" content="width=640,user-scalable=no">
+<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+<link rel="stylesheet" href="<%templateskin%>/css/style.css">
+<style>
         .header { background: rgba({site.mcolor}, 1); }
         .banner .swiper-pagination .swiper-pagination-bullet { background: rgba({site.mcolor}, 1); }
         .nav { border-bottom: 30px solid rgba({site.mcolor}, 0.1); }
@@ -38,286 +38,228 @@
         .footer:after { background: rgba({site.mcolor}, 1); }
         #kefu-ball { background: rgba({site.mcolor}, 1); box-shadow: 0 0 20px 0 rgba({site.mcolor}, .6); }
     </style>
-    <%diy("mhead")%>
+<%diy("mhead")%>
 </head>
 <body>
-    <%diy("mbody")%>
-    <div class="header">
-        <div class="logo-img lf">
-            <img src="<%templateskin%>/img/logo.png" />
-        </div>
-        <div class="logo-word lf">
-            <h1>
-                {site.order_company}</h1>
-            <p>
-                万家灯火CMS系统 先天快人一步</p>
-        </div>
-        <div class="clearfix">
-        </div>
+<%diy("mbody")%>
+<div class="header">
+  <div class="logo-img lf"> <img src="<%templateskin%>/img/logo.png" /> </div>
+  <div class="logo-word lf">
+    <h1> {site.order_company}</h1>
+    <p> 万家灯火CMS系统 先天快人一步</p>
+  </div>
+  <div class="clearfix"> </div>
+</div>
+<div class="banner wow fadeInUp">
+  <div class="swiper">
+    <div class="current-swiper swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable yyt_banner=get_ad_list(2,6)%>
+        <%set int adid=1 %>
+        <%foreach(DataRow yyt in yyt_banner.Rows)%>
+        <div class="swiper-slide b<%=adid %>"> <img src="{yyt[image]}"> </div>
+        <%set adid=adid+1 %>
+        <%/foreach%>
+      </div>
     </div>
-    <div class="banner wow fadeInUp">
-        <div class="swiper">
-            <div class="current-swiper swiper-container">
-                <div class="swiper-wrapper">
-                    <%set DataTable yyt_banner=get_ad_list(2,6)%>
-                    <%set int adid=1 %>
-                    <%foreach(DataRow yyt in yyt_banner.Rows)%>
-                    <div class="swiper-slide b<%=adid %>">
-                        <img src="{yyt[image]}">
-                    </div>
-                    <%set adid=adid+1 %>
-                    <%/foreach%>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<div class="nav wow fadeInUp" data-wow-delay=".2s">
+  <ul>
+    <li><a href="/"> <img src="<%templateskin%>/img/menu1.png" /> <span>网站首页</span> </a></li>
+    <%set int navid=2 %>
+    <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
+    <%foreach(DataRow yyt in yyt_navList.Rows)%>
+    <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"> <img src="{yyt[simage]}" /><span>{yyt[catname]}</span></a></li>
+    <%set navid=navid+1 %>
+    <%/foreach%>
+  </ul>
+</div>
+<div class="hot-product menu-item">
+  <div class="container">
+    <div class="menu-title">
+      <h3> <a href="<%linkurl(1,"48")%>">热门产品<span>Hot recommended</span></a></h3>
     </div>
-    <div class="nav wow fadeInUp" data-wow-delay=".2s">
-       <ul>
-            <li><a href="/">
-                <img src="<%templateskin%>/img/menu1.png" />
-                <span>网站首页</span> </a></li>
-            <%set int navid=2 %>
-            <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
-            <%foreach(DataRow yyt in yyt_navList.Rows)%>
-            <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}">
-                <img src="{yyt[simage]}" /><span>{yyt[catname]}</span></a></li>
-            <%set navid=navid+1 %>
-            <%/foreach%>
-        </ul>
-
+  </div>
+  <div class="menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable yyt_hot_goodslist=get_content_list(48,6,"hot=1","listorder desc,id desc")%>
+        <%foreach(DataRow yyt in yyt_hot_goodslist.Rows)%>
+        <div class="swiper-slide"> <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>"> <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
+          <div class="info">
+            <h4> {yyt[title]}</h4>
+          </div>
+          </a> </div>
+        <%/foreach%>
+        <div class="swiper-slide last-slide"> <span class="icon"></span>
+          <p class="text"> <a href="<%linkurl(1,"48")%>" class="左滑查看更多">左滑查看更多</a> </p>
+        </div>
+      </div>
     </div>
-    <div class="hot-product menu-item">
-        <div class="container">
-            <div class="menu-title">
-                <h3>
-                    <a href="<%linkurl(1,"48")%>">热门产品<span>Hot recommended</span></a></h3>
-            </div>
-        </div>
-        <div class="menu-content wow fadeInUp">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <%set DataTable yyt_hot_goodslist=get_content_list(48,6,"hot=1","listorder desc,id desc")%>
-                    <%foreach(DataRow yyt in yyt_hot_goodslist.Rows)%>
-                    <div class="swiper-slide">
-                        <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>">
-                            <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
-                            <div class="info">
-                                <h4>
-                                    {yyt[title]}</h4>
-                            </div>
-                        </a>
-                    </div>
-                    <%/foreach%>
-                    <div class="swiper-slide last-slide">
-                        <span class="icon"></span>
-                        <p class="text">
-                            <a href="<%linkurl(1,"48")%>" class="左滑查看更多">左滑查看更多</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<div class="product-center menu-item">
+  <div class="container">
+    <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more rt">更多&gt;</a>
+      <h3 class="lf"> <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心<span>Product center</span></a></h3>
+      <div class="clearfix"> </div>
     </div>
-    <div class="product-center menu-item">
-        <div class="container">
-            <div class="menu-title">
-                <a href="<%linkurl(1,"48")%>" class="more rt">更多&gt;</a>
-                <h3 class="lf">
-                    <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心<span>Product center</span></a></h3>
-                <div class="clearfix">
-                </div>
-            </div>
-        </div>
-        <div class="menu-content">
-            <div class="swiper-container product-list container" id="tab-product">
-                <div class="swiper-wrapper list" data-wow-delay=".1s">
-                    <%set DataTable yyt_goods_categoryList=get_category_list(48,6)%>
-                    <%foreach(DataRow yyt in yyt_goods_categoryList.Rows)%>
-                    <a href="<%linkurl(1,{yyt[id]})%>" class="swiper-slide">{yyt[catname]}</a>
-                    <%/foreach%>
-                </div>
-            </div>
-            <div id="tabs-product" class="swiper-container wow fadeInUp product-content" data-wow-delay=".2s">
-                <div class="swiper-wrapper">
-                    <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
-                    <div class="swiper-slide blue-slide">
-                        <%set int goodsid=1 %>
-                        <%set DataTable yyt_goodslist=get_content_list({yytc[id]},2)%>
-                        <%foreach(DataRow yyt in yyt_goodslist.Rows)%>
-                        <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" class="item"
+  </div>
+  <div class="menu-content">
+    <div class="swiper-container product-list container" id="tab-product">
+      <div class="swiper-wrapper list" data-wow-delay=".1s">
+        <%set DataTable yyt_goods_categoryList=get_category_list(48,6)%>
+        <%foreach(DataRow yyt in yyt_goods_categoryList.Rows)%>
+        <a href="<%linkurl(1,{yyt[id]})%>" class="swiper-slide">{yyt[catname]}</a>
+        <%/foreach%>
+      </div>
+    </div>
+    <div id="tabs-product" class="swiper-container wow fadeInUp product-content" data-wow-delay=".2s">
+      <div class="swiper-wrapper">
+        <%foreach(DataRow yytc in yyt_goods_categoryList.Rows)%>
+        <div class="swiper-slide blue-slide">
+          <%set int goodsid=1 %>
+          <%set DataTable yyt_goodslist=get_content_list({yytc[id]},2)%>
+          <%foreach(DataRow yyt in yyt_goodslist.Rows)%>
+          <a href="<%linkurl(1,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}" class="item"
                             data-swiper-parallax="-<%=goodsid %>000">
-                            <div class="img">
-                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}">
-                            </div>
-                            <h4>
-                                {yyt[title]}</h4>
-                        </a>
-                        <%set goodsid=goodsid+1 %>
-                        <%/foreach%>
-                    </div>
-                    <%/foreach%>
-                </div>
-            </div>
+          <div class="img"> <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}"> </div>
+          <h4> {yyt[title]}</h4>
+          </a>
+          <%set goodsid=goodsid+1 %>
+          <%/foreach%>
         </div>
+        <%/foreach%>
+      </div>
     </div>
-    <div class="ad1">
-        <h4>
-            万家灯火让你赢在网络营销起跑线上</h4>
-        <div class="tel">
-            <h5>
-                {site.freecall}</h5>
-            <a href="tel:{site.freecall}" title="立即咨询">立即咨询</a>
-        </div>
+  </div>
+</div>
+<div class="ad1">
+  <h4> 万家灯火让你赢在网络营销起跑线上</h4>
+  <div class="tel">
+    <h5> {site.freecall}</h5>
+    <a href="tel:{site.freecall}" title="立即咨询">立即咨询</a> </div>
+</div>
+<div class="case container menu-item">
+  <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more rt">更多&gt;</a>
+    <h3 class="lf"> <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示<span>The case shows</span></a></h3>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="menu-content wow fadeInUp">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%set DataTable yyt_case_List=get_content_list(57,5)%>
+        <%foreach(DataRow yyt in yyt_case_List.Rows)%>
+        <div class="swiper-slide"> <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">
+          <div class="img"> <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" /></div>
+          <div class="item-title">
+            <h4> {yyt[title]}</h4>
+          </div>
+          </a> </div>
+        <%/foreach%>
+      </div>
     </div>
-    <div class="case container menu-item">
-        <div class="menu-title">
-            <a href="<%linkurl(0,"57")%>" class="more rt">更多&gt;</a>
-            <h3 class="lf">
-                <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示<span>The case shows</span></a></h3>
-            <div class="clearfix">
-            </div>
-        </div>
-        <div class="menu-content wow fadeInUp">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <%set DataTable yyt_case_List=get_content_list(57,5)%>
-                    <%foreach(DataRow yyt in yyt_case_List.Rows)%>
-                    <div class="swiper-slide">
-                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">
-                            <div class="img">
-                                <img alt="{yyt[title]}" title="{yyt[title]}" src="{yyt[thumb]}" /></div>
-                            <div class="item-title">
-                                <h4>
-                                    {yyt[title]}</h4>
-                            </div>
-                        </a>
-                    </div>
-                    <%/foreach%>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<%template src="ys.html"%>
+<div class="about menu-item">
+  <div class="container">
+    <%set DataTable yyt_company=get_category_info(54)%>
+    <%foreach(DataRow yyt in yyt_company.Rows)%>
+    <div class="menu-title">
+      <h3> <a href="<%linkurl(0,"54")%>" title="公司简介">公司简介<span>Company profile</span></a></h3>
     </div>
-    <%template src="ys.html"%>
-  
-    <div class="about menu-item">
-        <div class="container">
-            <%set DataTable yyt_company=get_category_info(54)%>
-            <%foreach(DataRow yyt in yyt_company.Rows)%>
-            <div class="menu-title">
-                <h3>
-                    <a href="<%linkurl(0,"54")%>" title="公司简介">公司简介<span>Company profile</span></a></h3>
-            </div>
-            <div class="menu-content">
-                <div class="info wow fadeInUp">
-                    <p>
-                        <%cutstring({yyt[content]},110)%></p>
-                    <a href="<%linkurl(0,"54")%>">更多></a>
-                </div>
-                <div class="img wow fadeInUp" data-wow-delay=".3s">
-                    <img src="{yyt[image]}" title="{site.order_company}" alt="{site.order_company}">
-                </div>
-            </div>
-            <%/foreach%>
-        </div>
+    <div class="menu-content">
+      <div class="info wow fadeInUp">
+        <p>
+          <%cutstring({yyt[content]},110)%>
+        </p>
+        <a href="<%linkurl(0,"54")%>">更多></a> </div>
+      <div class="img wow fadeInUp" data-wow-delay=".3s"> <img src="{yyt[image]}" title="{site.order_company}" alt="{site.order_company}"> </div>
     </div>
-    <div class="news menu-item">
-        <div class="tabs wow fadeInUp">
-            <%set int newsid=0 %>
-            <%set DataTable yyt_news_categoryList=get_category_list(22,3)%>
-            <%foreach(DataRow yyt in yyt_news_categoryList.Rows)%>
-            <%if(newsid==0) %>
-            <a href="<%linkurl(0,{yyt[id]})%>" class="active">
-                <%else %>
-                <a href="<%linkurl(0,{yyt[id]})%>">
-                    <%/if %>
-                    {yyt[catname]}</a>
-                <%set newsid=newsid+1 %>
-                <%/foreach%>
-        </div>
-        <div id="tabs-news" class="swiper-container">
-            <div class="swiper-wrapper">
-                <%foreach(DataRow yytc in yyt_news_categoryList.Rows)%>
-                <%set int newstmpid=1 %>
-                <div class="swiper-slide">
-                    <%set DataTable yyt_newslist=get_content_list({yytc[id]},4)%>
-                    <%foreach(DataRow yyt in yyt_newslist.Rows)%>
-                    <%if(newstmpid==1) %>
-                    <div class="news-top">
-                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-                            <div class="pic">
-                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" /></div>
-                            <div class="word">
-                                <h4 class="lf">
-                                    {yyt[title]}</h4>
-                                <span class="rt">
-                                    <%datetostr({yyt[add_time]},yyyy-MM-dd)%></span>
-                                <div class="clearfix">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <%else %>
-                    <div class="items" data-swiper-parallax="-1000">
-                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
-                            <div class="info lf">
-                                <h4>
-                                    {yyt[title]}</h4>
-                                <p>
-                                    <%cutstring({yyt[zhaiyao]},20)%></p>
-                                <span>
-                                    <%datetostr({yyt[add_time]},yyyy-MM-dd)%></span>
-                            </div>
-                            <div class="img rt">
-                                <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" />
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                        </a>
-                    </div>
-                    <%/if %>
-                    <%set newstmpid=newstmpid+1 %>
-                    <%/foreach%>
-                </div>
-                <%/foreach%>
-            </div>
-        </div>
+    <%/foreach%>
+  </div>
+</div>
+<div class="news menu-item">
+  <div class="tabs wow fadeInUp">
+    <%set int newsid=0 %>
+    <%set DataTable yyt_news_categoryList=get_category_list(22,3)%>
+    <%foreach(DataRow yyt in yyt_news_categoryList.Rows)%>
+    <%if(newsid==0) %>
+    <a href="<%linkurl(0,{yyt[id]})%>" class="active">
+    <%else %>
+    <a href="<%linkurl(0,{yyt[id]})%>">
+    <%/if %>
+    {yyt[catname]}</a>
+    <%set newsid=newsid+1 %>
+    <%/foreach%>
+  </div>
+  <div id="tabs-news" class="swiper-container">
+    <div class="swiper-wrapper">
+      <%foreach(DataRow yytc in yyt_news_categoryList.Rows)%>
+      <%set int newstmpid=1 %>
+      <div class="swiper-slide">
+        <%set DataTable yyt_newslist=get_content_list({yytc[id]},4)%>
+        <%foreach(DataRow yyt in yyt_newslist.Rows)%>
+        <%if(newstmpid==1) %>
+        <div class="news-top"> <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+          <div class="pic"> <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" /></div>
+          <div class="word">
+            <h4 class="lf"> {yyt[title]}</h4>
+            <span class="rt">
+            <%datetostr({yyt[add_time]},yyyy-MM-dd)%>
+            </span>
+            <div class="clearfix"> </div>
+          </div>
+          </a> </div>
+        <%else %>
+        <div class="items" data-swiper-parallax="-1000"> <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" title="{yyt[title]}">
+          <div class="info lf">
+            <h4> {yyt[title]}</h4>
+            <p>
+              <%cutstring({yyt[zhaiyao]},20)%>
+            </p>
+            <span>
+            <%datetostr({yyt[add_time]},yyyy-MM-dd)%>
+            </span> </div>
+          <div class="img rt"> <img src="{yyt[thumb]}" alt="{yyt[title]}" title="{yyt[title]}" /> </div>
+          <div class="clearfix"> </div>
+          </a> </div>
+        <%/if %>
+        <%set newstmpid=newstmpid+1 %>
+        <%/foreach%>
+      </div>
+      <%/foreach%>
     </div>
-    <div class="footer">
-        <div class="container">
-            <div class="qrcode wow fadeInUp">
-                <img src="{site.qrcode}" alt="" />
-            </div>
-            <div class="info wow">
-                <p>
-                    联系人：{site.contrctperson} 手机：{site.mobile}<br>
-                    电话：{site.freecall} QQ：{site.contrctqq}<br>
-                    地址：{site.address}
-                    <br>
-                    <%jishuzhichi(0)%><br>
-                    <%year(0)%>
-                </p>
-            </div>
-        </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="container">
+    <div class="qrcode wow fadeInUp"> <img src="{site.qrcode}" alt="" /> </div>
+    <div class="info wow">
+      <p> 联系人：{site.contrctperson} 手机：{site.mobile}<br>
+        电话：{site.freecall} QQ：{site.contrctqq}<br>
+        地址：{site.address} <br>
+        <%jishuzhichi(0)%>
+        <br>
+        <%year(0)%>
+      </p>
     </div>
-    <div class="footer-bar">
-        <ul>
-            <li><a href="/">
-                <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
-            <li><a href="<%linkurl(1,"48")%>">
-                <img src="<%templateskin%>/img/pro.png" alt="" /><span>产品</span></a> </li>
-            <li><a href="sms:{site.mobile}">
-                <img src="<%templateskin%>/img/message.png" alt="" /><span>短信</span></a> </li>
-            <li><a href="<%linkurl(0,"55")%>">
-                <img src="<%templateskin%>/img/contact.png" alt="" /><span>联系</span></a> </li>
-        </ul>
-    </div>
-    <div id="kefu-ball">
-        <a href="tel:{site.freecall}">
-            <img src="<%templateskin%>/img/kefu.png" alt="" /></a>
-    </div>
-    <script src="<%templateskin%>/js/Zepto.min.js"></script>
-    <script src="<%templateskin%>/js/swiper.min.js"></script>
-    <script src="<%templateskin%>/js/Inertia.js"></script>
-    <script src="<%templateskin%>/js/index.js"></script>
+  </div>
+</div>
+<div class="footer-bar">
+  <ul>
+    <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
+    <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/pro.png" alt="" /><span>产品</span></a> </li>
+    <li><a href="sms:{site.mobile}"> <img src="<%templateskin%>/img/message.png" alt="" /><span>短信</span></a> </li>
+    <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/contact.png" alt="" /><span>联系</span></a> </li>
+  </ul>
+</div>
+<div id="kefu-ball"> <a href="tel:{site.freecall}"> <img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+<script src="<%templateskin%>/js/Inertia.js"></script>
+<script src="<%templateskin%>/js/index.js"></script>
 </body>
 </html>
