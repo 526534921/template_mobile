@@ -1,10 +1,10 @@
 .clear{clear:both;}
 
-.s_logo_a{ width:100%; height:auto;  padding:0 0 0 0;  }
+.s_logo_a{ width:100%; height:auto;  padding:0 0 0 0;  text-align: center;}
 
-.s_logoimg{ float:left; margin:0 10px 0 10px; }
+.s_logoimg{ margin:0 10px 0 10px; }
 .s_logoimg img{  width:50px; margin-top: 6px; }
-.s_logo_a_txt{ float:left; padding:0 0 10px 0; line-height: 1.6; font-size: 14px; text-align: left; /*border-left:1px solid #dedede; */  }
+.s_logo_a_txt{ padding:0 0 10px 0; line-height: 1.6; font-size: 14px; /*border-left:1px solid #dedede; */  }
 .s_logo_a_txt span{  font-weight: bold; font-size: 22px;  }
 
 .ks_logoimg{ margin:0 10px 10px 10px; text-align:center; }
