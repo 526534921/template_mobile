@@ -12,7 +12,6 @@
 <!-- 切换特效所需的CSS文件 -->
 <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
 <!-- 下滑动画所需的CSS文件 -->
-
 <!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
 <link rel="stylesheet" href="<%templateskin%>/css/style.css">
 <style>
@@ -181,16 +180,15 @@ background: rgba({site.mcolor}, 1);
 
 </style>
 </head>
-
 <body>
 <!-- top -->
 <div class="top_all">
-  <div class="top"> 
+  <div class="top">
     <!--logo-->
     <div class="top_lg wow fadeInUp">
-      <h2><a href="/" title="盛宏机电">盛宏机电</a><br>
+      <h2><a href="/" title="{site.order_company}">{site.order_company}</a><br>
         <span></span></h2>
-      <p class="top_lg_w1">环保低氮锅炉</p>
+      <p class="top_lg_w1">万家灯火测试标语测试标语</p>
     </div>
     <!--banner-->
     <div class="banner wow fadeInUp">
@@ -202,8 +200,7 @@ background: rgba({site.mcolor}, 1);
           <%if(k==1)%>
           <div class="swiper-slide swiper-slide-center none-effect"> <a href="{dr[url]}"><img src="{dr[image]}"></a> </div>
           <%else%>
-		  <div class="swiper-slide"> <a href="{dr[url]}"><img src="{dr[image]}"></a> </div>
-		  
+          <div class="swiper-slide"> <a href="{dr[url]}"><img src="{dr[image]}"></a> </div>
           <%/if%>
           <%set k=k+1;%>
           <%/foreach%>
@@ -276,8 +273,7 @@ background: rgba({site.mcolor}, 1);
         </div>
       </div>
     </div>
-    <!----> 
-    
+    <!---->
   </div>
 </div>
 <!--ys-->
@@ -285,15 +281,14 @@ background: rgba({site.mcolor}, 1);
 <!--ph-->
 <div class="ph_all wow fadeInUp">
   <div class="ph">
-    <p class="ph_w1">清洁热能源 环保低氮锅炉</p>
-    <p class="ph_w2">多年经验·专业技术</p>
+    <p class="ph_w1">万家灯火测试标语测试标语</p>
+    <p class="ph_w2">万家灯火测试标语</p>
     <div class="ph_w3">
       <p class="ph_w31">{site.freecall}</p>
       <P class="ph_w32"><a href="tel:{site.freecall}" title="立即咨询">立即咨询</a></P>
     </div>
   </div>
 </div>
-
 <!--al-->
 <div class="al_all">
   <div class="al wow fadeInUp">
@@ -322,7 +317,7 @@ background: rgba({site.mcolor}, 1);
         <div class="swiper-pagination"></div>
       </div>
     </div>
-    <!--end--> 
+    <!--end-->
   </div>
 </div>
 <!--gs-->
@@ -355,11 +350,11 @@ background: rgba({site.mcolor}, 1);
         <%foreach(DataRow cdr in hezuoList.Rows)%>
         <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
         <%/foreach%>
-		<%set DataTable jianjieList=get_category_info(54)%>
+        <%set DataTable jianjieList=get_category_info(54)%>
         <%foreach(DataRow cdr in jianjieList.Rows)%>
         <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
         <%/foreach%>
-		<%set DataTable lianxiList=get_category_info(55)%>
+        <%set DataTable lianxiList=get_category_info(55)%>
         <%foreach(DataRow cdr in lianxiList.Rows)%>
         <li><a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a></li>
         <%/foreach%>
@@ -367,8 +362,6 @@ background: rgba({site.mcolor}, 1);
     </div>
   </div>
 </div>
-
-
 <!--xw-->
 <div class="xw_all">
   <div class="xw wow fadeInUp">
@@ -438,12 +431,12 @@ background: rgba({site.mcolor}, 1);
   </ul>
 </div>
 <div id="kefu-ball"> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
-<!-- 等同于jQuery，需要可以引入不需要可删除（非必须） --> 
-<script src="<%templateskin%>/js/Zepto.min.js"></script> 
-<!-- 切换特效需要的JS库文件 --> 
-<script src="<%templateskin%>/js/swiper.min.js"></script> 
-<!-- 首页切换动画所需要的JS文件 --> 
-<script src="<%templateskin%>/js/Inertia.js"></script> 
+<!-- 等同于jQuery，需要可以引入不需要可删除（非必须） -->
+<script src="<%templateskin%>/js/Zepto.min.js"></script>
+<!-- 切换特效需要的JS库文件 -->
+<script src="<%templateskin%>/js/swiper.min.js"></script>
+<!-- 首页切换动画所需要的JS文件 -->
+<script src="<%templateskin%>/js/Inertia.js"></script>
 <script src="<%templateskin%>/js/index.js"></script>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
