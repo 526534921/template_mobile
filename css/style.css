@@ -348,6 +348,8 @@ overflow: hidden;
 .nav_top a img{
 	margin-top: 40px;
 	text-align: center;
+	max-width:53px;
+	max-height:53px;
 }
 .nav_top h1{
 	color: #4c4c4c;
