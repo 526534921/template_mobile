@@ -18,6 +18,8 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
+
+  <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -84,16 +86,27 @@
   <%template src="footer.html"%>
 </div>
 <script>        
+
 $(function () {
+
             $('.news-tab a').each(function () {
+
                 var site = window.location.href;
+
                 var str = $(this).attr('href');
+
                 var onSite = site.indexOf(str);
+
                 if (onSite != -1) {
+
                     $(this).addClass('on')
+
                 }
+
             })
+
         });
+
     </script>
 </body>
 </html>
