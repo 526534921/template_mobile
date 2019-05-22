@@ -32,41 +32,42 @@
     <%template src="header.html"%>
     <div class="container">
       <div class="wjdh-title text-center wow fadeInUp">
-        <%set DataTable pro=get_category_info({topid})%>
+        <%set DataTable pro=get_category_info({catid})%>
         <%loop dr pro%>
         <h3>{dr[catname]}</h3>
         <span>{dr[enname]}</span>
         <%/loop%>
       </div>
-      <div class="pic-list">
+      <div class="page-content wow fadeInUp">
+        <%set DataTable about=get_category_info(54)%>
+        <%foreach(DataRow cdr in about.Rows)%>
+        <%cutstring({cdr[content]},100)%>
+        </dd>
+        <%/foreach%>
+      </div>
+      <div class="case-list">
         <ul>
           <%set DataTable goodsList=get_article_list(id, 8, page, "status=0","id desc",out pagelist, "goods_list", id, "__id__")%>
           <%foreach(DataRow dr in goodsList.Rows)%>
-          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
-            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
-            <div class="info">
-              <h5> {dr[title]}</h5>
-              <p>
-                <%cutstring({dr[zhaiyao]},55)%>
-              </p>
-            </div>
-            </a></li>
+          <li class="col-xs-6 wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="item text-center go">
+            <div class="img auto-img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}" /> </div>
+            <span>{dr[title]}</span> </a></li>
           <%/foreach%>
         </ul>
         <div class="clearfix"> </div>
         <div class="pages"> {pagelist} </div>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-        <%set DataTable xinwenzixun=get_category_info(22)%>
-        <%loop drjz xinwenzixun%>
+        <%set DataTable gongsixinwen=get_category_info(23)%>
+        <%loop drjz gongsixinwen%>
         <h3> {drjz[catname]}</h3>
         <span>{drjz[enname]}</span>
         <%/loop%>
       </div>
       <div class="text-list">
         <ul>
-          <%set DataTable productList=get_content_list(22,5,"hot=1","id desc")%>
-          <%foreach(DataRow dr in productList.Rows)%>
+          <%set DataTable baike=get_content_list(23,5)%>
+          <%foreach(DataRow dr in baike.Rows)%>
           <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go"><i class="wow fadeInLeft"></i><b>[
             <%datetostr({dr[add_time]},yyyy-MM-dd)%>
             ]</b><span>{dr[title]}</span></a> </li>
