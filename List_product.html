@@ -18,6 +18,7 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
+        <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -90,26 +91,47 @@
 </div>
 <script src="<%templateskin%>/script/masonry.js"></script>
 <script>       
+
  $(function () {
+
             $('.product-cat a').each(function () {
+
                 var site = window.location.href;
+
                 var str = $(this).attr('href');
+
                 var onSite = site.indexOf(str);
+
                 if (onSite != -1) {
+
                     $(this).addClass('on')
+
                 }
+
             })
+
         });
+
         $(function () {
+
             var $container = $('.product-list ul');
+
             $container.imagesLoaded(function () {
+
                 $container.masonry({
+
                     itemSelector: 'li',
+
                     gutter: 0,
+
                     isAnimated: true
+
                 });
+
             });
+
         });
+
     </script>
 </body>
 </html>
