@@ -8,7 +8,6 @@
 <meta name="keywords" content="{model.keywords}" />
 <meta name="description" content="{model.description}" />
 <link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
-<link href="<%templateskin%>/style/animate.min.css" rel="stylesheet">
 <link href="<%templateskin%>/style/common.css" rel="stylesheet">
 <script src="<%templateskin%>/script/WJDH_mobile.js"></script>
 <script src="<%templateskin%>/script/common.js"></script>
@@ -19,6 +18,7 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
+      <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -98,81 +98,161 @@
 </div>
 <script type="text/javascript">        function commSubmitmsg() {
 
+
+
             var msgContext = $('#msgContext').val();
+
+
 
             var msgName = $('#msgName').val();
 
+
+
             var msgTel = $('#msgTel').val();
+
+
 
             var msgqq = "";
 
+
+
             var msgemail = $('#msgemail').val(); ;
+
+
 
             var msgtitle = "";
 
+
+
             if (msgName == "") {
+
+
 
                 $("#msgName").focus();
 
+
+
                 return false;
 
+
+
             }
+
+
 
             if (msgTel == "") {
 
+
+
                 $("#msgTel").focus();
+
+
 
                 return false;
 
+
+
             }
+
+
 
             if (msgContext == "") {
 
+
+
                 $("#msgContext").focus();
+
+
 
                 return false;
 
+
+
             }
+
+
 
             $.post("/api/message.ashx?action=add", {
 
+
+
                 "kcontent": msgContext,
+
+
 
                 "kuser": msgName,
 
+
+
                 "kphone": msgTel,
+
+
 
                 "kqq": msgqq,
 
+
+
                 "kemail": msgemail,
+
+
 
                 "ktitle": msgtitle
 
+
+
             }, function (d) {
+
+
 
                 if (d == "1") {
 
+
+
                     alert("提交成功");
+
+
 
                     $('#msgContext').val("");
 
+
+
                     $('#msgName').val("");
+
+
 
 					$('#msgemail').val("");
 
+
+
                     $('#msgTel').val("");
+
+
 
                     wjdhClose();
 
+
+
                 } else {
+
+
 
                     alert("提交失败:");
 
+
+
                 }
+
+
 
             });
 
+
+
         }      
+
+
+
+
 
 
 

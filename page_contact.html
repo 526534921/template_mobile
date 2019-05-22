@@ -8,27 +8,17 @@
 <meta name="keywords" content="{model.seo_keywords}" />
 <meta name="description" content="{model.seo_description}" />
 <link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
-<link href="<%templateskin%>/style/animate.min.css" rel="stylesheet">
 <link href="<%templateskin%>/style/common.css" rel="stylesheet">
-<link href="<%templateskin%>/css/skin.css" rel="stylesheet">
 <script src="<%templateskin%>/script/WJDH_mobile.js"></script>
 <script src="<%templateskin%>/script/common.js"></script>
 <%diy("mhead")%>
 </head>
 <body>
-<style>
-.maphidden {
-    display: none;
-}
-</style>
-<input type="hidden" value="{site.order_company}" id="mapcropname" />
-<input type="hidden" value="{site.tel}" id="maptel" />
-<input type="hidden" value="{site.address}" id="mapaddress" />
-<input type="hidden" value="{site.qrcode}" id="mapqrcode" />
 <%template src="nav_ny.html"%>
-<div id="page">
+<div id="page" class="goout">
   <div class="bar">
     <div class="goback"> </div>
+      <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -41,47 +31,15 @@
   <div id="main">
     <%template src="header.html"%>
     <div class="container">
-      <div class="page-contact">
-        <div class="wjdh-map">
-          <div id="r-result"> </div>
-          <div id="wmap"></div>
-        </div>
-        <div class="driving-way">
-          <div class="hd">
-            <ul>
-              <li class="on">到本公司去</li>
-              <li>从本公司出发</li>
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-          <div class="map-tab">
-            <div class="trip-mode"> <a href="javascript:;" title="自驾" data-fs="driving" class="active"><i></i>驾车</a> <a href="javascript:;" title="公交" data-fs="transit"><i></i>公交</a>
-              <div class="clearfix"></div>
-            </div>
-            <ul>
-              <li class="d1">
-                <input type="text" name="didian" id="suggestId" placeholder="请输入出发地">
-              </li>
-              <i></i>
-              <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
-              <li class="d2">{site.order_company}</li>
-              <input type="button" id="result" value="go" />
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-          <div class="contact-content">
-            <ul>
-              <li class="ct-address">{site.address}</li>
-              <li class="ct-mobile">{site.mobile}</li>
-              <li class="ct-phone">{site.freecall}</li>
-              <li class="ct-email">{site.email} </li>
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
       <div class="page-content wow fadeInUp">
-        <!-- 以下是内容  -->
+        <div class="page-title text-center">
+          <h3>
+            <%set DataTable pro=get_category_info({catid})%>
+            <%loop dr pro%>
+            {dr[catname]}
+            <%/loop%>
+          </h3>
+        </div>
         {model.content}
         <!-- 以上是内容  -->
       </div>
@@ -130,7 +88,7 @@
         <ul>
           <%set DataTable ganyan=get_content_list(60,3)%>
           <%foreach(DataRow dr in ganyan.Rows)%>
-          <li class="wow fadeInUp"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
+          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
             <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
             <div class="info">
               <h5> {dr[title]}</h5>
@@ -138,7 +96,7 @@
                 <%cutstring({dr[zhaiyao]},55)%>
               </p>
             </div>
-            </a> </li>
+            </a></li>
           <%/foreach%>
         </ul>
       </div>
@@ -146,49 +104,86 @@
   </div>
   <%template src="footer.html"%>
 </div>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GRATsoIwLbGhZ9opAFPMmNRK"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
-<script type="text/javascript" src="<%templateskin%>/script/map.js"></script>
-<script type="text/javascript">
-    function commSubmitmsg() {
+<script type="text/javascript">        
+
+function commSubmitmsg() {
+
             var msgContext = $('#msgContext').val();
+
             var msgName = $('#msgName').val();
+
             var msgTel = $('#msgTel').val();
+
             var msgqq = "";
+
             var msgemail = $('#msgemail').val(); ;
+
             var msgtitle = "";
+
             if (msgName == "") {
+
                 $("#msgName").focus();
+
                 return false;
+
             }
+
             if (msgTel == "") {
+
                 $("#msgTel").focus();
+
                 return false;
+
             }
+
             if (msgContext == "") {
+
                 $("#msgContext").focus();
+
                 return false;
+
             }
+
             $.post("/api/message.ashx?action=add", {
+
                 "kcontent": msgContext,
+
                 "kuser": msgName,
+
                 "kphone": msgTel,
+
                 "kqq": msgqq,
+
                 "kemail": msgemail,
+
                 "ktitle": msgtitle
+
             }, function (d) {
+
                 if (d == "1") {
+
                     alert("提交成功");
+
                     $('#msgContext').val("");
+
                     $('#msgName').val("");
+
 					$('#msgemail').val("");
+
                     $('#msgTel').val("");
+
                     wjdhClose();
+
                 } else {
+
                     alert("提交失败:");
+
                 }
+
             });
-        }
-    </script>
+
+        }      
+
+</script>
 </body>
 </html>
