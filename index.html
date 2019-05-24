@@ -136,7 +136,7 @@
 <body>
 <!--head-->
 <div class="header">
-  <div class="logo-img"> <img src="<%templateskin%>/img/logo.png" alt="{site.order_company}" title="{site.order_company}"/> </div>
+  <div class="logo-img"> <img src="{site.mlogoimage}" alt="{site.order_company}" title="{site.order_company}"/> </div>
   <div class="text">
     <h1>万家灯火测试标语一</h1>
     <p>万家灯火测试标语二二二二二</p>
@@ -160,7 +160,7 @@
     <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
     <%set int i=1%>
     <%foreach(DataRow dr in daohang.Rows)%>
-    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{site.mlogoimage}" /> <span>{dr[catname]}</span> </a> </li>
+    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="<%templateskin%>/img/menu<%=i%>.png" /> <span>{dr[catname]}</span> </a> </li>
     <%set i=i+1%>
     <%/foreach%>
   </ul>
