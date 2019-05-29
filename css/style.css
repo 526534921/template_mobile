@@ -388,7 +388,7 @@ body{
 }
 .banner-box{
 	width: 640px;
-	height: 300px;
+	
 	background: -webkit-linear-gradient(rgba(242,251,255,1), rgba(255,255,255,1)); /* Safari 5.1 - 6.0 */
 	background: -o-linear-gradient(rgba(242,251,255,1), rgba(255,255,255,1)); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(rgba(242,251,255,1), rgba(255,255,255,1)); /* Firefox 3.6 - 15 */
