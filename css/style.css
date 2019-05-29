@@ -322,7 +322,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .none {
 	display: none;
 }
+.headerText a{
+    display: block;
+    text-align: center;
+    font-size: 40px;
+}
 
+.headerText p{
+	text-align: center;
+    padding-bottom: 20px;
+}
 /*this is nav*/
 .nav {
 	padding: 10px 0;
