@@ -11,7 +11,7 @@ window.onload = function(){
     var msgTel = $('#msgTel').val();
     var msgEmail = $('#msgemail').val();
     var msgContext = $('#msgContext').val();
-    if(msgEmail.length>10){
+    if(msgContext.length>10){
 
         $.post("/api/message.ashx?action=add", {
         "kuser": msgName,
