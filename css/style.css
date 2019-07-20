@@ -661,6 +661,7 @@ h3 {
 	padding: 20px 0;
 	position: relative;
 	height: 500px;
+	z-index:1;
 }
 .about_bg .about_f {
 	width: 640px;
