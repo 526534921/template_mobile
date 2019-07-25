@@ -145,7 +145,17 @@
 <div class="product-center ggwidth">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more" title="更多">更多&gt;&gt;</a>
-      <h3><a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h3>
+      <h3><a href="<%linkurl(1,"48")%>" title="产品中心">
+	      
+ <%set DataTable company6=get_category_info(48)%>
+
+            <%loop dr company6%>
+
+  {dr[catname]} 
+  
+
+            <%/loop%>
+	      </a></h3>
     </div>
   </div>
   <div class="menu-content">
