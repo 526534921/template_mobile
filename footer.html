@@ -1,38 +1,38 @@
 <div class="footer-bar">
-  <ul>
-    <li> <a href="/">
-      <svg class="foot-icon icon-home">
-        <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-home"></use>
-      </svg>
-      <span>网站首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>">
-      <svg class="foot-icon icon-pro">
-        <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-pro"></use>
-      </svg>
-      <span><%set DataTable company6=get_category_info(48)%>
+    <ul>
+        <li> <a href="/">
+                <svg class="foot-icon icon-home">
+                    <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-home"></use>
+                </svg>
+                <span>网站首页</span></a> </li>
+        <li> <a href="<%linkurl(1,"48")%>">
+                <svg class="foot-icon icon-pro">
+                    <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-pro"></use>
+                </svg>
+                <span> <%set DataTable company8=get_category_info(48)%>
 
-            <%loop dr company6%>
+                    <%loop dr company8%>
 
-            {dr[catname]}
-{dr[enname]}  
+                    {dr[catname]}
+                  
 
-            <%/loop%></span></a> </li>
-    <li> <a href="<%linkurl(0,"57")%>">
-      <svg class="foot-icon icon-case">
-        <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-case"></use>
-      </svg>
-      <span> <%set DataTable company7=get_category_info(57)%>
+                    <%/loop%></span></a> </li>
+        <li> <a href="<%linkurl(0,"57")%>">
+                <svg class="foot-icon icon-case">
+                    <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-case"></use>
+                </svg>
+                <span> <%set DataTable company9=get_category_info(57)%>
 
-            <%loop dr company7%>
+                    <%loop dr company9%>
 
-            {dr[catname]}
-            {dr[enname]}  
+                    {dr[catname]}
+                    
 
-            <%/loop%></span></a> </li>
-    <li> <a href="tel:{site.freecall}">
-      <svg class="foot-icon icon-contact">
-        <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-contact"></use>
-      </svg>
-      <span>联系我们</span></a> </li>
-  </ul>
+                    <%/loop%></span></a> </li>
+        <li> <a href="tel:{site.freecall}">
+                <svg class="foot-icon icon-contact">
+                    <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-contact"></use>
+                </svg>
+                <span>联系我们</span></a> </li>
+    </ul>
 </div>
