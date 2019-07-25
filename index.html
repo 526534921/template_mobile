@@ -97,7 +97,14 @@
 <div class="empty"> </div>
 <div class="product-center menu-item">
   <div class="cpzx">
-    <h2> <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h2>
+    <h2> <a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a></h2>
   </div>
   <div class="menu-content">
     <div id="tabs-product" class="swiper-container wow fadeInUp" data-wow-delay=".2s">
@@ -144,7 +151,14 @@
   <a href="tel:{site.freecall}" class="wow fadeInUp" data-wow-delay="0.2s">全国热线：{site.freecall}<em>立即拨打</em></a> </div>
 <!--案例-->
 <div class="case container menu-item">
-  <h5> <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a></h5>
+  <h5> <a href="<%linkurl(0,"57")%>" title="案例展示"> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a></h5>
   <div class="menu-content wow fadeInUp animated">
     <div class="swiper-container swiper-container-horizontal">
       <div class="swiper-wrapper">
@@ -240,10 +254,25 @@
 </div>
 <div class="footer-bar">
   <ul>
-    <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
-    <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/product.png" alt="" /><span>产品</span></a> </li>
-    <li><a href="<%linkurl(0,"57")%>"> <img src="<%templateskin%>/img/online.png" alt="" /><span>案例</span></a> </li>
-    <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/msg.png" alt="" /><span>联系</span></a> </li>
+    <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>网站首页</span></a> </li>
+    <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/product.png" alt="" /><span>
+ <%set DataTable company4=get_category_info(48)%>
+
+            <%loop dr company4%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
+    <li><a href="<%linkurl(0,"57")%>"> <img src="<%templateskin%>/img/online.png" alt="" /><span> <%set DataTable company5=get_category_info(57)%>
+
+            <%loop dr company5%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></span></a> </li>
+    <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/msg.png" alt="" /><span>联系我们</span></a> </li>
   </ul>
 </div>
 <div id="kefu-ball"> <a href="tel:{site.freecall}"> <img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
