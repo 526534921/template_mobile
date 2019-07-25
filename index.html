@@ -465,7 +465,15 @@
   拨打</span>全国热线<b>{site.freecall}</b></a> </div>
 <div class="case container menu-item">
   <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more">更多&gt;&gt;</a>
-    <h3> <a href="<%linkurl(0,"57")%>">案例展示</a></h3>
+    <h3> <a href="<%linkurl(0,"57")%>">
+ <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a></h3>
   </div>
   <div class="menu-content fadeInUp">
     <div class="case-container">
@@ -565,10 +573,24 @@
 <div class="footer-box">
   <div class="footer-bar">
     <ul>
-      <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
-      <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/cp.png" alt="" /><span>产品</span></a> </li>
-      <li><a href="<%linkurl(0,"57")%>"> <img src="<%templateskin%>/img/al.png" alt="" /><span>案例</span></a> </li>
-      <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/dh.png" alt="" /><span>联系</span></a> </li>
+      <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>网站首页</span></a> </li>
+      <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/cp.png" alt="" /><span> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
+      <li><a href="<%linkurl(0,"57")%>"> <img src="<%templateskin%>/img/al.png" alt="" /><span> <%set DataTable company4=get_category_info(57)%>
+
+            <%loop dr company4%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></span></a> </li>
+      <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/dh.png" alt="" /><span>联系我们</span></a> </li>
     </ul>
   </div>
 </div>
