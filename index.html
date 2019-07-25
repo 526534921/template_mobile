@@ -223,7 +223,14 @@
 <!---------------nav end--------------------->
 <!------------anli------------>
 <div class="hot-product menu-item">
-  <div class="anli_title wow fadeInUp" > <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a>
+  <div class="anli_title wow fadeInUp" > <a href="<%linkurl(0,"57")%>" title="案例展示"> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a>
     <div class="anli_line"></div>
   </div>
   <div class="menu-content wow fadeInUp">
@@ -389,7 +396,15 @@
       <p>主页</p>
       </a></li>
     <li><a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/home2.png">
-      <p>产品</p>
+      <p>
+ <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></p>
       </a></li>
     <li style="margin-left:120px;"><a href="tel:{site.freecall}"><img src="<%templateskin%>/img/home3.png">
       <p>咨询</p>
