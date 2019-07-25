@@ -222,7 +222,14 @@
 <div class="incp wow fadeInUp animated_4">
   <div class="incp_t incp_t111">
     <div class="incp_t1">
-      <h3><a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h3>
+      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a></h3>
     </div>
   </div>
   <div class="swiper-container product-tabs">
@@ -269,7 +276,15 @@
 <div class="empty"></div>
 <div class="case_bg wow fadeInUp animated_4">
   <div class="case_t">
-    <h3><a href="<%linkurl(0,"57")%>" title="工程案例">工程案例</a></h3>
+    <h3><a href="<%linkurl(0,"57")%>">
+ <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a></h3>
   </div>
   <div id="case">
     <div class="swiper-container">
@@ -398,7 +413,14 @@
 <div class="footer_bg">
   <ul>
     <li class="cur"><a href="/"  title="网站首页"><em><img src="<%templateskin%>/img/buttom1.png"></em>网站首页</a></li>
-    <li><a href="<%linkurl(1,"48")%>" title="产品中心"><em><img src="<%templateskin%>/img/buttom2.png"></em>产品中心</a></li>
+    <li><a href="<%linkurl(1,"48")%>"><em><img src="<%templateskin%>/img/buttom2.png"></em> <%set DataTable company3=get_category_info(48)%>
+
+            <%loop dr company3%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a></li>
     <li><a href="tel:{site.freecall}" title="一键拨打"><em><img src="<%templateskin%>/img/buttom3.png"></em>一键拨打</a></li>
     <li><a href="<%linkurl(0,"55")%>" title="联系我们"><em><img src="<%templateskin%>/img/buttom4.png"></em>联系我们</a></li>
   </ul>
