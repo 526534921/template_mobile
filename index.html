@@ -223,7 +223,14 @@ background: rgba({site.mcolor}, 1);
 <div class="pro_all">
   <div class="pro wow fadeInUp product-center">
     <div class="pro_bt">
-      <h2><a href="<%linkurl(1,"48")%>" title="图标"><img src="<%templateskin%>/img/bt_tb.png" title="图标" alt="图标"><b>产品中心</b></a></h2>
+      <h2><a href="<%linkurl(1,"48")%>" title="图标"><img src="<%templateskin%>/img/bt_tb.png" title="图标" alt="图标"><b> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></b></a></h2>
       <p class="pro_m"> <a href="<%linkurl(1,"48")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
     </div>
     <!--pro_fl-->
@@ -293,7 +300,14 @@ background: rgba({site.mcolor}, 1);
 <div class="al_all">
   <div class="al wow fadeInUp">
     <div class="al_bt">
-      <h2><a href="<%linkurl(0,"57")%>" title="案例中心"><img src="<%templateskin%>/img/bt_tb.png" title="案例中心" alt="案例中心"><b>案例中心</b></a></h2>
+      <h2><a href="<%linkurl(0,"57")%>" title="案例中心"><img src="<%templateskin%>/img/bt_tb.png" title="案例中心" alt="案例中心"><b> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></b></a></h2>
       <p class="al_m"> <a href="<%linkurl(0,"57")%>" title="更多"><img src="<%templateskin%>/img/more.png" title="更多" alt="更多"></a> </p>
     </div>
     <!--lunbo-->
@@ -425,7 +439,14 @@ background: rgba({site.mcolor}, 1);
 <div class="footer-bar">
   <ul>
     <li> <a href="/"><img src="<%templateskin%>/img/ft1.png" alt="" /><span>网站首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span>产品中心</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span><%set DataTable company3=get_category_info(48)%>
+
+            <%loop dr company3%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
     <li> <a href="<%linkurl(1,"22")%>"><img src="<%templateskin%>/img/ft3.png" alt="" /><span>新闻中心</span></a> </li>
     <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/ft4.png" alt="" /><span>联系我们</span></a> </li>
   </ul>
