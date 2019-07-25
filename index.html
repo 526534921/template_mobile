@@ -86,7 +86,15 @@
 </div>
 <!--products-->
 <div class="products">
-  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(1,"48")%>"  title="产品中心">产品中心</a>
+  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(1,"48")%>"  title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  {dr[catname]} 
+
+
+            <%/loop%>
+</a>
     <div class="title-line"></div>
   </h3>
   <div class="container products-dd wow fadeInDown animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
@@ -125,13 +133,22 @@
   <h4>万家灯火测试标语测试标语万家灯火测试标语测</h4>
   <div class="adm1-line"></div>
   <p>万家灯火测试标语测试标语万家灯火测试标语测试标语</p>
-  <div class="adm-tel"> <a href="tel:{site.freecall}"  title="{site.freecall}"> <b>{site.freecall}</b> <span>立即拨打</span>
+  <div class="adm-tel"> <a href="tel:{site.freecall}"  title="{site.freecall}"> <b>{site.freecall}</b> <span>在线咨询</span>
     <div class="clear"></div>
     </a> </div>
 </div>
 <!--case-->
 <div class="case">
-  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(0,"57")%>"  title="案例展示">案例展示</a>
+  <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(0,"57")%>"  title="案例展示">
+	   <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+
+
+            <%/loop%>
+	  </a>
     <div class="title-line"></div>
   </h3>
   <div class="swiper-container case-box container wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" >
@@ -231,10 +248,19 @@
 <div class="footer-bar">
   <div class="footer-bar-fixed">
     <ul>
-      <li> <a href="/"  title="首页"><img title="首页" src="<%templateskin%>/images/home.png" alt="首页"><span>首页</span></a> </li>
-      <li> <a href="<%linkurl(1,"48")%>"  title="产品"><img title="产品" src="<%templateskin%>/images/yewu.png" alt="产品"><span>产品</span></a> </li>
-      <li> <a href="tel:{site.freecall}"  title="电话"><img title="电话" src="<%templateskin%>/images/tel.png" alt="电话"><span>电话</span></a> </li>
-      <li> <a href="<%linkurl(0,"55")%>"  title="联系"><img title="联系" src="<%templateskin%>/images/conalt.png" alt="联系"><span>联系</span></a> </li>
+      <li> <a href="/"  title="首页"><img title="首页" src="<%templateskin%>/images/home.png" alt="首页"><span>网站首页</span></a> </li>
+      <li> <a href="<%linkurl(1,"48")%>"  title="产品"><img title="产品" src="<%templateskin%>/images/yewu.png" alt="产品"><span>
+	       <%set DataTable company3=get_category_info(48)%>
+
+            <%loop dr company3%>
+
+  {dr[catname]} 
+
+
+            <%/loop%>
+	      </span></a> </li>
+      <li> <a href="tel:{site.freecall}"  title="电话"><img title="电话" src="<%templateskin%>/images/tel.png" alt="电话"><span>电话咨询</span></a> </li>
+      <li> <a href="<%linkurl(0,"55")%>"  title="联系"><img title="联系" src="<%templateskin%>/images/conalt.png" alt="联系"><span>联系我们</span></a> </li>
     </ul>
   </div>
 </div>
