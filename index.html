@@ -300,7 +300,6 @@
             <%loop dr company1%>
 
             {dr[catname]}
-{dr[enname]}  
 
             <%/loop%></a></h3>
     </div>
@@ -352,7 +351,7 @@
             <%loop dr company2%>
 
             {dr[catname]}
-            {dr[enname]}  
+
 
             <%/loop%></a></h3>
     </div>
@@ -459,14 +458,13 @@
 </div>
 <div class="footer-bar">
   <ul>
-    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页"  title="首页"/><span>首页</span></a> </li>
+    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页"  title="首页"/><span>网站首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/pcr.png" alt=""  title="产品中心"/><span> 
 	    <%set DataTable company6=get_category_info(48)%>
 
             <%loop dr company6%>
 
             {dr[catname]}
-{dr[enname]}  
 
             <%/loop%></span></a> </li>
     <li> <a href="tel:{site.freecall}" title="电话咨询"><img src="<%templateskin%>/img/tel.png" alt=""  title="电话咨询"/><span>电话咨询</span></a> </li>
