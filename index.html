@@ -169,7 +169,7 @@
 <div class="hot-product menu-item">
   <div class="menu-title">
     <div class="menu-cent">
-      <h3> <a href="<%linkurl(1,"48")%>" title="热门产品">热门产品</a> </h3>
+      <h3> <a href="<%linkurl(1,"48")%>" title="热门推荐">热门推荐</a> </h3>
       <p>Hot Product</p>
       <span>//////</span> </div>
   </div>
@@ -207,7 +207,14 @@
 <div class="product-center menu-item">
   <div class="menu-title">
     <div class="menu-cent">
-      <h3> <a href="<%linkurl(1,"48")%>" title="产品展示">产品展示</a> </h3>
+      <h3> <a href="<%linkurl(1,"48")%>" title="产品展示"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a> </h3>
       <p>Product Center</p>
       <span>//////</span> </div>
   </div>
@@ -254,7 +261,15 @@
 <div class="case container menu-item">
   <div class="menu-title">
     <div class="menu-cent">
-      <h3> <a href="<%linkurl(0,"57")%>" title="案例中心">案例中心</a> </h3>
+      <h3> <a href="<%linkurl(0,"57")%>" title="案例中心">
+ <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a> </h3>
       <p>Case</p>
       <span>//////</span> </div>
   </div>
@@ -345,8 +360,26 @@
 <div class="footer-bar">
   <ul>
     <li> <a href="/" title="网站首页"><img src="<%templateskin%>/img/home1.png" alt="网站首页" title="网站首页" /><span>网站首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/home2.png" alt="产品中心" title="产品中心"  /><span>产品中心</span></a> </li>
-    <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/home3.png" alt="案例展示" title="案例展示"  /><span>案例展示</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/home2.png" alt="产品中心" title="产品中心"  /><span>
+	     <%set DataTable company4=get_category_info(48)%>
+
+            <%loop dr company4%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%>
+	    </span></a> </li>
+    <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/home3.png" alt="案例展示" title="案例展示"  /><span>
+	     <%set DataTable company5=get_category_info(57)%>
+
+            <%loop dr company5%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%>
+	    </span></a> </li>
     <li> <a href="tel:{site.freecall}" title="联系我们"><img src="<%templateskin%>/img/home4.png" alt="联系我们" title="联系我们"  /><span>联系我们</span></a> </li>
   </ul>
 </div>
