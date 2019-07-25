@@ -9,12 +9,26 @@
       <svg class="foot-icon icon-pro">
         <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-pro"></use>
       </svg>
-      <span>产品</span></a> </li>
+      <span><%set DataTable company8=get_category_info(48)%>
+
+            <%loop dr company5%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
     <li> <a href="<%linkurl(0,"57")%>">
       <svg class="foot-icon icon-case">
         <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-case"></use>
       </svg>
-      <span>案例</span></a> </li>
+      <span><%set DataTable company9=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></span></a> </li>
     <li> <a href="tel:{site.freecall}">
       <svg class="foot-icon icon-contact">
         <use xlink:href="<%templateskin%>/img/n/foot-icon.svg#icon-contact"></use>
