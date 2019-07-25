@@ -269,7 +269,7 @@
 <div class="hot-product menu-item">
   <div class="container">
     <div class="menu-title">
-      <h3><a href="<%linkurl(1,"48")%>" title="热门产品">热门产品</a></h3>
+      <h3><a href="<%linkurl(1,"48")%>" title="热门推荐">热门推荐</a></h3>
       <%set DataTable proname=get_category_info(48)%>
       <%foreach(DataRow cdr in proname.Rows)%>
       <span>—— {cdr[enname]} ——</span>
@@ -299,7 +299,14 @@
 <!-- product start -->
 <div class="product-center menu-item">
   <div class="menu-title">
-    <h3><a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h3>
+    <h3><a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  
+{dr[enname]}  
+
+            <%/loop%></a></h3>
     <span>—— product ——</span> </div>
   <div class="menu-content">
     <div class="container">
@@ -441,10 +448,26 @@
 <!-- foot-bar start -->
 <div class="footer-bar">
   <ul>
-    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页"/><span>首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>" title="产品"><img src="<%templateskin%>/img/pro.png" alt="产品" title="产品"/><span>产品</span></a> </li>
-    <li> <a href="<%linkurl(0,"57")%>" title="案例"><img src="<%templateskin%>/img/case.png" alt="案例" title="案例"/><span>案例</span></a> </li>
-    <li> <a href="tel:{site.freecall}" title="咨询"><img src="<%templateskin%>/img/tel.png" alt="咨询" title="咨询"/><span>咨询</span></a> </li>
+    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页"/><span>网站首页</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>" title="产品"><img src="<%templateskin%>/img/pro.png" alt="产品" title="产品"/><span> <%set DataTable company3=get_category_info(48)%>
+
+            <%loop dr company3%>
+
+  
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
+    <li> <a href="<%linkurl(0,"57")%>" title="案例"><img src="<%templateskin%>/img/case.png" alt="案例" title="案例"/><span>
+	     <%set DataTable company4=get_category_info(57)%>
+
+            <%loop dr company4%>
+
+            {dr[catname]}
+
+
+            <%/loop%>
+		    </span></a> </li>
+    <li> <a href="tel:{site.freecall}" title="咨询"><img src="<%templateskin%>/img/tel.png" alt="咨询" title="咨询"/><span>电话咨询</span></a> </li>
   </ul>
 </div>
 <!-- foot-bar end -->
