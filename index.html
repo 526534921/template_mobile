@@ -265,7 +265,7 @@
 <div class="hot-product menu-item">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more" title="更多">更多&gt;&gt;</a>
-      <h3><i></i><a href="<%linkurl(1,"48")%>" title="热门产品">热门产品</a></h3>
+      <h3><i></i><a href="<%linkurl(1,"48")%>" title="热门推荐">热门推荐</a></h3>
     </div>
   </div>
   <div class="menu-content fadeInUp">
@@ -295,7 +295,14 @@
 <div class="product-center">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>"  title="更多" class="more">更多&gt;&gt;</a>
-      <h3><i></i><a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a></h3>
+      <h3><i></i><a href="<%linkurl(1,"48")%>"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a></h3>
     </div>
   </div>
   <div class="menu-content">
@@ -340,7 +347,14 @@
 <div class="case">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more" title="更多">更多&gt;&gt;</a>
-      <h3><i></i><a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a></h3>
+      <h3><i></i><a href="<%linkurl(0,"57")%>"> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a></h3>
     </div>
   </div>
   <div class="menu-content fadeInUp">
@@ -446,7 +460,15 @@
 <div class="footer-bar">
   <ul>
     <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页"  title="首页"/><span>首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/pcr.png" alt=""  title="产品中心"/><span>产品中心</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/pcr.png" alt=""  title="产品中心"/><span> 
+	    <%set DataTable company6=get_category_info(48)%>
+
+            <%loop dr company6%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
     <li> <a href="tel:{site.freecall}" title="电话咨询"><img src="<%templateskin%>/img/tel.png" alt=""  title="电话咨询"/><span>电话咨询</span></a> </li>
     <li> <a href="<%linkurl(1,"55")%>" title="联系我们"><img src="<%templateskin%>/img/about.png" alt=""  title="联系我们"/><span>联系我们</span></a> </li>
   </ul>
