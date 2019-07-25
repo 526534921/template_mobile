@@ -200,7 +200,13 @@ background: rgba({site.mcolor}, 1);
 <div class="container">
   <div class="product-center yinying">
     <div class="menu-title wow fadeInUp">
-      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"><i></i>产品中心<i></i></a></h3>
+      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"><i></i> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  
+{dr[enname]}  
+<i></i></a></h3>
     </div>
     <div class="swiper-container swiper-container-horizontal wow fadeInUp" id="topProducts" >
       <div class="swiper-wrapper">
@@ -243,7 +249,14 @@ background: rgba({site.mcolor}, 1);
   <div class="case">
     <div class="yinying">
       <div class="menu-title wow fadeInUp">
-        <h3><a href="<%linkurl(0,"57")%>" title="成功案例"><i></i>成功案例<i></i></a></h3>
+        <h3><a href="<%linkurl(0,"57")%>" title="成功案例"><i></i> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+
+
+            <%/loop%><i></i></a></h3>
       </div>
       <div id="tabs-case" class="swiper-container wow fadeInUp" >
         <div class="swiper-wrapper">
@@ -377,7 +390,13 @@ background: rgba({site.mcolor}, 1);
         <span>首页</span></a> </li>
       <li class="f2"> <a href='<%linkurl(1,"48")%>' title="产品">
         <p><i class="icon"><i class="icon icon-pro"></i></i></p>
-        <span>产品</span></a> </li>
+        <span> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  
+{dr[enname]}  
+</span></a> </li>
       <li class="f3"> <a href="tel:{site.freecall}" title="电话">
         <p><i class="icon"><i class="icon icon-tel"></i></i></p>
         <span>电话</span></a> </li>
