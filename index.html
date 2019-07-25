@@ -83,7 +83,14 @@ body{ background: rgba({site.mcolor}, 0.02); }
 </div>
 <div class="incp wow fadeInUp animated_3">
   <div class="incp_t">
-    <div class="incp_t1"> <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心</a>
+    <div class="incp_t1"> <a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a>
       <h5></h5>
       <h6></h6>
       <div class="incp_t1xl"></div>
@@ -95,8 +102,8 @@ body{ background: rgba({site.mcolor}, 0.02); }
     <div class="container products-dd">
       <div class="swiper-container product-tabs">
         <div class="swiper-wrapper porducts-b1">
-          <div class="swiper-slide selected"><a href="<%linkurl(1,"48")%>" title="<%linkurl(1,"48")%>">推荐产品</a></div>
-          <div class="swiper-slide "><a href="<%linkurl(1,"48")%>" title="热销产品">热销产品</a></div>
+          <div class="swiper-slide selected"><a href="<%linkurl(1,"48")%>" title="<%linkurl(1,"48")%>">热门推荐</a></div>
+          
           <%set DataTable categoryList=get_category_list(48,4,"1=1")%>
           <%foreach(DataRow cdr in categoryList.Rows)%>
           <li class="swiper-slide"><a href="<%linkurl(1,{cdr[id]})%>">{cdr[catname]}</a></li>
@@ -164,7 +171,15 @@ body{ background: rgba({site.mcolor}, 0.02); }
 <%template src="ys.html"%>
 <div class="inal_xx wow fadeInUp animated_4">
   <div class="incp_t">
-    <div class="incp_t1"> <a href="<%linkurl(0,"57")%>" title="经典案例">经典案例</a>
+    <div class="incp_t1"> <a href="<%linkurl(0,"57")%>" title="经典案例">
+ <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+            {dr[enname]}  
+
+            <%/loop%></a>
       <h5></h5>
       <h6></h6>
       <div class="incp_t1xl"></div>
@@ -297,7 +312,15 @@ body{ background: rgba({site.mcolor}, 0.02); }
 <div class="ssbq_bottxx">
   <ul>
     <li class="cur"><a href="/"  title="网站首页"><em><img src="<%templateskin%>/img/footer_d1.png"></em>网站首页</a></li>
-    <li><a href="<%linkurl(1,"48")%>" title="产品中心"><em><img src="<%templateskin%>/img/footer_d2.png"></em>产品中心</a></li>
+    <li><a href="<%linkurl(1,"48")%>" title="产品中心"><em><img src="<%templateskin%>/img/footer_d2.png"></em>
+ <%set DataTable company4=get_category_info(48)%>
+
+            <%loop dr company4%>
+
+            {dr[catname]}
+{dr[enname]}  
+
+            <%/loop%></a></li>
     <li><a href="tel:{site.freecall}" title="电话咨询"><em><img src="<%templateskin%>/img/footer_d3.png"></em>电话咨询</a></li>
     <li><a href="<%linkurl(0,"55")%>" title="联系我们"><em><img src="<%templateskin%>/img/footer_d4.png"></em>联系我们</a></li>
   </ul>
