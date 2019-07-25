@@ -188,7 +188,14 @@
 <!-- 案例 -->
 <div class="anli_box ">
   <div class="menu-title ggwidth"> <a href="<%linkurl(0,"57")%>" title="更多" class="more">更多&gt;&gt;</a>
-    <h3><a href="<%linkurl(0,"57")%>" title="成功案例">成功案例</a></h3>
+    <h3><a href="<%linkurl(0,"57")%>" title="成功案例"> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+
+
+            <%/loop%></a></h3>
   </div>
   <div class="anli_cont wow fadeInUp">
     <div class="swiper">
@@ -283,14 +290,21 @@
 </div>
 <div class="footer-bar">
   <ul>
-    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/footer_icon1.png" alt="首页" title="首页"/><span>首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>" title="业务"><img src="<%templateskin%>/img/footer_icon2.png" alt="业务"  title="业务"/><span>业务</span></a> </li>
-    <li class="footer_phone"> <a href="tel:{site.freecall}" title="立即咨询"><img src="<%templateskin%>/img/footer_icon_phone.png" alt="立即咨询"  title="立即咨询"/></a> </li>
-    <li> <a href="sms:{site.mobile}" title="短信"><img src="<%templateskin%>/img/footer_icon3.png" alt="短信"  title="短信"/><span>短信</span></a> </li>
-    <li> <a href="<%linkurl(1,"55")%>" title="联系"><img src="<%templateskin%>/img/footer_icon4.png" alt="联系"  title="联系"/><span>联系</span></a> </li>
+    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/footer_icon1.png" alt="首页" title="网站首页"/><span>网站首页</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>" title="业务"><img src="<%templateskin%>/img/footer_icon2.png" alt="业务"  title="业务"/><span> <%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  
+{dr[enname]}  
+
+            <%/loop%></span></a> </li>
+    <li class="footer_phone"> <a href="tel:{site.freecall}" title="立即咨询"><img src="<%templateskin%>/img/footer_icon_phone.png" alt="立即咨询"  title="在线咨询"/></a> </li>
+    <li> <a href="sms:{site.mobile}" title="短信"><img src="<%templateskin%>/img/footer_icon3.png" alt="短信"  title="短信"/><span>电话咨询</span></a> </li>
+    <li> <a href="<%linkurl(1,"55")%>" title="联系"><img src="<%templateskin%>/img/footer_icon4.png" alt="联系"  title="联系"/><span>联系我们</span></a> </li>
   </ul>
 </div>
-<div id="kefu-ball"> <a href="tel:{site.freecall}" title="立即咨询"><img src="<%templateskin%>/img/kefu.png" alt="立即咨询" title="立即咨询"/></a> </div>
+<div id="kefu-ball"> <a href="tel:{site.freecall}" title="立即咨询"><img src="<%templateskin%>/img/kefu.png" alt="立即咨询" title="在线咨询"/></a> </div>
 <!-- 页脚 -->
 <script src="<%templateskin%>/js/Zepto.min.js"></script>
 <!-- 切换特效需要的JS库文件 -->
