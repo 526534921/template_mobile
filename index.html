@@ -164,7 +164,14 @@
 <!--案例区域-->
 <div class="pro case">
   <div class="lm caseheader">
-    <h3><i></i><a href="<%linkurl(0,"57")%>" title="经典案例">经典案例</a></h3>
+    <h3><i></i> <%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr company2%>
+
+            {dr[catname]}
+          
+
+            <%/loop%></h3>
     <span><a href="<%linkurl(0,"57")%>" title="更多">更多></a></span> </div>
   <div class="proall menu-content wow fadeInUp">
     <div class="swiper-container">
@@ -321,7 +328,16 @@
 <div class="footer-bar">
   <ul>
     <li> <a href="/"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页" /><span>首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/pro.png" alt="产品展示" title="产品展示" /><span>产品展示</span></a> </li>
+    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/pro.png" alt="产品展示" title="产品展示" /><span> 
+	    <%set DataTable company3=get_category_info(48)%>
+
+            <%loop dr company3%>
+
+            {dr[catname]}
+           
+
+            <%/loop%>
+		    </span></a> </li>
     <li> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/tel.png" alt="电话咨询" /><span>电话咨询</span></a> </li>
     <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/cont.png" alt="联系方式" title="联系方式" /><span>联系方式</span></a> </li>
   </ul>
