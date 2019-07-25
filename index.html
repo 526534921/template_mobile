@@ -387,7 +387,7 @@
 <div class="hot-product menu-item">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-      <h3> <a href="<%linkurl(1,"48")%>">热门产品</a></h3>
+      <h3> <a href="<%linkurl(1,"48")%>">热门推荐</a></h3>
     </div>
   </div>
   <div class="menu-content fadeInUp">
@@ -410,7 +410,14 @@
 </div>
 <div class="product-center menu-item">
   <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more">更多&gt;&gt;</a>
-    <h3> <a href="<%linkurl(1,"48")%>">产品中心</a></h3>
+    <h3> <a href="<%linkurl(1,"48")%>"><%set DataTable company1=get_category_info(48)%>
+
+            <%loop dr company1%>
+
+  {dr[catname]} 
+  
+
+            <%/loop%></a></h3>
   </div>
   <div class="tabs fadeInUp">
     <%set int  goodsid=1 %>
