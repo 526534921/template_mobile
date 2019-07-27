@@ -60,9 +60,9 @@
 <div class="header">
   <div class="logo-img"> <img src="{site.mlogoimage}" /> </div>
   <p> {site.order_company}</p>
-  <i>此处换公司名字英文brilliant achievements</i>
+  <i>ZHIBO AIR PURIFICATION</i>
   <div class="clearfix"> </div>
-  <h1> 万家灯火测试定位资料</h1>
+  <h1> 地区空气净化工程整合服务商</h1>
 </div>
 <div class="banner wow fadeInUp">
   <div class="swiper">
@@ -145,16 +145,16 @@
 <%template src="ys.html"%>
 <!--优势-->
 <div class="tt">
-  <h4 class="wow fadeInUp">万家灯火测试广告语</h4>
-  <p class="wow fadeInUp" data-wow-delay="0.1s">万家灯火测试广告语万家灯火测试广告语</p>
+  <h4 class="wow fadeInUp">地区空气净化工程整合服务商</h4>
+  <p class="wow fadeInUp" data-wow-delay="0.1s">始自2006，专注空气净化</p>
   <a href="tel:{site.freecall}" class="wow fadeInUp" data-wow-delay="0.2s">全国热线：{site.freecall}<em>在线咨询</em></a> </div>
 <!--案例-->
 <div class="case container menu-item">
   <h5> <a href="<%linkurl(0,"57")%>" title="案例展示"> <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop anli company2%>
 
-            {dr[catname]}
+            {anli[catname]}
           
 
             <%/loop%></a></h5>
@@ -257,17 +257,17 @@
     <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/product.png" alt="" /><span>
  <%set DataTable company4=get_category_info(48)%>
 
-            <%loop dr company4%>
+            <%loop chanping company4%>
 
-            {dr[catname]}
+            {chanping[catname]}
 
 
             <%/loop%></span></a> </li>
     <li><a href="<%linkurl(0,"57")%>"> <img src="<%templateskin%>/img/online.png" alt="" /><span> <%set DataTable company5=get_category_info(57)%>
 
-            <%loop dr company5%>
+            <%loop anli1 company5%>
 
-            {dr[catname]}
+            {anli1[catname]}
              
 
             <%/loop%></span></a> </li>
