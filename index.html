@@ -262,7 +262,7 @@
       <div class="banner_bg"> <img src="<%templateskin%>/img/banner_bg.png" alt="banner背景图" title="banner背景图"> </div>
       <div class="logo-img"> <img src="{site.mlogoimage}" alt="{site.order_company}" title="{site.order_company}" /> </div>
       <p> {site.order_company}</p>
-      <h1>万家灯火测试标语测试标语</h1>
+      <h1>17年行业经验沉淀</h1>
     </div>
     <div class="swiper bnpic">
       <div class="current-swiper swiper-container">
@@ -348,9 +348,9 @@
     <h3 class="fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> <a href="<%linkurl(0,"57")%>" title="案例展示">
 	     <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr1 company2%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
 
             <%/loop%>
@@ -396,8 +396,8 @@
 <div class="container pt30">
   <div class="gg">
     <div class="gg_zi">
-      <h4 class="bounceInUp"> 万家灯火测试标语测试标语万家灯火测试标语测试标语</h4>
-      <p class="bounceInDown"> 万家灯火测试标语测试标语 </p>
+      <h4 class="bounceInUp"> 正昌专为老旧小区提供电梯加装</h4>
+      <p class="bounceInDown"> 设计、安装、调试、维保一体化服务 </p>
     </div>
     <div class="gg_bt"> <img src="<%templateskin%>/img/gg_bt.png" title="{site.order_company}" alt="{site.order_company}"> </div>
     <div class="gg_an ggtelbj"> <span>咨询热线：</span> <em>{site.freecall}</em> </div>
@@ -470,13 +470,13 @@
     <ul>
       <li class="dbnav1"> <span> <i class="icona"> <i class="icona icon-del"></i> </i> </span><a href="/" title="首页">网站首页</a></li>
       <li class="dbnav2"><span> <i class="icona1"> <i class="icona1 icon-del"></i> </i> </span><a href="<%linkurl(1,"48")%>" title="项目"> 
-	      <%set DataTable company1=get_category_info(48)%>
+	     
 
-            <%loop dr company1%>
+            <%loop drd company1%>
 
   
-  {dr[catname]} 
-  
+		{drd[catname]}  
+
             <%/loop%></a></li>
       <li class="dbnav3"><span> <i class="icona2"> <i class="icona2 icon-del"></i> </i> </span><a href="tel:{site.freecall}" title="电话">电话咨询</a></li>
       <li class="dbnav4"><span> <i class="icona3"> <i class="icona3 icon-del"></i> </i> </span><a href="<%linkurl(1,"55")%>" title="联系">联系我们</a></li>
