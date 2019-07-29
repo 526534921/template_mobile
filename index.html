@@ -180,8 +180,8 @@
 <div class="header">
   <div class="headerbox">
     <div class="logo-img"> <img src="{site.mlogoimage}" /> </div>
-    <h1>万家灯火</h1>
-    <p>- 万家灯火测试标语-</p>
+    <h1>{site.order_company}</h1>
+    <p>- 普润万物，惠泽天下 -</p>
   </div>
   <div class="banner wow fadeInUp">
     <div class="swiper">
@@ -228,7 +228,7 @@
             <%loop dr company2%>
 
             {dr[catname]}
-        
+            {dr[enname]}  
 
             <%/loop%></a>
     <div class="anli_line"></div>
@@ -260,8 +260,7 @@
 <!--------------->
 <div class="banner2_box  wow fadeInUp">
   <div class="banner2">
-    <div class="banner2_left"><span>万家灯火测试标语</span>
-      <p>售后有保障</p>
+    <div class="banner2_left"><span>集生产销售于一体的大型生产加工型企业</span>
     </div>
     <div class="banner2_right">
       <div class="b2_phone"></div>
@@ -316,11 +315,11 @@
   </div>
   <div class="sabout_pro wow fadeInUp animated_4">
     <%set DataTable company=get_category_info(54)%>
-    <%loop dr company%>
+    <%loop jj company%>
     <div class="sabout_nr">
-      <div class="sabout_nrpic"> <img src="{dr[image]}" /> </div>
+      <div class="sabout_nrpic"> <img src="{jj[image]}" /> </div>
       <div class="sabout_nrt">
-        <%cutstring({dr[content]},400)%>
+        <%cutstring({jj[content]},400)%>
       </div>
       <div class="incp_more"><a href="<%linkurl(0,"54")%>">了解更多+</a></div>
     </div>
@@ -393,24 +392,24 @@
   <div class="footer_phone"><a href="tel:{site.freecall}"><img src="<%templateskin%>/img/phone_di.png"></a></div>
   <ul>
     <li><a href="/"><img src="<%templateskin%>/img/home.png">
-      <p>网站首页</p>
+      <p>主页</p>
       </a></li>
     <li><a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/home2.png">
       <p>
  <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop cp company1%>
 
-            {dr[catname]}
-
+            {cp[catname]}
+{cp[enname]}  
 
             <%/loop%></p>
       </a></li>
     <li style="margin-left:120px;"><a href="tel:{site.freecall}"><img src="<%templateskin%>/img/home3.png">
-      <p>电话咨询</p>
+      <p>咨询</p>
       </a></li>
     <li><a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/home4.png">
-      <p>联系我们</p>
+      <p>联系</p>
       </a></li>
   </ul>
 </div>
