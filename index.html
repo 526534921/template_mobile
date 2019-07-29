@@ -321,12 +321,9 @@
     <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/pro.png" alt="产品展示" title="产品展示" /><span> 
 	    <%set DataTable company3=get_category_info(48)%>
 
-            <%loop dr company3%>
+            <%loop drpp company3%>
 
-            {dr[catname]}
-           
-
-            <%/loop%>
+	    {drpp[enname]}  
 		    </span></a> </li>
     <li> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/tel.png" alt="电话咨询" /><span>电话咨询</span></a> </li>
     <li> <a href="<%linkurl(1,"55")%>"><img src="<%templateskin%>/img/cont.png" alt="联系方式" title="联系方式" /><span>联系方式</span></a> </li>
