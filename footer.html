@@ -11,10 +11,10 @@
                 </svg>
                 <span> <%set DataTable company8=get_category_info(48)%>
 
-                    <%loop dr company8%>
+                    <%loop cp2 company8%>
 
-                    {dr[catname]}
-                    {dr[enname]}
+                    {cp2[catname]}
+                    {cp2[enname]}
 
                     <%/loop%></span></a> </li>
         <li> <a href="<%linkurl(0,"57")%>">
@@ -23,10 +23,10 @@
                 </svg>
                 <span> <%set DataTable company9=get_category_info(57)%>
 
-                    <%loop dr company9%>
+                    <%loop al company9%>
 
-                    {dr[catname]}
-                    {dr[enname]}
+                    {al[catname]}
+                    {al[enname]}
 
                     <%/loop%></span></a> </li>
         <li> <a href="tel:{site.freecall}">
