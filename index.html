@@ -67,7 +67,7 @@
 <div class="dbg1">
   <!-- 这是一个最简单的切换特效结构 -->
   <div class="top1"> <i><img src="{site.mlogoimage}" alt="{site.order_company}" title="{site.order_company}"></i> <span> <i>tel：{site.mobile}</i>
-    <p>万家灯火测试标语</p>
+    <p>绿植花卉租赁-养护一体化服务商</p>
     </span>
     <div class="clear"></div>
   </div>
@@ -115,10 +115,10 @@
 <div class="pro wow fadeInUp" data-wow-delay=".2s">
   <div class="proc"> <b><a href="<%linkurl(1,"48")%>" title="产品展示"><%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop drdd company1%>
 
   
-{dr[enname]}  
+{drdd[catname]}  
 
             <%/loop%></a></b> <i><a href="<%linkurl(1,"48")%>" title="更多">MORE</a></i>
     <div class="clear"></div>
@@ -171,7 +171,7 @@
 <!-- case end-->
 <!-- x_ban -->
 <div class="xban wow fadeInUp" data-wow-delay=".2s">
-  <p>实力模板制作专家</p>
+  <p>合性的园林绿化服务企业</p>
  <span>tel：{site.freecall}</span>
   <div class="clear"></div>
 </div>
@@ -240,19 +240,19 @@
   <ul>
     <li> <a href="/" title="首页"><img src="<%templateskin%>/img/zs13.png" alt="首页" title="首页" /><span>首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>" title="产品展示"><img src="<%templateskin%>/img/zs3.png" alt="产品展示" title="产品展示" /><span>
-	    <%set DataTable company3=get_category_info(48)%>
+	 
 
-            <%loop dr company3%>
+            <%loop drffff company1%>
 
   
-{dr[enname]}  
+{drffff[catname]}  
 
             <%/loop%></span></a> </li>
     <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/zs4.png" alt="案例展示" title="案例展示"/><span> <%set DataTable company4=get_category_info(57)%>
 
-            <%loop dr company4%>
+            <%loop ddxsr company4%>
 
-            {dr[catname]}
+            {ddxsr[catname]}
 
 
             <%/loop%></span></a> </li>
