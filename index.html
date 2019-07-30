@@ -160,7 +160,7 @@
     <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
     <%set int i=1%>
     <%foreach(DataRow dr in daohang.Rows)%>
-    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"><img src="{yyt[simage]}" /> <span>{dr[catname]}</span> </a> </li>
+    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"><img src="{dr[simage]}" /> <span>{dr[catname]}</span> </a> </li>
     <%set i=i+1%>
     <%/foreach%>
   </ul>
@@ -209,9 +209,9 @@
     <div class="menu-cent">
       <h3> <a href="<%linkurl(1,"48")%>" title="产品展示"> <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
             <%/loop%></a> </h3>
       <p>Product Center</p>
@@ -263,9 +263,9 @@
       <h3> <a href="<%linkurl(0,"57")%>" title="案例中心">
  <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
 
 
             <%/loop%></a> </h3>
@@ -362,18 +362,18 @@
     <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/home2.png" alt="产品中心" title="产品中心"  /><span>
 	     <%set DataTable company4=get_category_info(48)%>
 
-            <%loop dr company4%>
+            <%loop dr4 company4%>
 
-            {dr[catname]}
+            {dr4[catname]}
 
             <%/loop%>
 	    </span></a> </li>
     <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/home3.png" alt="案例展示" title="案例展示"  /><span>
 	     <%set DataTable company5=get_category_info(57)%>
 
-            <%loop dr company5%>
+            <%loop dr5 company5%>
 
-            {dr[catname]}
+            {dr5[catname]}
 
             <%/loop%>
 	    </span></a> </li>
