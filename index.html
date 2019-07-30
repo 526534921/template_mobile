@@ -223,11 +223,12 @@ background: rgba({site.mcolor}, 1);
 <div class="pro_all">
   <div class="pro wow fadeInUp product-center">
     <div class="pro_bt">
-      <h2><a href="<%linkurl(1,"48")%>" title="图标"><img src="<%templateskin%>/img/bt_tb.png" title="图标" alt="图标"><b> <%set DataTable company1=get_category_info(48)%>
+      <h2><a href="<%linkurl(1,"48")%>" title="图标"><img src="<%templateskin%>/img/bt_tb.png" title="图标" alt="图标"><b> 
+        <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
 
             <%/loop%></b></a></h2>
@@ -302,9 +303,9 @@ background: rgba({site.mcolor}, 1);
     <div class="al_bt">
       <h2><a href="<%linkurl(0,"57")%>" title="案例中心"><img src="<%templateskin%>/img/bt_tb.png" title="案例中心" alt="案例中心"><b> <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
 
 
             <%/loop%></b></a></h2>
@@ -441,9 +442,9 @@ background: rgba({site.mcolor}, 1);
     <li> <a href="/"><img src="<%templateskin%>/img/ft1.png" alt="" /><span>网站首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span><%set DataTable company3=get_category_info(48)%>
 
-            <%loop dr company3%>
+            <%loop dr3 company3%>
 
-            {dr[catname]}
+            {dr3[catname]}
 
             <%/loop%></span></a> </li>
     <li> <a href="<%linkurl(1,"22")%>"><img src="<%templateskin%>/img/ft3.png" alt="" /><span>新闻中心</span></a> </li>
