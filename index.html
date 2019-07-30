@@ -149,9 +149,9 @@
 	      
  <%set DataTable company6=get_category_info(48)%>
 
-            <%loop dr company6%>
+            <%loop dr6 company6%>
 
-  {dr[catname]} 
+  {dr6[catname]} 
   
 
             <%/loop%>
@@ -200,9 +200,9 @@
   <div class="menu-title ggwidth"> <a href="<%linkurl(0,"57")%>" title="更多" class="more">更多&gt;&gt;</a>
     <h3><a href="<%linkurl(0,"57")%>" title="成功案例"> <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
 
 
             <%/loop%></a></h3>
@@ -303,10 +303,10 @@
     <li> <a href="/" title="首页"><img src="<%templateskin%>/img/footer_icon1.png" alt="首页" title="网站首页"/><span>网站首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>" title="业务"><img src="<%templateskin%>/img/footer_icon2.png" alt="业务"  title="业务"/><span> <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
   
-{dr[catname]}  
+{dr1[catname]}  
 
             <%/loop%></span></a> </li>
     <li class="footer_phone"> <a href="tel:{site.freecall}" title="立即咨询"><img src="<%templateskin%>/img/footer_icon_phone.png" alt="立即咨询"  title="在线咨询"/></a> </li>
