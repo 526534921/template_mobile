@@ -297,9 +297,9 @@
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>"  title="更多" class="more">更多&gt;&gt;</a>
       <h3><i></i><a href="<%linkurl(1,"48")%>"> <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
             <%/loop%></a></h3>
     </div>
@@ -348,9 +348,9 @@
     <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more" title="更多">更多&gt;&gt;</a>
       <h3><i></i><a href="<%linkurl(0,"57")%>"> <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
 
 
             <%/loop%></a></h3>
@@ -462,9 +462,9 @@
     <li> <a href="<%linkurl(1,"48")%>" title="产品中心"><img src="<%templateskin%>/img/pcr.png" alt=""  title="产品中心"/><span> 
 	    <%set DataTable company6=get_category_info(48)%>
 
-            <%loop dr company6%>
+            <%loop dr6 company6%>
 
-            {dr[catname]}
+            {dr6[catname]}
 
             <%/loop%></span></a> </li>
     <li> <a href="tel:{site.freecall}" title="电话咨询"><img src="<%templateskin%>/img/tel.png" alt=""  title="电话咨询"/><span>电话咨询</span></a> </li>
