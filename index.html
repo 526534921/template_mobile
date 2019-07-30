@@ -249,7 +249,7 @@
 <!-- banner  end -->
 <!-- logo start -->
 <div class="logo">
-  <div class="logo-img"> <a href="/" title="{site.order_company}"> <img src="{site.mlogoimage}"  title="{site.order_company}" alt="{site.order_company}"/> </a> </div>
+  <div class="logo-img"> <a href="/" > <img src="{site.mlogoimage}"  alt="{site.order_company}"/> </a> </div>
   <h1>{site.order_company}</h1>
   <p>万家灯火测试标语</p>
 </div>
@@ -257,10 +257,10 @@
 <!-- nav start -->
 <div class="nav wow fadeInUp" data-wow-delay=".2s">
   <ul>
-    <li> <a href="/"> <img src="<%templateskin%>/img/nav1.png" alt="网站首页" title="网站首页"/> <span>网站首页</span> </a> </li>
+    <li> <a href="/"> <img src="<%templateskin%>/img/nav1.png" alt="网站首页"/> <span>网站首页</span> </a> </li>
     <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
     <%foreach(DataRow dr in daohang.Rows)%>
-    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[simage]}" alt="{dr[catname]}" title="{dr[catname]}"/> <span>{dr[catname]}</span> </a> </li>
+    <li> <a href="<%linkurl(0,{dr[id]})%>"> <img src="{dr[simage]}"/> <span>{dr[catname]}</span> </a> </li>
     <%/foreach%>
   </ul>
 </div>
@@ -301,10 +301,10 @@
   <div class="menu-title">
     <h3><a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
   
-{dr[catname]}  
+{dr1[catname]}  
 
             <%/loop%></a></h3>
     <span>—— product ——</span> </div>
@@ -451,18 +451,18 @@
     <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页"/><span>网站首页</span></a> </li>
     <li> <a href="<%linkurl(1,"48")%>" title="产品"><img src="<%templateskin%>/img/pro.png" alt="产品" title="产品"/><span> <%set DataTable company3=get_category_info(48)%>
 
-            <%loop dr company3%>
+            <%loop dr3 company3%>
 
   
-{dr[catname]}  
+{dr3[catname]}  
 
             <%/loop%></span></a> </li>
     <li> <a href="<%linkurl(0,"57")%>" title="案例"><img src="<%templateskin%>/img/case.png" alt="案例" title="案例"/><span>
 	     <%set DataTable company4=get_category_info(57)%>
 
-            <%loop dr company4%>
+            <%loop dr4 company4%>
 
-            {dr[catname]}
+            {dr4[catname]}
 
 
             <%/loop%>
