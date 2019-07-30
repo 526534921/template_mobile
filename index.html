@@ -303,9 +303,9 @@
     <h3> <a href="<%linkurl(1,"48")%>" title="服务项目">
  <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
 
             <%/loop%></a>
@@ -348,9 +348,9 @@
     <h3 class="fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"> <a href="<%linkurl(0,"57")%>" title="案例展示">
 	     <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr1 company2%>
+            <%loop dr2 company2%>
 
-            {dr1[catname]}
+            {dr2[catname]}
 
 
             <%/loop%>
@@ -481,7 +481,7 @@
       <li class="dbnav3"><span> <i class="icona2"> <i class="icona2 icon-del"></i> </i> </span><a href="tel:{site.freecall}" title="电话">电话咨询</a></li>
       <li class="dbnav4"><span> <i class="icona3"> <i class="icona3 icon-del"></i> </i> </span><a href="<%linkurl(1,"55")%>" title="联系">联系我们</a></li>
     </ul>
-    <p> 版权所有：{site.copyright}</p>
+ 
   </div>
 </div>
 <div id="kefu-ball"> <a href="tel:{site.freecall}" title="在线客服"><img src="<%templateskin%>/img/kefu.png" alt="在线客服" title="在线客服" /></a> </div>
