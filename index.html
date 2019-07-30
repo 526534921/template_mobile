@@ -35,7 +35,7 @@
 			.swiper-pagination-bullet{
 				background:rgba({site.mcolor},1);
 			}
-			.footer-bg1{ border-color:transparent transparent rgba({site.mcolor},1);/*透明 透明  灰*/}
+			.footer-bg1{ border-color:transparent transparent rgba({site.mcolor},1);/*透明 透明  灰*/ background: rgba({site.mcolor},.03);}
 			.footer-bg2{background:rgba({site.mcolor},1) ;}
 			
 			.footer .gotop:before {
@@ -48,7 +48,7 @@
 			}
 			.news .tabs a.active{color: rgba({site.mcolor}, 1);}
 			.title-line{background: rgba({site.mcolor}, 1);}
-			#kefu-ball{background: rgba({site.mcolor}, 1);}
+			#kefu-ball{background: rgba({site.mcolor}, 1);box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);}
 			.selected{color: rgba({site.mcolor}, 1);}
 		</style>
 </head>
@@ -88,9 +88,9 @@
 <div class="products">
   <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(1,"48")%>"  title="产品中心"> <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-  {dr[catname]} 
+  {dr1[catname]} 
 
 
             <%/loop%>
@@ -142,9 +142,9 @@
   <h3 class="title wow fadeInDown animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;" > <a href="<%linkurl(0,"57")%>"  title="案例展示">
 	   <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
 
 
             <%/loop%>
@@ -252,9 +252,9 @@
       <li> <a href="<%linkurl(1,"48")%>"  title="产品"><img title="产品" src="<%templateskin%>/images/yewu.png" alt="产品"><span>
 	       <%set DataTable company3=get_category_info(48)%>
 
-            <%loop dr company3%>
+            <%loop dr3 company3%>
 
-  {dr[catname]} 
+  {dr3[catname]} 
 
 
             <%/loop%>

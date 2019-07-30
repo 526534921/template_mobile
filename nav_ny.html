@@ -1,7 +1,7 @@
 ﻿<div id="leftnav">
   <ul>
     <li><a href="/" title="首页">首页</a></li>
-    <%set DataTable menu1=get_category_list(0,10,"","listorder desc")%>
+    <%set DataTable menu1=get_category_list(0,10,"","listorder asc")%>
     <%foreach(DataRow dr1 in menu1.Rows)%>
     <li><a href="<%linkurl(0,{dr1[id]})%>" title="{dr1[catname]}">{dr1[catname]}</a>
       <ul>
