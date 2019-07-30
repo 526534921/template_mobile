@@ -115,10 +115,10 @@
 <div class="pro wow fadeInUp" data-wow-delay=".2s">
   <div class="proc"> <b><a href="<%linkurl(1,"48")%>" title="产品展示"><%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
   
-{dr[enname]}  
+{dr1[catname]}  
 
             <%/loop%></a></b> <i><a href="<%linkurl(1,"48")%>" title="更多">MORE</a></i>
     <div class="clear"></div>
@@ -152,7 +152,18 @@
 <!-- ys end-->
 <!-- case -->
 <div class="case wow">
-  <div class="ho1c"> <b><a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a></b> <i><a href="<%linkurl(0,"57")%>" title="更多">MORE</a></i>
+  <div class="ho1c"> <b><a href="<%linkurl(0,"57")%>" title="案例展示">
+	
+	<%set DataTable company2=get_category_info(57)%>
+
+            <%loop dr2 company2%>
+
+            {dr2[catname]}
+
+
+            <%/loop%>
+
+  </a></b> <i><a href="<%linkurl(0,"57")%>" title="更多">MORE</a></i>
     <div class="clear"></div>
   </div>
   <div class="case1">
@@ -245,10 +256,12 @@
             <%loop drpp company3%>
 
   
-{drpp[enname]}  
+{drpp[catname]}  
 
             <%/loop%></span></a> </li>
-    <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/zs4.png" alt="案例展示" title="案例展示"/><span> <%set DataTable company4=get_category_info(57)%>
+    <li> <a href="<%linkurl(0,"57")%>" title="案例展示"><img src="<%templateskin%>/img/zs4.png" alt="案例展示" title="案例展示"/><span> 
+
+      <%set DataTable company4=get_category_info(57)%>
 
             <%loop drcc company4%>
 
