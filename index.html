@@ -222,11 +222,12 @@
 <div class="incp wow fadeInUp animated_4">
   <div class="incp_t incp_t111">
     <div class="incp_t1">
-      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"> <%set DataTable company1=get_category_info(48)%>
+      <h3><a href="<%linkurl(1,"48")%>" title="产品中心"> 
+        <%set DataTable company1=get_category_info(48)%>
 
-            <%loop dr company1%>
+            <%loop dr1 company1%>
 
-            {dr[catname]}
+            {dr1[catname]}
 
 
             <%/loop%></a></h3>
@@ -279,9 +280,9 @@
     <h3><a href="<%linkurl(0,"57")%>">
  <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
+            {dr2[catname]}
             
 
             <%/loop%></a></h3>
@@ -415,9 +416,9 @@
     <li class="cur"><a href="/"  title="网站首页"><em><img src="<%templateskin%>/img/buttom1.png"></em>网站首页</a></li>
     <li><a href="<%linkurl(1,"48")%>"><em><img src="<%templateskin%>/img/buttom2.png"></em> <%set DataTable company3=get_category_info(48)%>
 
-            <%loop dr company3%>
+            <%loop dr3 company3%>
 
-            {dr[catname]}
+            {dr3[catname]}
 
 
             <%/loop%></a></li>
@@ -562,15 +563,7 @@ certifySwiper = new Swiper('#case .swiper-container', {
 })
 
 </script>
-<script>
 
-if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
-
-	new WOW().init();
-
-};
-
-</script>
 <!--原产品分类-->
 <script>
 
@@ -639,6 +632,17 @@ var productContent = new Swiper('.product-content', {
 productContent.controller.control = productTab
 
 productTab.controller.control = productContent
+
+</script>
+
+
+<script>
+
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+
+  new WOW().init();
+
+};
 
 </script>
 </body>
