@@ -144,7 +144,13 @@
 <div class="cpcolor"> </div>
 <div class="incp wow fadeInUp animated_3">
   <div class="incp_t incp_t111">
-    <div class="incp_t1"> <a href="<%linkurl(1,"48")%>">产品中心</a>
+    <div class="incp_t1"> <a href="<%linkurl(1,"48")%>">
+  <%set DataTable company1=get_category_info(48)%>
+        <%loop dr1 company1%>
+    {dr1[catname]}  
+
+<%/loop%>
+    </a>
       <div class="incp_t1xl"> </div>
       <div class="incp_t1xr"> </div>
     </div>
@@ -394,7 +400,14 @@
       <h4> <a href="<%linkurl(0,"54")%>">关于我们</a></h4>
     </li>
     <li> <img src="<%templateskin%>/img/fttubiao3.png">
-      <h4> <a href="<%linkurl(1,"48")%>">产品中心</a></h4>
+      <h4> <a href="<%linkurl(1,"48")%>">
+<%set DataTable company3=get_category_info(48)%>
+        <%loop dr3 company1%>
+    {dr3[catname]}  
+
+<%/loop%>
+
+      </a></h4>
     </li>
     <li> <img src="<%templateskin%>/img/fttubiao4.png">
       <h4> <a href="<%linkurl(0,"55")%>">联系我们</a></h4>
