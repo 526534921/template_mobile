@@ -78,7 +78,7 @@
 <div class="hot-product menu-item">
   <div class="container">
     <div class="menu-title">
-      <h3> <a href="<%linkurl(1,"48")%>">热门产品<span>Hot recommended</span></a></h3>
+      <h3> <a href="<%linkurl(1,"48")%>">热门推荐</a></h3>
     </div>
   </div>
   <div class="menu-content wow fadeInUp">
@@ -102,7 +102,14 @@
 <div class="product-center menu-item">
   <div class="container">
     <div class="menu-title"> <a href="<%linkurl(1,"48")%>" class="more rt">更多&gt;</a>
-      <h3 class="lf"> <a href="<%linkurl(1,"48")%>" title="产品中心">产品中心<span>Product center</span></a></h3>
+      <h3 class="lf"> <a href="<%linkurl(1,"48")%>" title="产品中心">
+          
+          <%set DataTable company1=get_category_info(48)%>
+                  <%loop dr1 company1%>
+              {dr1[catname]}  
+          <%/loop%>
+
+       </a></h3>
       <div class="clearfix"> </div>
     </div>
   </div>
@@ -143,7 +150,13 @@
 </div>
 <div class="case container menu-item">
   <div class="menu-title"> <a href="<%linkurl(0,"57")%>" class="more rt">更多&gt;</a>
-    <h3 class="lf"> <a href="<%linkurl(0,"57")%>" title="案例展示">案例展示<span>The case shows</span></a></h3>
+    <h3 class="lf"> <a href="<%linkurl(0,"57")%>" title="案例展示">
+    <%set DataTable company2=get_category_info(57)%>
+        <%loop dr2 company2%>
+    {dr2[catname]}  
+
+<%/loop%>
+      </a></h3>
     <div class="clearfix"> </div>
   </div>
   <div class="menu-content wow fadeInUp">
@@ -250,10 +263,16 @@
 </div>
 <div class="footer-bar">
   <ul>
-    <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>首页</span></a> </li>
-    <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/pro.png" alt="" /><span>产品</span></a> </li>
-    <li><a href="sms:{site.mobile}"> <img src="<%templateskin%>/img/message.png" alt="" /><span>短信</span></a> </li>
-    <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/contact.png" alt="" /><span>联系</span></a> </li>
+    <li><a href="/"> <img src="<%templateskin%>/img/home.png" alt="" /><span>网站首页</span></a> </li>
+    <li><a href="<%linkurl(1,"48")%>"> <img src="<%templateskin%>/img/pro.png" alt="" /><span>
+        <%set DataTable company3=get_category_info(48)%>
+            <%loop dr3 company3%>
+        {dr3[catname]}  
+
+<%/loop%>
+    </span></a> </li>
+    <li><a href="sms:{site.mobile}"> <img src="<%templateskin%>/img/message.png" alt="" /><span>短信联系</span></a> </li>
+    <li><a href="<%linkurl(0,"55")%>"> <img src="<%templateskin%>/img/contact.png" alt="" /><span>联系我们</span></a> </li>
   </ul>
 </div>
 <div id="kefu-ball"> <a href="tel:{site.freecall}"> <img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
