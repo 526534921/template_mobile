@@ -176,7 +176,7 @@
 </style>
 </head>
 <body>
-<!---------header------------->
+
 <div class="header">
   <div class="headerbox">
     <div class="logo-img"> <img src="{site.mlogoimage}" /> </div>
@@ -204,8 +204,7 @@
     </div>
   </div>
 </div>
-<!-----------header end---------------->
-<!-------nav----------->
+
 <div class="nav_box wow fadeInUp"  data-wow-delay=".2s">
   <ul>
     <li>
@@ -220,15 +219,14 @@
   </ul>
 </div>
 <div class="clearfix"></div>
-<!---------------nav end--------------------->
-<!------------anli------------>
+
 <div class="hot-product menu-item">
   <div class="anli_title wow fadeInUp" > <a href="<%linkurl(0,"57")%>" title="案例展示"> <%set DataTable company2=get_category_info(57)%>
 
-            <%loop dr company2%>
+            <%loop dr2 company2%>
 
-            {dr[catname]}
-            {dr[enname]}  
+            {dr2[catname]}
+       
 
             <%/loop%></a>
     <div class="anli_line"></div>
@@ -257,7 +255,7 @@
 </div>
 <div class="clearfix"></div>
 <!---------anli end------------>
-<!--------------->
+
 <div class="banner2_box  wow fadeInUp">
   <div class="banner2">
     <div class="banner2_left"><span>集生产销售于一体的大型生产加工型企业</span>
@@ -271,8 +269,7 @@
   </div>
   <div class="banner2_sanjiao"></div>
 </div>
-<!------------------------->
-<!------------chanpin------------------->
+
 <div class="infl">
   <div class="swiper-container   wow fadeInUp">
     <div class="swiper-wrapper">
@@ -298,11 +295,9 @@
   </ul>
 </div>
 <div class="clearfix"></div>
-<!------------chanpin---end---------------->
-<!----------youshi-------------->
+
 <%template src="ys.html"%>
-<!-------------youshi end------------------------>
-<!-----------about-------->
+
 <div class="sabout">
   <div class="sabout_t wow fadeInUp animated_4">
     <div class="sab_t">
@@ -326,8 +321,7 @@
     <%/loop%>
   </div>
 </div>
-<!---------------------about end------------->
-<!----------------news------------------------->
+
 <div class="inews wow fadeInUp animated_4">
   <div class="tabs">
     <%set DataTable newsList=get_category_list(22)%>
@@ -366,8 +360,7 @@
     </div>
   </div>
 </div>
-<!--------------------news end----------------------------->
-<!------------footer------------->
+
 <div class="footer_box  wow fadeInUp">
   <div class="foot_di">
     <div class="footer_dleft">
@@ -386,8 +379,7 @@
     <div class="footer_erweima"><img src="{site.qrcode}"></div>
   </div>
 </div>
-<!----------footer end------------------->
-<!---------footer_nav---------->
+
 <div class="footer_nav">
   <div class="footer_phone"><a href="tel:{site.freecall}"><img src="<%templateskin%>/img/phone_di.png"></a></div>
   <ul>
@@ -398,10 +390,10 @@
       <p>
  <%set DataTable company1=get_category_info(48)%>
 
-            <%loop cp company1%>
+            <%loop cp1 company1%>
 
-            {cp[catname]}
-{cp[enname]}  
+            {cp1[catname]}
+
 
             <%/loop%></p>
       </a></li>
@@ -413,7 +405,7 @@
       </a></li>
   </ul>
 </div>
-<!-------------footer nav_end----------------->
+
 <div id="kefu-ball"> <a href="tel:{site.freecall}"><img src="<%templateskin%>/img/kefu.png" alt="" /></a> </div>
 <script src="<%templateskin%>/js/Zepto.min.js"></script>
 <script src="<%templateskin%>/js/swiper.min.js"></script>
