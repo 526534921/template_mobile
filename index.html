@@ -348,7 +348,7 @@ background: rgba({site.mcolor}, 1);
       <%set DataTable about=get_category_info(54)%>
       <%foreach(DataRow cdr in about.Rows)%>
       <div class="gs_tw">
-        <div class="gs_t"> <A href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}"><img src="{cdr[simage]}" title="{site.order_company}" alt="{site.order_company}"></A> </div>
+        <div class="gs_t"> <A href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}"><img src="{cdr[image]}" title="{site.order_company}" alt="{site.order_company}"></A> </div>
         <div class="gs_w">
           <p class="gs_w1"> <A href="<%linkurl(0,{cdr[id]})%>" title="{site.order_company}">{site.order_company}</A> </p>
           <p class="gs_w2">
@@ -440,7 +440,8 @@ background: rgba({site.mcolor}, 1);
 <div class="footer-bar">
   <ul>
     <li> <a href="/"><img src="<%templateskin%>/img/ft1.png" alt="" /><span>网站首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span><%set DataTable company3=get_category_info(48)%>
+    <li> <a href="<%linkurl(1,"48")%>"><img src="<%templateskin%>/img/ft2.png" alt="" /><span>
+	    <%set DataTable company3=get_category_info(48)%>
 
             <%loop dr3 company3%>
 
