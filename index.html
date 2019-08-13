@@ -377,8 +377,8 @@
 </div>
 <div class="nav fadeInUp">
   <ul>
-    <li><a href="/"><span>网站首页</span> </a></li>
-    <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
+ 
+    <%set DataTable yyt_navList=get_category_list(-1,8,"mobile=1","listorder asc")%>
     <%foreach(DataRow yyt in yyt_navList.Rows)%>
     <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"><span>{yyt[catname]}</span></a></li>
     <%/foreach%>
