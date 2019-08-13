@@ -77,8 +77,8 @@
 <!--nav-->
 <div class="nav wow fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
   <ul>
-    <li> <a href="/"  title="网站首页"> <img title="网站首页" alt="网站首页" src="<%templateskin%>/images/nav-1.png"> <span>网站首页</span> </a> </li>
-    <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+   
+    <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
     <%foreach(DataRow dr in daohang.Rows)%>
     <li> <a href="<%linkurl(0,{dr[id]})%>"  title="{dr[catname]}"> <img title="{dr[catname]}" alt="{dr[catname]}" src="{dr[simage]}"> <span>{dr[catname]}</span> </a> </li>
     <%/foreach%>
