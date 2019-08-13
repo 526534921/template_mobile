@@ -128,10 +128,8 @@
       <i>{site.freecall}</i> </div>
     <div class="nav">
       <ul>
-        <li> <a href="/" title="网站首页"> <img src="<%templateskin%>/img/nav_icon.png" title="网站首页" alt="网站首页"> </a>
-          <p><a href="/" title="网站首页">网站首页</a></p>
-        </li>
-        <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+       
+        <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
         <%foreach(DataRow dr in daohang.Rows)%>
         <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[simage]}" title="{dr[catname]}" alt="{dr[catname]}"> </a>
           <p><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></p>
