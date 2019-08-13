@@ -129,9 +129,9 @@
   <div class="clear"> </div>
   <div class="nav wow fadeInUp" data-wow-delay=".2s">
     <ul>
-      <li><a href="/"> <img src="<%templateskin%>/img/menu1.png" /> <span>网站首页</span> </a></li>
+    
       <%set int navid=2 %>
-      <%set DataTable yyt_navList=get_category_list(-1,7,"mobile=1","listorder asc")%>
+      <%set DataTable yyt_navList=get_category_list(-1,8,"mobile=1","listorder asc")%>
       <%foreach(DataRow yyt in yyt_navList.Rows)%>
       <li><a href="<%linkurl(0,{yyt[id]})%>" title="{yyt[catname]}"> <img src="<%templateskin%>/img/menu<%=navid %>.png" /><span>{yyt[catname]}</span></a></li>
       <%set navid=navid+1 %>
