@@ -184,10 +184,8 @@ background: rgba({site.mcolor}, 1);
 <div class="container">
   <div class="nav">
     <ul>
-      <li class="wow flipInX"> <a href="/" title="网站首页"> <span>网站首页</span>
-        <p>home</p>
-        </a> </li>
-      <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+     
+      <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
       <%foreach(DataRow dr in daohang.Rows)%>
       <li  class="wow flipInX"> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <span>{dr[catname]}</span>
         <p>{dr[enname]}</p>
