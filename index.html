@@ -1,487 +1,348 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>{site.title}</title>
-<meta name="viewport" content="width=640,user-scalable=no">
-<!-- 切换特效所需的CSS文件 -->
-<link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
-<!-- 下滑动画所需的CSS文件 -->
-<!-- 首页所需的CSS文件（需要头底分离，css中用注释标注清楚） -->
-<link rel="stylesheet" href="<%templateskin%>/css/style.css">
-<style>
-
-			/* 需要改色的css样式写在这里且必须用RGBA方式（本条CSS为演示） */
-
-			.toptel{
-
-				background: rgba({site.mcolor},1);
-
-			}
-
-
-
-			.banner .swiper .swiper-slide {
-
-				box-shadow: 0 0 20px rgba({site.mcolor}, 0.4);
-
-			}
-
-			.banner .swiper-pagination .swiper-pagination-bullet {
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.logo h1 {
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-			.hot-product .menu-content .swiper-slide .info {
-
-				box-shadow: 2px 2px 24px rgba({site.mcolor}, 0.4);
-
-			}
-
-			.hot-product .menu-content .swiper-slide .info h4 {
-
-				color:rgba({site.mcolor}, 1);
-
-			}
-
-			.hot-product .menu-content .swiper-slide h5{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.product-center .item h4 {
-
-				background: rgba({site.mcolor}, 0.9);
-
-				box-shadow: 0px 4px 10px rgba({site.mcolor}, .4);
-
-			}
-
-			.product-cat a {
-
-				border: 1px solid rgba({site.mcolor}, .09);
-
-			}
-
-			.case .swiper-slide .info h4{
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-			.case .swiper-slide-active{
-
-				box-shadow: 2px 2px 24px rgba({site.mcolor}, 0.4);
-
-			}
-
-			.case .swiper-pagination-bullet-active{
-
-				background: rgba({site.mcolor}, 1)
-
-			}
-
-			.x-banner{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.x-banner a{
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-
-
-			.reason{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.reason .swiper-slide .img img{
-
-				box-shadow: 0px 4px 10px rgba({site.mcolor}, .5);
-
-			}
-
-			.reason .swiper-slide .info h4{
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-			.reason .swiper-container .rea_arrow{
-
-				box-shadow: 0px 4px 10px rgba({site.mcolor}, .5);
-
-			}
-
-			.reason .swiper-container .rea_arrow span{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-
-
-			.company span{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.company .img{
-
-				box-shadow: 0px 4px 10px rgba({site.mcolor}, .4);
-
-			}
-
-			.company i{
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.company h3 a{
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-
-
-			.news .tabs a {
-
-				border: 1px solid rgba({site.mcolor}, 1);
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-			.news .tabs a.active {
-
-				background: rgba({site.mcolor}, 1);
-
-			}
-
-			.news .items {
-
-				box-shadow: 0px 0 8px rgba({site.mcolor}, .2);
-
-			}
-
-			.news .items h4 {
-
-				color: rgba({site.mcolor}, 1);
-
-			}
-
-
-
-			.footer .gotop {
-
-				box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);
-
-			}
-
-			.footer .gotop:before {
-
-				-webkit-filter: drop-shadow(rgba({site.mcolor},1) 45px 0px);
-
-				filter: drop-shadow(rgba({site.mcolor},1) 45px 0px);
-
-			}
-
-
-
-			.footer-bar {
-
-				background: rgba({site.mcolor}, 1);
-
-				box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);
-
-			}
-
-			#kefu-ball {
-
-				background: rgba({site.mcolor}, 1);
-
-				box-shadow: 0px 0px 20px 0px rgba({site.mcolor}, .6);
-
-			}
-
-		</style>
-<%diy("mhead")%>
+    <meta charset="utf-8">
+    <title>{site.title}</title>
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <link rel="stylesheet" href="<%templateskin%>/css/style.css">
+    <link rel="stylesheet" href="<%templateskin%>/css/swiper.min.css">
+    <script src="<%templateskin%>/js/jquery-2.1.1.min.js"></script>
+    <script src="<%templateskin%>/js/swiper.min.js"></script>
+    <%diy("mhead")%>
 </head>
 <body>
-<%diy("mbody")%>
-<!-- top start -->
-<div class="toptel">
-  <div class="topdh"><span></span></div>
-  <h4>全国统一咨询热线：<span>{site.freecall}</span></h4>
-</div>
-<!-- top end -->
-<!-- banner  start -->
-<div class="banner wow fadeInUp">
-  <div class="swiper">
-    <div class="current-swiper swiper-container">
-      <div class="swiper-wrapper">
-        <%set DataTable ad=get_ad_list(2,3)%>
-        <%foreach(DataRow dr in ad.Rows)%>
-        <div class="swiper-slide b1"> <img src="{dr[image]}" title="{dr[title]}" alt="{dr[title]}"> </div>
-        <%/foreach%>
-      </div>
+    <%diy("mbody")%>
+    <div class="htmleaf-container">
+        <div class="wrapper">
+            <div class="wrapper-inner">
+                <div class="mobile-inner-header">
+                    <h1>
+                        <a href="/">
+                            <img src="{site.mlogoimage}" alt="">
+                        </a>
+                    </h1>
+                    <div class="mobile-inner-header-icon mobile-inner-header-icon-out">
+                    </div>
+                </div>
+                <!-- nav -->
+                <div class="mobile-inner-nav">
+                    <a href="/">网站首页</a>
+                    <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
+                    <%foreach(DataRow dr in daohang.Rows)%>
+                    <a href="<%linkurl(0,{dr[id]})%>">{dr[catname]} </a>
+                    <%/foreach%>
+                </div>
+                <!-- banner -->
+                <div class="banner">
+                    <!-- Swiper -->
+                    <div class="swiper-containers">
+                        <div class="swiper-wrapper">
+                            <%set DataTable ad=get_ad_list(2,6)%>
+                            <%foreach(DataRow dr in ad.Rows)%>
+                            <div class="swiper-slide ">
+                                <img src="{dr[image]}" title="{dr[title]}" alt="{dr[title]}">
+                            </div>
+                            <%/foreach%>
+                        </div>
+                    </div>
+                </div>
+                <!-- tel -->
+                <div class="dlzx">
+                    <ul>
+                        <li>
+                            <img src="<%templateskin%>/images/tel.png" alt="">
+                            <h4>
+                                {site.freecall}</h4>
+                            <span>（欢迎拨打热线）</span> </li>
+                        <li>
+                            <img src="<%templateskin%>/images/zx.png" alt="">
+                            <h4>
+                                <a href="tel:{site.freecall}">在线咨询</a></h4>
+                            <span>客服代表联系</span> </li>
+                        <li>
+                            <img src="<%templateskin%>/images/ds.png" alt="">
+                            <h4>
+                                <a href="tel:{site.freecall}">导师咨询</a></h4>
+                            <span>预约回访</span> </li>
+                    </ul>
+                    <div class="clearboth">
+                    </div>
+                </div>
+                <!-- kc -->
+                <div class="kc">
+                    <div class="pagetitle">
+                        <h3>
+                            热门课程&nbsp; /&nbsp; <span>Hot Courses</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <%set int yytid=1 %>
+                    <%set DataTable yyt_goods_categoryList=get_category_list(48,5)%>
+                    <%foreach(DataRow yyt in yyt_goods_categoryList.Rows)%>
+                    <%if(yytid==1) %>
+                    <div class="top">
+                        <img src="{yyt[image]}" alt="{yyt[catname]}">
+                        <div class="text">
+                            <p class="p1">
+                                {yyt[catname]}</p>
+                            <p class="p2">
+                                CLASSES</p>
+                            <a href="<%linkurl(1,{yyt[id]})%>" title="查看更多">查看更多</a>
+                        </div>
+                    </div>
+                    <%/if %>
+                    <%set yytid=yytid+1 %>
+                    <%/foreach%>
+                    <%set yytid=1 %>
+                    <ul>
+                        <%foreach(DataRow yyt in yyt_goods_categoryList.Rows)%>
+                        <%if(yytid>1) %>
+                        <li>
+                            <img src="{yyt[image]}" alt="{yyt[catname]}">
+                            <div class="text">
+                                <p class="p1">
+                                    {yyt[catname]}</p>
+                                <p class="p2">
+                                    CLASSES</p>
+                                <a href="<%linkurl(1,{yyt[id]})%>" title="查看更多">查看更多</a>
+                            </div>
+                        </li>
+                        <%/if %>
+                        <%set yytid=yytid+1 %>
+                        <%/foreach%>
+                    </ul>
+                </div>
+                <!-- gg -->
+                <div class="gg">
+                    <p class="p1">
+                        深入研究我国艺术的美学精神</p>
+                    <p class="p2">
+                    </p>
+                    <p class="p3">
+                        咨询热线：<span>{site.freecall}</span></p>
+                </div>
+                <!-- gg end -->
+                <!-- adv -->
+                <%template src="ys.html"%>
+                <!-- student -->
+                <div class="student">
+                    <div class="pagetitle">
+                        <h3>
+                            优秀学员&nbsp; /&nbsp; <span>EXCELLENT STUDENTS</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <%set DataTable yyt_yxxy_List=get_content_list(60,4)%>
+                        <%foreach(DataRow yyt in yyt_yxxy_List.Rows)%>
+                        <li><a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">
+                            <img src="{yyt[thumb]}" alt="{yyt[title]}"></a> <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>"
+                                class="a1">{yyt[title]}</a>
+                            <p>
+                                <%cutstring({yyt[zhaiyao]},50)%></p>
+                        </li>
+                        <%/foreach%>
+                    </ul>
+                    <a href="<%linkurl(0,"60")%>" title="查看更多" class="more">查看更多</a>
+                </div>
+                <!-- student end -->
+                <!-- about -->
+                <div class="about">
+                    <div class="pagetitle">
+                        <h3>
+                            关于我们&nbsp; /&nbsp; <span>ABOUT US</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <%set DataTable yyt_company=get_category_info(54)%>
+                    <%foreach(DataRow yyt in yyt_company.Rows)%>
+                    <img src="{yyt[image]}" alt="{site.websitename}">
+                    <p>
+                        <%cutstring({yyt[content]},200)%>
+                    </p>
+                    <%/foreach%>
+                    <a href="<%linkurl(0,"54")%>" class="more" title="查看更多">查看更多</a>
+                </div>
+                <!-- about end -->
+                <!-- gg2 -->
+                <div class="gg2">
+                    <p class="p1">
+                        深入研究我国艺术的美学精神</p>
+                    <p class="p2">
+                    </p>
+                    <p class="p3">
+                        咨询热线：<span>{site.freecall}</span></p>
+                </div>
+                <!-- gg2 end -->
+                <!-- teacher -->
+                <div class="teacher">
+                    <div class="pagetitle">
+                        <h3>
+                            师资团队 &nbsp; /&nbsp; <span>TEACHERS TEAM</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <%set DataTable yyt_sztd_List=get_content_list(61,4)%>
+                        <%foreach(DataRow yyt in yyt_sztd_List.Rows)%>
+                        <li>
+                            <img src="{yyt[thumb]}" alt="{yyt[title]}">
+                            <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>" class="a1" title="{yyt[title]}">{yyt[title]}</a>
+                        </li>
+                        <%/foreach%>
+                    </ul>
+                    <a href="<%linkurl(0,"61")%>" class="more" title="查看更多">查看更多</a>
+                </div>
+                <!-- teacher end -->
+                <!-- ly -->
+                <div class="inform">
+                    <div class="online_tit">
+                        <h3>
+                            在线留言</h3>
+                        <span></span>
+                    </div>
+                    <div class="inputs_main">
+                        <div class="inputs_item">
+                            <span>您的称呼：</span><input type="text" name="userName" id="name">
+                        </div>
+                        <div class="inputs_item">
+                            <span>电话号码：</span><input type="text" name="userName" id="tel">
+                        </div>
+                        <div class="textar">
+                            <h4>
+                                特殊说明：</h4>
+                            <textarea name="content" id="contant"></textarea>
+                        </div>
+                        <button type="submit" id="btn">
+                            点击提交</button>
+                    </div>
+                </div>
+                <!-- ly end -->
+                <!-- show S -->
+                <div class="show">
+                    <div class="pagetitle">
+                        <h3>
+                            作品展示 &nbsp; /&nbsp; <span>EXHIBITION OF WORKS</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <div class="menu-content wow fadeInUp adv">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <%set DataTable yyt_case_list=get_content_list(57,5)%>
+                                <%foreach(DataRow yyt in yyt_case_list.Rows)%>
+                                <div class="swiper-slide">
+                                    <div class="img">
+                                        <img src="{yyt[thumb]}" alt="{yyt[title]}" />
+                                    </div>
+                                    <div class="advtxt">
+                                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">{yyt[title]}</a>
+                                    </div>
+                                </div>
+                                <%/foreach%>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="<%linkurl(0,"57")%>" class="more" title="查看更多">查看更多</a>
+                </div>
+                <!-- CASE END -->
+                <!-- news S -->
+                <div class="news">
+                    <div class="pagetitle">
+                        <h3>
+                            新闻资讯 &nbsp; /&nbsp; <span>NEWS AND INFORMATION</span>
+                        </h3>
+                        <div class="pagetitleBox">
+                            <span>Combination of Creative Quality of Cosmetic Modeling</span>
+                            <p>
+                                在教学中，注重培养学生的专业水平与道德修养</p>
+                        </div>
+                    </div>
+                    <div class="news_main">
+                        <ul class="news_list">
+                            <%set DataTable yyt_newslist=get_content_list(22,4,"","add_time desc, id desc")%>
+                            <%foreach(DataRow yyt in yyt_newslist.Rows)%>
+                            <li class="myclearfix">
+                                <div class="news_view left">
+                                    <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">
+                                        <img src="{yyt[thumb]}" alt="{yyt[title]}">
+                                    </a>
+                                </div>
+                                <div class="news_txt right">
+                                    <h3 class="myclearfix">
+                                        <a href="<%linkurl(0,{yyt[catid]},{yyt[id]})%>">{yyt[title]}</a><span>
+                                            <%datetostr({yyt[add_time]},MM-dd)%></span></h3>
+                                    <h4>
+                                        <%cutstring({yyt[zhaiyao]},70)%></h4>
+                                </div>
+                            </li>
+                            <%/foreach%>
+                        </ul>
+                        <a href="<%linkurl(0,"22")%>" class="more" title="查看更多">查看更多</a>
+                    </div>
+                </div>
+                <!-- foo S -->
+                <div class="foo">
+                    <div class="foo_top myclearfix">
+                        <div class="foo_top_left left">
+                            <span></span>
+                            <h4>
+                                {site.websitename}</h4>
+                        </div>
+                        <div class="foo_tell right">
+                            {site.freecall}</div>
+                    </div>
+                    <div class="foo_ewm myclearfix">
+                        <div class="foo_pic left">
+                            <img src="{site.qrcode}" alt="">
+                        </div>
+                        <div class="foo_ewm_txt left">
+                            <h3>
+                                欢迎订阅亚美云尚官方微信</h3>
+                            <h4>
+                                YAMEI YUNSHAN</h4>
+                            <h5>
+                                扫一扫，获取更多学校相关信息</h5>
+                            <h6>
+                                公众微信号：yameiyunsahng</h6>
+                        </div>
+                    </div>
+                    <div class="bq">
+                        <%jishuzhichi(0)%></div>
+                </div>
+                <!--  -->
+                <div class="tab_bar">
+                    <ul class="tab_bar_list myclearfix">
+                        <li><a href="/" title="网站首页">网站首页</a> </li>
+                        <li><a href="<%linkurl(1,"48")%>" title="课程展示">课程展示</a> </li>
+                        <li><a href="<%linkurl(0,"57")%>" title="学员作品">学员作品</a> </li>
+                        <li><a href="<%linkurl(0,"55")%>" title="联系我们">联系我们</a> </li>
+                    </ul>
+                    <a href="tel:{site.freecall}" class="tab_bar_tell"></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-<!-- banner  end -->
-<!-- logo start -->
-<div class="logo">
-  <div class="logo-img"> <a href="/" title="{site.order_company}"> <img src="{site.mlogoimage}"  title="{site.order_company}" alt="{site.order_company}"/> </a> </div>
-  <h1>{site.order_company}</h1>
-  <p>HENG XIN TOUGHENED GLASS</p>
-</div>
-<!-- logo end -->
-<!-- nav start -->
-<div class="nav wow fadeInUp" data-wow-delay=".2s">
-  <ul>
-    <li> <a href="/"> <img src="<%templateskin%>/img/nav1.png" alt="网站首页" title="网站首页"/> <span>网站首页</span> </a> </li>
-    <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
-    <%foreach(DataRow dr in daohang.Rows)%>
-    <li> <a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}"> <img src="{dr[simage]}" alt="{dr[catname]}" title="{dr[catname]}"/> <span>{dr[catname]}</span> </a> </li>
-    <%/foreach%>
-  </ul>
-</div>
-<!-- nav end -->
-<!-- recommend start -->
-<div class="hot-product menu-item">
-  <div class="container">
-    <div class="menu-title">
-      <h3><a href="<%linkurl(1,"48")%>" title="热门推荐">热门推荐</a></h3>
-      <%set DataTable proname=get_category_info(48)%>
-      <%foreach(DataRow cdrdd in proname.Rows)%>
-      <span>—— {cdrdd[enname]} ——</span>
-      <%/foreach%>
-    </div>
-  </div>
-  <div class="menu-content wow fadeInUp">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <%set DataTable goodslisttj=get_content_list(48,4,"hot=1","listorder desc,id desc")%>
-        <%foreach(DataRow drnktj in goodslisttj.Rows)%>
-        <div class="swiper-slide"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"> <img src="{drnktj[thumb]}" alt="{drnktj[title]}" title="{drnktj[title]}"/>
-          <div class="info">
-            <h4>{drnktj[title]}</h4>
-            <p>
-              <%cutstring({drnktj[zhaiyao]},50)%>
-            </p>
-          </div>
-          <h5><span>更多</span></h5>
-          </a> </div>
-        <%/foreach%>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- recommend end -->
-<!-- product start -->
-<div class="product-center menu-item">
-  <div class="menu-title">
-    <h3><a href="<%linkurl(1,"48")%>" title="产品中心">  
-
-            <%loop drdddd proname%>
-
-  
-{drdddd[catname]}  
-
-            <%/loop%></a></h3>
-    <span>—— product ——</span> </div>
-  <div class="menu-content">
-    <div class="container">
-      <div class="product-cat wow fadeInUp">
-        <%set DataTable categoryList=get_category_list(48,7,"1=1")%>
-        <%foreach(DataRow cdr in categoryList.Rows)%>
-        <a href="<%linkurl(1,{cdr[id]})%>" title="{cdr[catname]}">{cdr[catname]}</a>
-        <%/foreach%>
-        <a href="<%linkurl(1,"48")%>" title="更多产品">更多产品&gt;&gt;</a> </div>
-    </div>
-    <div class="swiper-container wow fadeInUp" data-wow-delay=".2s">
-      <%set DataTable goodslisttj1=get_content_list(48,4,"tuijian=1","listorder desc,id desc")%>
-      <%foreach(DataRow drnktj in goodslisttj1.Rows)%>
-      <div class="swiper-slide"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" class="item"  title="{drnktj[title]}">
-        <div class="img"> <img src="{drnktj[thumb]}" title="{drnktj[title]}" alt="{drnktj[title]}"> </div>
-        <h4>{drnktj[title]}</h4>
-        </a> </div>
-      <%/foreach%>
-    </div>
-  </div>
-</div>
-<!-- product end -->
-<!-- case start -->
-<div class="case menu-item">
-  <div class="menu-title">
-    <h3><a href="<%linkurl(0,"57")%>" title="案例展示">案例展示</a></h3>
-    <span>—— case ——</span> </div>
-  <div class="menu-content wow fadeInUp">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <%set DataTable caselist=get_content_list(57,6)%>
-        <%foreach(DataRow dr in caselist.Rows)%>
-        <div class="swiper-slide"> <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}">
-          <div class="img"><img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"/></div>
-          <div class="info">
-            <h4>{dr[title]}</h4>
-            <p>
-              <%cutstring({dr[zhaiyao]},40)%>
-              ...</p>
-            <span>查看详情>></span> </div>
-          </a> </div>
-        <%/foreach%>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</div>
-<!-- case end -->
-<!-- xiao banner -->
-<div class="x-banner">
-  <h4>选择我们，让您放心、省心、安心</h4>
-  <h5>咨询热线：<span>{site.freecall}</span></h5>
-  <a href="tel:{site.freecall}" title="立即咨询">立即咨询</a>
-  <p></p>
-</div>
-<!-- xiao banner-->
-<!-- 优势-->
-<%template src="ys.html"%>
-<!-- 优势 end-->
-<!-- company start -->
-<%set DataTable about=get_category_info(54)%>
-<%foreach(DataRow cdr in about.Rows)%>
-<div class="company"> <span></span>
-  <div class="img"><img src="{cdr[image]}" title="{site.order_company}" alt="{site.order_company}"/></div>
-  <i></i>
-  <h3><a href="<%linkurl(0,"54")%>" title="泸州恒鑫钢化玻璃有限公司">泸州恒鑫钢化玻璃有限公司</a></h3>
-  <div class="com_w">
-    <p>
-      <%cutstring({cdr[content]},120)%>
-      ...</p>
-    <a href="<%linkurl(0,"54")%>" title="查看详情">查看详情>></a> </div>
-  <b></b> </div>
-<%/foreach%>
-<!-- company end -->
-<!-- news start -->
-<div class="news container menu-item">
-  <div class="menu-title">
-    <h3><a href="<%linkurl(0,"22")%>" title="新闻快讯">新闻快讯</a></h3>
-    <span>—— news ——</span> </div>
-  <div class="tabs wow fadeInUp">
-    <%set DataTable newsList=get_category_list(22,4)%>
-    <%set int j=1 %>
-    <%loop drnew newsList%>
-    <%if(j==1) %>
-    <a href="<%linkurl(1,{drnew[id]})%>" class="active" title="{drnew[catname]}">{drnew[catname]}</a>
-    <%else%>
-    <a href="<%linkurl(1,{drnew[id]})%>" title="{drnew[catname]}">{drnew[catname]}</a>
-    <%/if %>
-    <%set j=j+1 %>
-    <%/loop%>
-  </div>
-  <div id="tabs-news" class="swiper-container">
-    <div class="swiper-wrapper">
-      <!-- 新闻快讯 -->
-      <%set DataTable newsList1=get_category_list(22,4)%>
-      <%loop drnews newsList1%>
-      <div class="swiper-slide">
-        <%set DataTable newslist=get_content_list({drnews[id]},4)%>
-        <%foreach(DataRow drnk in newslist.Rows)%>
-        <div class="items" > <a href="<%linkurl(0,{drnk[catid]},{drnk[id]})%>" title="{drnk[title]}">
-          <div class="img"> <img src="{drnk[thumb]}" alt="{drnk[title]}" title="{drnk[title]}"/> </div>
-          <div class="new-date">
-            <%datetostr({drnk[update_time]},MM)%>
-            <span></span> <i>
-            <%datetostr({drnk[update_time]},dd)%>
-            </i> </div>
-          <div class="info">
-            <h4>{drnk[title]}</h4>
-            <p>
-              <%cutstring({drnk[zhaiyao]},40)%>
-              ...</p>
-          </div>
-          </a> </div>
-        <%/foreach%>
-      </div>
-      <%/loop%>
-      <!-- 新闻快讯 结束 -->
-    </div>
-  </div>
-</div>
-<!-- news end -->
-<!-- footer start -->
-<div class="footer">
-  <div class="container">
-    <div class="qrcode wow fadeInUp"> <img src="{site.qrcode}" alt="二维码" title="二维码"/> </div>
-    <a href="#" class="gotop wow"></a>
-    <div class="info wow">
-      <p>联系人：{site.contrctperson}&nbsp;&nbsp;手机：{site.mobile}<br>
-        电话：{site.freecall}&nbsp;QQ：{site.contrctqq}<br>
-        地址：{site.address} <br>
-        <%jishuzhichi(0)%>
-        &nbsp;&nbsp;
-        <%year(0)%>
-      </p>
-    </div>
-  </div>
-</div>
-<!-- footer end -->
-<!-- foot-bar start -->
-<div class="footer-bar">
-  <ul>
-    <li> <a href="/" title="首页"><img src="<%templateskin%>/img/home.png" alt="首页" title="首页"/><span>网站首页</span></a> </li>
-    <li> <a href="<%linkurl(1,"48")%>" title="产品"><img src="<%templateskin%>/img/pro.png" alt="产品" title="产品"/><span>  
-
-            <%loop drdvcx proname%>
-
-  
-{drdvcx[catname]}  
-
-            <%/loop%></span></a> </li>
-    <li> <a href="<%linkurl(0,"57")%>" title="案例"><img src="<%templateskin%>/img/case.png" alt="案例" title="案例"/><span>
-	     <%set DataTable company4=get_category_info(57)%>
-
-            <%loop drxxx company4%>
-
-            {drxxx[catname]}
-
-
-            <%/loop%>
-		    </span></a> </li>
-    <li> <a href="tel:{site.freecall}" title="咨询"><img src="<%templateskin%>/img/tel.png" alt="咨询" title="咨询"/><span>电话咨询</span></a> </li>
-  </ul>
-</div>
-<!-- foot-bar end -->
-<!-- kefu start -->
-<div id="kefu-ball"> <a href="tel:{site.freecall}" title="在线客服"><img src="<%templateskin%>/img/kefu.png" alt="在线客服" title="在线客服"/></a> </div>
-<!-- kefu end -->
-<!-- 这是一个最简单的切换特效结构 -->
-<!-- 等同于jQuery，需要可以引入不需要可删除（非必须） -->
-<script src="<%templateskin%>/js/Zepto.min.js"></script>
-<!-- 切换特效需要的JS库文件 -->
-<script src="<%templateskin%>/js/swiper.min.js"></script>
-<!-- 下滑动画所需的JS文件 -->
-<script src="<%templateskin%>/js/Inertia.js"></script>
-<!-- 首页切换动画所需要的JS文件 -->
-<script src="<%templateskin%>/js/index.js"></script>
+    <script src="<%templateskin%>/js/index.js"></script>
 </body>
 </html>
