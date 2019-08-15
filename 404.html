@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0050)http://rundongciye.dongliwuxianjituan.top/404.html -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <meta charset="utf-8">
-     <meta name="viewport" content="width=640,user-scalable=no">
-    <title>404 页面-{site.websitename}</title>
-
-    <link href="<%templateskin%>/style/sitemap.css" rel="stylesheet" type="text/css">
-    <style>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=640,user-scalable=no">
+<title>404 页面-{site.websitename}</title>
+<link href="<%templateskin%>/style/sitemap.css" rel="stylesheet" type="text/css">
+<style>
 .breadcrumb a:hover {
     color: #007fde;
 }
@@ -288,11 +288,11 @@
     background-color: #007fde;
 }
 </style>
-    <script src="css/WJDH_common.js"></script>
- <style type="text/css">
+<script src="css/WJDH_common.js"></script>
+<style type="text/css">
  #totalSecond{color:red;}
-  </style> 
-    <style type="text/css">
+  </style>
+<style type="text/css">
 <!--
 html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td, span, input, textarea {margin:0;padding:0;}
 body{ font-family:"Microsoft Yahei",Verdana,Arial,Helvetica,sans-serif; width:100%;font-size:14px; margin:0 auto;background-color: #ECECEC;} 
@@ -368,86 +368,70 @@ a:hover { text-decoration: none; color: #000000;}
   margin-top: 50px;
 }
 -->
-  </style>  
-   <meta name="baidu-site-verification" content="RIzqv5TxU6">
+  </style>
+<meta name="baidu-site-verification" content="RIzqv5TxU6">
 </head>
 <body>
-    <!--404开始-->
-    <!--[if !IE]><!-->
-    <div class="demo">
-        <p align="center">
-            <span>4</span><span>0</span><span>4</span></p>
-        <p align="center">
-            该页面不存在(´･ω･`)</p>
+<!--404开始-->
+<!--[if !IE]><!-->
+<div class="demo">
+  <p align="center"> <span>4</span><span>0</span><span>4</span></p>
+  <p align="center"> 该页面不存在(´･ω･`)</p>
   <p align="center"><span id="totalSecond">5</span>秒后自动返回</p>
-    </div>
-    <!--<![endif]-->
-    <!--[if IE 7]>
+</div>
+<!--<![endif]-->
+<!--[if IE 7]>
    <div class="demo_hack">
     <p align="center"><br><br><span>4</span><span>0</span><span>4</span></p>
     <p align="center">该页面不存在(´･ω･`)</p>
   </div> 
   <![endif]-->
-    <!--[if IE 8]> 
+<!--[if IE 8]> 
    <div class="demo_hack">
     <p align="center"><br><br><span>4</span><span>0</span><span>4</span></p>
     <p align="center">该页面不存在(´･ω･`)</p>
   </div> 
  <![endif]-->
-    <!--[if IE 9]> 
+<!--[if IE 9]> 
    <div class="demo_hack">
     <p align="center"><br><br><span>4</span><span>0</span><span>4</span></p>
     <p align="center">该页面不存在(´･ω･`)</p>
   </div> 
  <![endif]-->
-    <!--404结束-->
-    <div class="sitemap_con main">
-        <h4>
-            <a  href="/">返回网站首页</a>
-            <div class="b4">
-                <ul>
-                  
-					 <%set DataTable menuda=get_category_list(0,10,"top=1","listorder desc")%>
-                            <%foreach(DataRow dr in menuda.Rows)%>
-                            <li class=""><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></li>
-                            <%/foreach%>
-                          
-                </ul>
-                <div class="clear">
-                </div>
-            </div>
-              
-                    </h4>
-					 <%set DataTable menu1=get_category_list(0,10,"","listorder desc")%>
-                    <%foreach(DataRow dr1 in menu1.Rows)%>
-					<h4>
-                          <a href="<%linkurl(0,{dr1[id]})%>" title="{dr1[catname]}">{dr1[catname]}</a>
-					</h4>
-                    <div class="b4">
-                        <ul>
-                             <%set DataTable menu2=get_category_list({strtoint({dr1[id]})},10,"","listorder desc")%>
-                            <%foreach(DataRow dr2 in menu2.Rows)%>
-                            <li>
-                                <h4>
-                                    <a href="<%linkurl(0,{dr2[id]})%>" title="{dr2[catname]}" target="_blank">{dr2[catname]}</a></h4>
-                                <%set DataTable menu3=get_category_list({strtoint({dr2[id]})},10,"","listorder desc")%>
-                                <%foreach(DataRow dr3 in menu3.Rows)%>
-                                <p>
-                                    <a href="<%linkurl(0,{dr3[id]})%>" title="{dr3[catname]}" target="_blank">{dr3[catname]}</a>
-                                <p>
-                                    <%/foreach%>
-                            </li>
-                            <%/foreach%>
-                           
-                        </ul>
-                        <div class="clear">
-                        </div>
-                    </div>
-                    <%/foreach%>
-
-                    
+<!--404结束-->
+<div class="sitemap_con main">
+  <h4> <a  href="/">返回网站首页</a>
+    <div class="b4">
+      <ul>
+        <%set DataTable menuda=get_category_list(0,10,"top=1","listorder desc")%>
+        <%foreach(DataRow dr in menuda.Rows)%>
+        <li class=""><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></li>
+        <%/foreach%>
+      </ul>
+      <div class="clear"> </div>
     </div>
-<!--	
+  </h4>
+  <%set DataTable menu1=get_category_list(0,10,"","listorder desc")%>
+  <%foreach(DataRow dr1 in menu1.Rows)%>
+  <h4> <a href="<%linkurl(0,{dr1[id]})%>" title="{dr1[catname]}">{dr1[catname]}</a> </h4>
+  <div class="b4">
+    <ul>
+      <%set DataTable menu2=get_category_list({strtoint({dr1[id]})},10,"","listorder desc")%>
+      <%foreach(DataRow dr2 in menu2.Rows)%>
+      <li>
+        <h4> <a href="<%linkurl(0,{dr2[id]})%>" title="{dr2[catname]}" target="_blank">{dr2[catname]}</a></h4>
+        <%set DataTable menu3=get_category_list({strtoint({dr2[id]})},10,"","listorder desc")%>
+        <%foreach(DataRow dr3 in menu3.Rows)%>
+        <p> <a href="<%linkurl(0,{dr3[id]})%>" title="{dr3[catname]}" target="_blank">{dr3[catname]}</a>
+        <p>
+          <%/foreach%>
+      </li>
+      <%/foreach%>
+    </ul>
+    <div class="clear"> </div>
+  </div>
+  <%/foreach%>
+</div>
 <script language="javascript" type="text/javascript">
 
     var second = document.getElementById('totalSecond').textContent;
@@ -477,6 +461,5 @@ a:hover { text-decoration: none; color: #000000;}
     }
 
 </script>
-
--->
-</body></html>
+</body>
+</html>

@@ -126,46 +126,6 @@
             })
         })
 		</script>
-<script type="text/javascript">        
-			function commSubmitmsg() {
-            var msgContext = $('#msgContext').val();
-            var msgName = $('#msgName').val();
-            var msgTel = $('#msgTel').val();
-            var msgqq = "";
-            var msgemail = $('#msgemail').val(); ;
-            var msgtitle = "";
-            if (msgName == "") {
-                $("#msgName").focus();
-                return false;
-            }
-            if (msgTel == "") {
-                $("#msgTel").focus();
-                return false;
-            }
-            if (msgContext == "") {
-                $("#msgContext").focus();
-                return false;
-            }
-            $.post("/api/message.ashx?action=add", {
-                "kcontent": msgContext,
-                "kuser": msgName,
-                "kphone": msgTel,
-                "kqq": msgqq,
-                "kemail": msgemail,
-                "ktitle": msgtitle
-            }, function (d) {
-                if (d == "1") {
-                    alert("提交成功");
-                    $('#msgContext').val("");
-                    $('#msgName').val("");
-					$('#msgemail').val("");
-                    $('#msgTel').val("");
-                    wjdhClose();
-                } else {
-                    alert("提交失败:");
-                }
-            });
-        }      
-</script>
+
 </body>
 </html>

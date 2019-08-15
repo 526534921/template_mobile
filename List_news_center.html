@@ -8,7 +8,6 @@
 <meta name="keywords" content="{model.seo_keywords}" />
 <meta name="description" content="{model.seo_description}" />
 <link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
-
 <link href="<%templateskin%>/style/common.css" rel="stylesheet">
 <script src="<%templateskin%>/script/WJDH_mobile.js"></script>
 <script src="<%templateskin%>/script/common.js"></script>
@@ -19,6 +18,7 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
+      <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -84,12 +84,12 @@
         <div class="pages"> {pagelist} </div>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-         <%set DataTable anlizhanshi=get_category_info(57)%>
-		<%loop drjz anlizhanshi%>
-		 <h3> {drjz[catname]}</h3>
-		<span>{drjz[enname]}</span>
-		 <%/loop%>
-		</div>
+        <%set DataTable anlizhanshi=get_category_info(57)%>
+        <%loop drjz anlizhanshi%>
+        <h3> {drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
+        <%/loop%>
+      </div>
       <div class="pic-list">
         <ul>
           <%set DataTable ganyan=get_content_list(57,4)%>
@@ -112,23 +112,43 @@
 </div>
 <script>        $(function () {
 
+
+
             $('.news-tab a').each(function () {
+
+
 
                 var site = window.location.href;
 
+
+
                 var str = $(this).attr('href');
+
+
 
                 var onSite = site.indexOf(str);
 
+
+
                 if (onSite != -1) {
+
+
 
                     $(this).addClass('on')
 
+
+
                 }
+
+
 
             })
 
+
+
         });
+
+
 
     </script>
 </body>
