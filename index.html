@@ -52,10 +52,9 @@ body{ background: rgba({site.mcolor}, 0.02); }
 <body>
 <div class="shead">
   <div>
-    <div class="shead_l"> <img src="{site.mlogoimage}" alt="{site.order_company}" title="{site.order_company}"/> </div>
     <div class="shead_r">
       <div class="shead_r_1">{site.order_company}</div>
-      <div class="shead_r_2">万家灯火测试万家灯火测试</div>
+      <div class="shead_r_2">求实 · 诚信 · 团结 · 创新</div>
     </div>
     <div class="clear"></div>
   </div>
@@ -74,8 +73,8 @@ body{ background: rgba({site.mcolor}, 0.02); }
   <div class="swiper-pagination"></div>
 </div>
 <div class="inmenu wow fadeInUp animated_2">
-  
-  <%set DataTable daohang=get_category_list(-1,8,"mobile=1","listorder asc")%>
+  <div class="inmenu_a"><a href="/" title="网站首页">网站首页</a></div>
+  <%set DataTable daohang=get_category_list(-1,7,"mobile=1","listorder asc")%>
   <%foreach(DataRow dr in daohang.Rows)%>
   <div class="inmenu_a"><a href="<%linkurl(0,{dr[id]})%>" title="{dr[catname]}">{dr[catname]}</a></div>
   <%/foreach%>
@@ -104,10 +103,10 @@ body{ background: rgba({site.mcolor}, 0.02); }
         <div class="swiper-wrapper porducts-b1">
           <div class="swiper-slide selected"><a href="<%linkurl(1,"48")%>" title="<%linkurl(1,"48")%>">热门推荐</a></div>
           
-          <%set DataTable categoryList=get_category_list(48,4,"1=1")%>
-          <%foreach(DataRow cdr in categoryList.Rows)%>
-          <li class="swiper-slide"><a href="<%linkurl(1,{cdr[id]})%>">{cdr[catname]}</a></li>
-          <%/foreach%>
+          <%set DataTable categoryList=get_category_list(48,4)%>
+          <%loop protemp categoryList%>
+          <li class="swiper-slide"><a href="<%linkurl(1,{protemp[id]})%>">{protemp[catname]}</a></li>
+          <%/loop%>
         </div>
       </div>
       <!-- swiper2 -->
@@ -125,23 +124,11 @@ body{ background: rgba({site.mcolor}, 0.02); }
               <div class="clear"></div>
             </div>
           </div>
+          <%loop protemp1 categoryList%>
           <div class="swiper-slide">
             <div class="incplb">
-              <%set DataTable goodslistrm=get_content_list(48,4,"hot=1","listorder desc,id desc")%>
+              <%set DataTable goodslistrm=get_content_list({strtoint({protemp1[id]})},4,"","listorder desc,id desc")%>
               <%foreach(DataRow drnktj in goodslistrm.Rows)%>
-              <div class="incp_1" wow fadeInRight animated_4>
-                <div class="incp_1pic"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img alt="{drnktj[title]}" title="{drnktj[title]}" src="{drnktj[thumb]}" /></a> </div>
-                <div class="incp_1tite"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></div>
-              </div>
-              <%/foreach%>
-              <div class="clear"></div>
-            </div>
-          </div>
-          <%loop drn categoryList%>
-          <div class="swiper-slide">
-            <div class="incplb">
-              <%set DataTable goodslistlm=get_content_list({strtoint({drn[id]})},4,"tuijian=1","listorder desc,id desc")%>
-              <%foreach(DataRow drnktj in goodslistlm.Rows)%>
               <div class="incp_1" wow fadeInRight animated_4>
                 <div class="incp_1pic"> <a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}"><img alt="{drnktj[title]}" title="{drnktj[title]}" src="{drnktj[thumb]}" /></a> </div>
                 <div class="incp_1tite"><a href="<%linkurl(1,{drnktj[catid]},{drnktj[id]})%>" title="{drnktj[title]}">{drnktj[title]}</a></div>
@@ -160,8 +147,8 @@ body{ background: rgba({site.mcolor}, 0.02); }
 <div class="inbanner wow fadeInUp animated_4">
   <div>
     <div class="inbanner_r">
-      <div class="inbanner_r_1">万家灯火测试标语</div>
-      <div class="inbanner_r_2">万家灯火测试标语</div>
+      <div class="inbanner_r_1">安全  环保  循环使用</div>
+      <div class="inbanner_r_2">用品质和服务打动人心</div>
     </div>
     <div class="clear"></div>
   </div>
