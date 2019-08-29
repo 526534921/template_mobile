@@ -5,8 +5,8 @@
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>{model.title}</title>
-<meta name="keywords" content="{model.seo_keywords}" />
-<meta name="description" content="{model.seo_description}" />
+<meta name="keywords" content="{model.keywords}" />
+<meta name="description" content="{model.description}" />
 <link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
 
 <link href="<%templateskin%>/style/common.css" rel="stylesheet">
@@ -15,9 +15,8 @@
 <%diy("mhead")%>
 </head>
 <body>
-
 <%template src="nav_ny.html"%>
-<div id="page" class="goout">
+<div id="page">
   <div class="bar">
     <div class="goback"> </div>
     <div class="barTitle">{site.order_company}</div>
@@ -35,13 +34,9 @@
     <div class="container">
       <div class="page-content wow fadeInUp">
         <div class="page-title text-center">
-          <h3>
-		   <%set DataTable pro=get_category_info({catid})%>
-			  <%loop dr pro%>
-			  {dr[catname]}
-			  <%/loop%>
-		  </h3>
-        </div>
+          <h3> {model.title}</h3>
+          <small>[发布日期：{model.add_time}]</small> </div>
+        <!-- 以下是内容  -->
         {model.content}
         <!-- 以上是内容  -->
       </div>
@@ -65,9 +60,8 @@
           <li class="wow fadeInUp">
             <svg class="icon icon-tel">
               <use xlink:href="<%templateskin%>/img/n/svg.svg#icon-email"> </use>
-            </svg>
-             <input type="text" placeholder="验证码" class="form-control" id="msgemail" name="msgemail">
-             <img src="/api/message.ashx?action=code" class="imgCode">
+            </svg> <input type="text" placeholder="验证码" class="form-control" id="msgemail" name="msgemail">
+            <img src="/api/message.ashx?action=code" class="imgCode">
           </li>
           <li class="wow fadeInUp">
             <svg class="icon icon-tel">
@@ -81,16 +75,12 @@
         </ul>
       </div>
       <div class="wjdh-title text-center wow fadeInUp">
-	  	 <%set DataTable jianzheng=get_category_info(60)%>
-        <%loop drjz jianzheng%>
-			<h3>{drjz[catname]}</h3>
-        	<span>{drjz[enname]}</span>
-        <%/loop%>
-         </div>
+        <h3> 相关推荐</h3>
+        <span>Related to recommend</span> </div>
       <div class="pic-list">
         <ul>
-          <%set DataTable ganyan=get_content_list(60,3)%>
-          <%foreach(DataRow dr in ganyan.Rows)%>
+          <%set DataTable productList=get_related_content(2,3)%>
+          <%foreach(DataRow dr in productList.Rows)%>
           <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
             <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
             <div class="info">
