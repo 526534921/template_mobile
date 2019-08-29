@@ -19,6 +19,7 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
+    <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -82,7 +83,8 @@
             <svg class="icon icon-tel">
               <use xlink:href="<%templateskin%>/img/n/svg.svg#icon-email"> </use>
             </svg>
-            <input type="text" placeholder="邮箱" class="form-control" id="msgemail" name="msgemail">
+           <input type="text" placeholder="验证码" class="form-control" id="msgemail" name="msgemail">
+           <img src="/api/message.ashx?action=code" class="imgCode">
           </li>
           <li class="wow fadeInUp">
             <svg class="icon icon-tel">
