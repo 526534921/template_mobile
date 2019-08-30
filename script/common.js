@@ -26,7 +26,7 @@ $(function() {
 $(function() {
 	$('.goback').click(function() {
 		if(window.history.length > 1) {
-				window.location.href=document.referrer;
+				window.history.go(-1)
 		} else {
 			window.location.href = '/'
 		}
