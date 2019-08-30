@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>{model.title}</title>
+<meta name="keywords" content="{model.seo_keywords}" />
+<meta name="description" content="{model.seo_description}" />
+<link href="<%templateskin%>/style/bootstrap.min.css" rel="stylesheet">
+<link href="<%templateskin%>/style/common.css" rel="stylesheet">
+<script src="<%templateskin%>/script/WJDH_mobile.js"></script>
+<script src="<%templateskin%>/script/common.js"></script>
+<%diy("mhead")%>
+</head>
+<body>
+<%template src="nav_ny.html"%>
+<div id="page">
+  <div class="bar">
+    <div class="goback"> </div>
+      <div class="barTitle">{site.order_company}</div>
+    <div class="lcbody">
+      <div class="lcitem top">
+        <div class="rect top"> </div>
+      </div>
+      <div class="lcitem bottom">
+        <div class="rect bottom"> </div>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <%template src="header.html"%>
+    <div class="container">
+      <div class="wjdh-title text-center wow fadeInUp">
+        <%set DataTable pro=get_category_info({topid})%>
+        <%loop dr pro%>
+        <h3>{dr[catname]}</h3>
+        <span>{dr[enname]}</span>
+        <%/loop%>
+      </div>
+      <div class="news-tab wow fadeInUp">
+        <%set DataTable categoryList=get_category_list(topid)%>
+        <%foreach(DataRow cdr in categoryList.Rows)%>
+        <a href="<%linkurl(0,{cdr[id]})%>" title="{cdr[catname]}" class="go">{cdr[catname]}</a>
+        <%/foreach%>
+      </div>
+      <div class="news-top">
+        <%set DataTable productList=get_content_list(topid,1,"hot=1","id desc")%>
+        <%foreach(DataRow dr in productList.Rows)%>
+        <a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
+        <div class="img wow fadeInUp"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}" /> </div>
+        <div class="info wow fadeInUp" data-wow-delay=".1s">
+          <h4> {dr[title]}</h4>
+          <p>
+            <%cutstring({dr[zhaiyao]},60)%>
+          </p>
+          <span>了解详情<i></i></span> </div>
+        </a>
+        <%/foreach%>
+      </div>
+      <div class="clearfix"> </div>
+      <div class="news-list">
+        <ul>
+          <%set DataTable goodsList=get_article_list(id, 20, page, "status=0","id desc",out pagelist, "goods_list", id, "__id__")%>
+          <%foreach(DataRow dr in goodsList.Rows)%>
+          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
+            <dl class="time">
+              <dt>
+                <%datetostr({dr[add_time]},MM-dd)%>
+              </dt>
+              <dd>
+                <%datetostr({dr[add_time]},yyyy)%>
+              </dd>
+            </dl>
+            <div class="info"> <span>{dr[title]}</span>
+              <p>
+                <%cutstring({dr[zhaiyao]},55)%>
+              </p>
+            </div>
+            </a></li>
+          <%/foreach%>
+        </ul>
+        <div class="clearfix"> </div>
+        <div class="pages"> {pagelist} </div>
+      </div>
+      <div class="wjdh-title text-center wow fadeInUp">
+        <%set DataTable anlizhanshi=get_category_info(57)%>
+        <%loop drjz anlizhanshi%>
+        <h3> {drjz[catname]}</h3>
+        <span>{drjz[enname]}</span>
+        <%/loop%>
+      </div>
+      <div class="pic-list">
+        <ul>
+          <%set DataTable ganyan=get_content_list(57,4)%>
+          <%foreach(DataRow dr in ganyan.Rows)%>
+          <li class="wow fadeInUp"><a href="<%linkurl(0,{dr[catid]},{dr[id]})%>" title="{dr[title]}" class="go">
+            <div class="img"> <img src="{dr[thumb]}" title="{dr[title]}" alt="{dr[title]}"> </div>
+            <div class="info">
+              <h5> {dr[title]}</h5>
+              <p>
+                <%cutstring({dr[zhaiyao]},55)%>
+              </p>
+            </div>
+            </a></li>
+          <%/foreach%>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <%template src="footer.html"%>
+</div>
+<script>        
+
+$(function () {
+
+            $('.news-tab a').each(function () {
+
+                var site = window.location.href;
+
+                var str = $(this).attr('href');
+
+                var onSite = site.indexOf(str);
+
+                if (onSite != -1) {
+
+                    $(this).addClass('on')
+
+                }
+
+            })
+
+        });
+
+    </script>
+</body>
+</html>
