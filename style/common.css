@@ -6033,22 +6033,7 @@ body.open #leftnav {
 	-webkit-transform-origin: right bottom;
 
 
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -6056,43 +6041,13 @@ body.open #leftnav {
 
 .text-list ul li i:after {
 
-
-
-
-
-
-
 	transform: translateZ(0px) rotate(-45deg);
-
-
-
-
-
-
 
 	-webkit-transform: translateZ(0px) rotate(-45deg);
 
-
-
-
-
-
-
 	transform-origin: right bottom;
 
-
-
-
-
-
-
 	-webkit-transform-origin: right bottom;
-
-
-
-
-
-
 
 }
 
@@ -6118,7 +6073,7 @@ body.open #leftnav {
 
 
 
-	display: flex;
+	display: block;
 
 
 
@@ -9889,14 +9844,25 @@ body.open #leftnav {
 .barTitle {
 	font-size: 16px;
 	color: #fff;
-	width: 240px;
+	width: 100%;
 	margin: 0 auto;
 	position: absolute;
-	left: 20%;
+	left: 0;
 	font-weight: bold;
 	padding-top: 1%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	text-align: center;
+	padding: 0 13%;
+}
+
+#msgemail{
+	margin-left: 6px;
+	width: 98%;
+	margin-right: 6px;
+}
+
+.icon-tel1{
+	margin-left: 5px;
 }
