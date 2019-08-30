@@ -1,4 +1,4 @@
-$(function() {
+﻿$(function() {
 	$('#page').removeClass("goout");
 });
 $(function() {
@@ -25,7 +25,11 @@ $(function() {
 });
 $(function() {
 	$('.goback').click(function() {
-		window.location.href = '/'
+		if(window.history.length > 1) {
+				window.history.go(-1)
+		} else {
+			window.location.href = '/'
+		}
 	})
 });
 $(function() {
