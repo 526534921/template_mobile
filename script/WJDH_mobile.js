@@ -3,43 +3,80 @@
 
 
 
-window.onload = function(){
+
+
+
+
+
+window.onload = function () {
+
+
+
+    $(".imgCode").click(function () {
+        $(this)[0].src = '/api/message.ashx?action=code&' + Math.random()
+    })
+
 
 
     $('.btn-tj').click(function () {
-    var msgName = $('#msgName').val();
-    var msgTel = $('#msgTel').val();
-    var msgEmail = $('#msgemail').val();
-    var msgContext = $('#msgContext').val();
-    if(msgContext.length>10){
+        console.log("123");
+        var msgName = $('#msgName').val();
+        var msgTel = $('#msgTel').val();
+        var kcode = $('#msgemail').val();
+        var msgContext = $('#msgContext').val();
 
-        $.post("/api/message.ashx?action=add", {
-        "kuser": msgName,
-        "kphone": msgTel,
-       "kcontent": msgContext +"邮箱:" + msgEmail,
-         }, function (d) {
-        if (d == "1") {
-            alert("提交成功");
-            $('#msgName').val("");
-            $('#msgTel').val("");
-            $('#msgemail').val("");
-            $('#msgContext').val("");
+        var reg = /(^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$)|(^((\(\d{3}\))|(\d{3}\-))?(1[3578]\d{9})$)|(^400[0-9]{7})/;
 
-        } else {
-
-            alert("提交失败");
+        if (msgName == "" && msgTel == "" && kcode == "" && msgContext == "") {
+            alert("此表单不能为空提交,请您完善相关信息！");
+            return false;
+        }
+        if (msgName == "") {
+            alert('姓名不能为空！')
+            $("#msgName").focus();
+            return false;
+        }
+        if (msgTel == "") {
+            alert('号码不能为空！')
+            $("#msgTel").focus();
+            return false;
+        }
+        if (!reg.test(msgTel)) {
+            alert('号码填写有误,请您输入正确的号码!')
+            $("#msgTel").focus();
+            return false;
+        }
+        if (msgContext == "" || msgContext.length < 10) {
+            alert('留言内容必须大于10字！')
+            $("#msgContext").focus();
+            return false;
         }
 
+        if (kcode == "") {
+            alert('验证码不能为空')
+            $("#msgemail").focus();
+            return false;
+        }
+        $.post('/api/message.ashx?action=add', {
+            "kuser": msgName,
+            "kphone": msgTel,
+            "kcode": kcode,
+            "kcontent": '信息：' + msgContext,
+        }, function (res) {
+            if (res == '1') {
+                alert("留言提交成功");
+                $('#msgName').val("");
+                $('#msgTel').val("");
+                $('#msgemail').val("");
+                $('#msgContext').val("");
+            } else {
+                alert('留言提交失败')
+            }
+        })
 
-    }
-
-    )
-    }else{
-        alert('您所填写的留言内容不足10字，请重新输入')
-    }
 
 
-    
-});
 
+
+    });
 }
