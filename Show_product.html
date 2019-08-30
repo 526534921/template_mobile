@@ -19,7 +19,7 @@
 <div id="page">
   <div class="bar">
     <div class="goback"> </div>
-	  <div class="barTitle">{site.order_company}</div>
+    <div class="barTitle">{site.order_company}</div>
     <div class="lcbody">
       <div class="lcitem top">
         <div class="rect top"> </div>
@@ -79,18 +79,25 @@
             </svg>
             <input type="text" placeholder="电话" class="form-control" id="msgTel" name="msgTel">
           </li>
-          <li class="wow fadeInUp">
-            <svg class="icon icon-tel">
-              <use xlink:href="<%templateskin%>/img/n/svg.svg#icon-email"> </use>
-            </svg>
-            <input type="text" placeholder="邮箱" class="form-control" id="msgemail" name="msgemail">
-          </li>
+         
           <li class="wow fadeInUp">
             <svg class="icon icon-tel">
               <use xlink:href="<%templateskin%>/img/n/svg.svg#icon-message"> </use>
             </svg>
             <textarea class="form-control" rows="3" placeholder="留言内容" id="msgContext" name="msgContext"></textarea>
           </li>
+
+           <li class="wow fadeInUp">
+               <svg t="1567134001273" class="icon icon-tel icon-tel1" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2014" width="20" height="20">
+                    <path
+                      d="M115.240763 65.634462h872.172308c25.009231 0 45.095385 20.125538 45.095384 45.193846v356.509538c-45.095385-35.209846-130.284308-90.387692-195.485538-90.387692-95.271385 0-180.440615 220.908308-285.696 220.908308-80.246154-5.060923-190.424615-95.468308-315.785846-80.384-50.156308 9.984-120.300308 90.387692-165.415385 150.646153v-557.292307c0-25.206154 20.086154-45.193846 45.115077-45.193846z m210.510769 361.550769c-40.034462 0-75.165538-15.044923-100.194461-40.113231-25.009231-25.068308-40.054154-65.339077-40.054154-100.411077 0-35.190154 15.044923-75.323077 40.054154-100.391385 25.009231-25.068308 60.16-40.132923 100.214154-40.132923 35.131077 0 70.124308 15.064615 100.194461 40.132923 25.028923 25.068308 40.073846 65.339077 40.073846 100.391385 0 35.209846-15.044923 75.342769-40.073846 100.411077-30.070154 25.068308-65.063385 40.132923-100.194461 40.132923zM1012.441994 0.334769H90.231532A89.875692 89.875692 0 0 0 0.001378 90.702769v823.532308a89.875692 89.875692 0 0 0 90.230154 90.387692h922.308923A89.875692 89.875692 0 0 0 1102.770609 914.235077V90.683077a90.052923 90.052923 0 0 0-90.348307-90.387692z"
+                      fill="#707070" p-id="2015"></path>
+                  </svg>
+             </svg>
+             <input type="text" placeholder="验证码" class="form-control" id="msgemail" name="msgemail">
+             <img src="/api/message.ashx?action=code" class="imgCode">
+           </li>
           <li class="wow fadeInUp">
             <button type="button" class="btn btn-tj" onClick="commSubmitmsg()"> 提交</button>
           </li>
