@@ -1,18 +1,4 @@
-﻿$(document).ready(function(e) {   
-	var counter = 0;  
-	if (window.history && window.history.pushState) {  
-					 $(window).on('popstate', function () {  
-									window.history.pushState('forward', null, '#');  
-									window.history.forward(1);  
-								  //alert("不可回退");  
-									 location.replace(document.referrer);//刷新
-						});  
-	  }  
-
-	  window.history.pushState('forward', null, '#'); //在IE中必须得有这两行  
-	  window.history.forward(1);  
-});
-$(function() {
+﻿$(function() {
 	$('#page').removeClass("goout");
 });
 $(function() {
@@ -38,22 +24,9 @@ $(function() {
 	})
 });
 $(function() {
-	$('.go').click(function() {
-		var $a = $(this);
-		var $aHref = $a.attr("href");
-		$a.attr("data-href", $aHref);
-		$a.attr("href", "javascript:;");
-		$('#page').addClass("goon");
-		setTimeout(function() {
-			location.href = $aHref;
-		}, 300)
-	});
 	$('.goback').click(function() {
 		if(window.history.length > 1) {
-			$('#page').addClass("comeback");
-			setTimeout(function() {
-				window.location.href=document.referrer;
-			}, 300)
+				window.history.go(-1)
 		} else {
 			window.location.href = '/'
 		}
