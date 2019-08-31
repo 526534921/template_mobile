@@ -324,7 +324,7 @@ textarea::-webkit-input-placeholder {
 	height: 44px;
 	overflow: hidden;
 	float: left;
-	margin-left: 130px;
+	margin-left: 10px;
 	margin-right: 12px;
 }
 .topdh span{
@@ -859,6 +859,7 @@ textarea::-webkit-input-placeholder {
 	background: url(../img/rea_l.png) no-repeat center 16px;
 	float: left;
 	margin-left: 20px;
+	outline: none;
 }
 .reason .swiper-container .rea_arrow .swiper-button-next{
 	width: 199px;
@@ -866,6 +867,7 @@ textarea::-webkit-input-placeholder {
 	background: url(../img/rea_r.png) no-repeat center 16px;
 	float: right;
 	margin-right: 20px;
+	outline: none;
 }
 .reason .swiper-container .rea_arrow span{
 	width: 2px;
